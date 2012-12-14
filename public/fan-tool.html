@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title></title>
+    <link rel="stylesheet" href="application.css" />
+  </head>
+
+  <body>
+    <div id="marking-surface" style="height: 300px; outline: 1px dashed red; width: 600px;"></div>
+
+    <script src="application.js"></script>
+    <script>
+      (function() {
+        var MarkingSurface = require('controllers/marking_surface');
+        var MarkingTool = require('controllers/marking_tool');
+        var $ = require('jqueryify');
+
+        window.ds = new MarkingSurface({
+          el: $('#marking-surface'),
+          tool: MarkingTool
+        });
+      }());
+    </script>
+  </body>
+</html>

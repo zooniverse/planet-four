@@ -1,10 +1,5 @@
-require('lib/setup')
+require 'lib/setup'
 
-Spine = require('spine')
+app = {}
 
-class App extends Spine.Controller
-  constructor: ->
-    super
-
-module.exports = App
-    
+module.exports = app
