@@ -7,6 +7,8 @@ class MarkingSurface extends Controller
 
   stage: null
 
+  selection: null
+
   events:
     'mousedown': 'onMouseDown'
 
@@ -18,24 +20,33 @@ class MarkingSurface extends Controller
       width: @el.width()
       height: @el.height()
 
-  onResize: =>
-    @stage.setSize width: @el.width(), height: @el.height()
+    @setTool @tool
+
+  setTool: (tool) ->
+    @tool = tool
 
   onMouseDown: (e) =>
     return unless @tool?
-
     e.preventDefault()
+
+    {x, y} = @mouseOffset e
+
+    if (not @lastTool) or @lastTool.isComplete()
+      @lastMark = new @tool.mark
+      @lastTool = new @tool mark: @lastMark, stage: @stage
+      @lastTool.onFirstClick [x, y]
 
     $(document).on 'mousemove', @onStageDrag
     $(document).one 'mouseup', =>
       $(document).off 'mousemove', @onStageDrag
 
-    {x, y} = @stage.getMousePosition()
-
-    mark = new @tool {@stage}
-    mark.startAt [x, y]
-
   onStageDrag: (e) =>
-    console.log 'Stage drag', @stage.getMousePosition()
+    {x, y}  = @mouseOffset e
+    @lastTool.onFirstDrag [x, y]
+
+  mouseOffset: (e) ->
+    {left, top} = @el.offset()
+    x: (e.pageX - left) / @el.width()
+    y: (e.pageY - top) / @el.height()
 
 module.exports = MarkingSurface

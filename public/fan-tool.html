@@ -15,12 +15,12 @@
     <script>
       (function() {
         var MarkingSurface = require('controllers/marking_surface');
-        var MarkingTool = require('controllers/marking_tool');
+        var FanTool = require('controllers/fan_tool');
         var $ = require('jqueryify');
 
-        window.ds = new MarkingSurface({
+        window.m = new MarkingSurface({
           el: $('#marking-surface'),
-          tool: MarkingTool
+          tool: FanTool
         });
       }());
     </script>

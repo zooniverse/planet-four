@@ -1,29 +1,37 @@
+Mark = require 'models/mark'
 Kinetic = window.Kinetic
 
 class MarkingTool
+  @mark: Mark
+
+  mark: null
   stage: null
-  points: null
 
   layer: null
-  circles: null
-  lines: null
 
   constructor: (params = {}) ->
     @[property] = value for own property, value of params when property of @
+    throw new Error 'Marking tool needs a stage' unless @stage?
 
-    thrown new Error 'Marking tool needs a stage' unless @stage?
-    @points ?= []
+    @mark ?= new @constructor.mark params
+    @mark.bind 'change', @render
 
     @layer = new Kinetic.Layer
-    @circles ?= []
-    @lines ?= []
-
     @stage.add @layer
 
-  startAt: ([x, y]) ->
-    circle = new Kinetic.Circle x: x, y: y, radius: 5, fill: 'black'
-    @layer.add circle
-    @stage.add @layer
-    console.log circle
+    # Create dots and lines or whatever.
+
+  onFirstClick: ([x, y]) ->
+    # Modify the mark.
+
+  onFirstDrag: ([x, y]) ->
+    # Modify the mark.
+
+  render: =>
+    # Draw dots and lines or whatever.
+    @layer.draw()
+
+  isComplete: ->
+    true
 
 module.exports = MarkingTool
