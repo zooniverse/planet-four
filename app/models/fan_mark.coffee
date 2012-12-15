@@ -8,8 +8,8 @@ class FanMark extends Mark
 
   constructor: ->
     super
-    @source ?= [0.5, 0.8]
-    @distance ?= 0.5
+    @source ?= [0, 0]
+    @distance ?= 0
     @angle ?= 0
     @spread ?= 0
 

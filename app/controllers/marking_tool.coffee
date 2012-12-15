@@ -1,5 +1,6 @@
 Mark = require 'models/mark'
 Kinetic = window.Kinetic
+$ = require 'jqueryify'
 
 class MarkingTool
   @mark: Mark
@@ -19,6 +20,8 @@ class MarkingTool
     @layer = new Kinetic.Layer
     @stage.add @layer
 
+    @layer.on 'mousedown', @onMouseDown
+
     # Create dots and lines or whatever.
 
   onFirstClick: ([x, y]) ->
@@ -27,11 +30,33 @@ class MarkingTool
   onFirstDrag: ([x, y]) ->
     # Modify the mark.
 
+  # Where "something" is the name of a shape,
+  # methods named "onDragSomething" will be automatically called.
+  onMouseDown: (e) =>
+    name = e.shape.getName()
+    return unless name?
+
+    cappedName = name.charAt(0).toUpperCase() + name[1...]
+    onDrag = @["onDrag#{cappedName}"]
+
+    if typeof onDrag is 'function'
+      e.stopPropagation()
+
+      doc = $(document)
+      doc.on 'mousemove', onDrag
+      doc.one 'mouseup', =>
+        doc.off 'mousemove', onDrag
+
   render: =>
     # Draw dots and lines or whatever.
     @layer.draw()
 
   isComplete: ->
     true
+
+  mouseOffset: (e) ->
+    {left, top} = $(@stage.getContainer()).offset()
+    x: e.pageX - left
+    y: e.pageY - top
 
 module.exports = MarkingTool

@@ -1,6 +1,8 @@
 MarkingTool = require 'controllers/marking_tool'
 FanMark = require 'models/fan_mark'
 Kinetic = window.Kinetic
+$ = require 'jqueryify'
+style = require 'lib/style'
 
 class FanTool extends MarkingTool
   @mark: FanMark
@@ -13,15 +15,15 @@ class FanTool extends MarkingTool
     super
 
     @dots =
-      source: new Kinetic.Circle {x: 0, y: 0, radius: 5, fill: 'red'}
-      distance: new Kinetic.Circle {x: 100, y: 0, radius: 5, fill: 'red'}
-      spreadA: new Kinetic.Circle {radius: 5, fill: 'blue'}
-      spreadB: new Kinetic.Circle {radius: 5, fill: 'blue'}
+      source: new Kinetic.Circle $.extend {name: 'source'}, style.source
+      distance: new Kinetic.RegularPolygon $.extend {name: 'distance'}, style.distance
+      spreadA: new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.spread
+      spreadB: new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.spread
 
     @lines =
-      distance: new Kinetic.Line {points: [{x: 0, y: 0}], stroke: 'black', strokeWidth: 2}
-      spread: new Kinetic.Line {points: [{x: 0, y: 0}], stroke: 'black', strokeWidth: 2}
-      bounding: new Kinetic.Path {stroke: 'gray', strokeWidth: 1}
+      distance: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.realLine
+      spread: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.realLine
+      bounding: new Kinetic.Path style.guideLine
 
     @group = new Kinetic.Group
 
@@ -38,9 +40,21 @@ class FanTool extends MarkingTool
 
   onFirstDrag: ([x, y]) ->
     {width, height} = @stage.getSize()
-
     x *= width
     y *= height
+
+    @onDragDistance pageX: x, pageY: y
+
+    spread = @mark.distance / 5
+
+    @mark.set {spread}
+
+  onDragSource: (e) =>
+    {x, y} = @mouseOffset e
+    @mark.set source: [x, y]
+
+  onDragDistance: (e) =>
+    {x, y} = @mouseOffset e
 
     deltaX = x - @mark.source[0]
     deltaY = y - @mark.source[1]
@@ -50,9 +64,17 @@ class FanTool extends MarkingTool
     bSquared = Math.pow y - @mark.source[1], 2
     distance = Math.sqrt aSquared + bSquared
 
-    spread = distance / 5
+    @mark.set {angle, distance}
 
-    @mark.set {angle, distance, spread}
+  onDragSpread: (e) =>
+    {x, y} = @mouseOffset e
+    distance = @dots.distance.getAbsolutePosition()
+
+    aSquared = Math.pow x - distance.x, 2
+    bSquared = Math.pow y - distance.y, 2
+    spread = Math.sqrt aSquared + bSquared
+
+    @mark.set {spread}
 
   render: ->
     @dots.distance.setPosition @mark.distance, 0

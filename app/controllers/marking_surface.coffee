@@ -36,9 +36,11 @@ class MarkingSurface extends Controller
       @lastTool = new @tool mark: @lastMark, stage: @stage
       @lastTool.onFirstClick [x, y]
 
-    $(document).on 'mousemove', @onStageDrag
-    $(document).one 'mouseup', =>
-      $(document).off 'mousemove', @onStageDrag
+    doc = $(document)
+
+    doc.on 'mousemove', @onStageDrag
+    doc.one 'mouseup', =>
+      doc.off 'mousemove', @onStageDrag
 
   onStageDrag: (e) =>
     {x, y}  = @mouseOffset e
