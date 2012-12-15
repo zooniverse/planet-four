@@ -1,6 +1,7 @@
 Mark = require 'models/mark'
 Kinetic = window.Kinetic
 $ = require 'jqueryify'
+style = require 'lib/style'
 
 class MarkingTool
   @mark: Mark
@@ -33,6 +34,7 @@ class MarkingTool
   # Where "something" is the name of a shape,
   # methods named "onDragSomething" will be automatically called.
   onMouseDown: (e) =>
+    console.log e.shape
     name = e.shape.getName()
     return unless name?
 
@@ -58,5 +60,12 @@ class MarkingTool
     {left, top} = $(@stage.getContainer()).offset()
     x: e.pageX - left
     y: e.pageY - top
+
+  createTarget: (shape) ->
+    group = new Kinetic.Group
+    target = new Kinetic.Circle $.extend {name: shape.getName(), radius: shape.getRadius() + 5}, style.target
+    group.add target
+    group.add shape
+    group
 
 module.exports = MarkingTool

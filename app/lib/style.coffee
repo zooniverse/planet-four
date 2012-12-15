@@ -1,4 +1,7 @@
 module.exports =
+  target:
+    fill: 'rgba(127, 127, 127, 0.125)'
+
   source:
     radius: 10
     fill: 'black'
@@ -6,24 +9,26 @@ module.exports =
     strokeWidth: 2
 
   distance:
-    sides: 3
-    radius: 15
+    sides: 4
+    radius: 5
     rotationDeg: 90
-    fill: 'black'
-    stroke: 'white'
+    fill: 'yellow'
+    stroke: 'black'
     strokeWidth: 1
 
   spread:
     sides: 4
-    radius: 10
+    radius: 5
     fill: 'yellow'
     stroke: 'black'
     strokeWidth: 1
 
   realLine:
-    stroke: 'black'
+    stroke: 'white'
     strokeWidth: 2
+    shadow: color: 'black', blur: 1, offset: [0, 1]
 
   guideLine:
-    stroke: 'gray'
-    strokeWidth: 1
+    stroke: 'white'
+    strokeWidth: 2
+    shadow: color: 'black', blur: 1, offset: [0, 1]

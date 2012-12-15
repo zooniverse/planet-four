@@ -15,10 +15,10 @@ class FanTool extends MarkingTool
     super
 
     @dots =
-      source: new Kinetic.Circle $.extend {name: 'source'}, style.source
-      distance: new Kinetic.RegularPolygon $.extend {name: 'distance'}, style.distance
-      spreadA: new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.spread
-      spreadB: new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.spread
+      source: @createTarget new Kinetic.Circle $.extend {name: 'source'}, style.source
+      distance: @createTarget new Kinetic.RegularPolygon $.extend {name: 'distance'}, style.distance
+      spreadA: @createTarget new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.spread
+      spreadB: @createTarget new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.spread
 
     @lines =
       distance: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.realLine
@@ -29,6 +29,8 @@ class FanTool extends MarkingTool
 
     @group.add line for _, line of @lines
     @group.add dot for _, dot of @dots
+    @dots.distance.moveToTop()
+    @dots.source.moveToTop()
     @layer.add @group
 
   onFirstClick: ([x, y]) ->
@@ -36,7 +38,10 @@ class FanTool extends MarkingTool
 
     @mark.set
       source: [x * width, y * height]
-      distance: 0
+      distance: 10
+      angle: -45
+
+    @onFirstDrag [x, y]
 
   onFirstDrag: ([x, y]) ->
     {width, height} = @stage.getSize()
