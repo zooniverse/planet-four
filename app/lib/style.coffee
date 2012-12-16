@@ -1,6 +1,6 @@
 module.exports =
   target:
-    fill: 'rgba(127, 127, 127, 0.125)'
+    fill: 'rgba(127, 127, 127, 0.25)'
 
   source:
     radius: 10
@@ -32,3 +32,8 @@ module.exports =
     stroke: 'white'
     strokeWidth: 2
     shadow: color: 'black', blur: 1, offset: [0, 1]
+
+  cursors:
+    source: 'move'
+    distance: 'move'
+    spread: 'move'

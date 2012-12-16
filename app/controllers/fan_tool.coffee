@@ -11,6 +11,8 @@ class FanTool extends MarkingTool
   dots: null
   lines: null
 
+  cursors: style.cursors
+
   constructor: ->
     super
 

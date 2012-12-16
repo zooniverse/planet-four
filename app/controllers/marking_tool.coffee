@@ -9,6 +9,8 @@ class MarkingTool
   mark: null
   stage: null
 
+  cursors: null
+
   layer: null
 
   constructor: (params = {}) ->
@@ -23,6 +25,23 @@ class MarkingTool
     @stage.add @layer
 
     @layer.on 'mousedown', @onMouseDown
+
+    if @cursors
+      body = $(document.body)
+
+      @stage.on 'mouseover', ({shape}) =>
+        cursor = @cursors[shape.getName()]
+        return unless cursor?
+
+        body.css {cursor}
+
+        if cursor is 'move'
+          body.on 'mousedown.move', => body.css cursor: '-moz-grabbing' # TODO
+          body.on 'mouseup.move', => body.css cursor: 'move'
+
+      @stage.on 'mouseout', =>
+        body.css cursor: ''
+        body.off '.move'
 
     # Create dots and lines or whatever.
 
