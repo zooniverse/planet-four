@@ -54,7 +54,8 @@ class MarkingTool
   # Where "something" is the name of a shape,
   # methods named "onDragSomething" will be automatically called.
   onMouseDown: (e) =>
-    console.log e.shape
+    @select()
+
     name = e.shape.getName()
     return unless name?
 
@@ -62,7 +63,7 @@ class MarkingTool
     onDrag = @["onDrag#{cappedName}"]
 
     if typeof onDrag is 'function'
-      e.stopPropagation()
+      e.preventDefault()
 
       doc = $(document)
       doc.on 'mousemove', onDrag
@@ -71,6 +72,15 @@ class MarkingTool
 
   render: =>
     # Draw dots and lines or whatever.
+    @layer.draw()
+
+  select: ->
+    # @layer.setOpacity 1
+    @layer.moveToTop()
+    @layer.draw()
+
+  deselect: ->
+    # @layer.setOpacity 0.33
     @layer.draw()
 
   remove: =>

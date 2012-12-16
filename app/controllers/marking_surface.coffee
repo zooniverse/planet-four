@@ -26,6 +26,7 @@ class MarkingSurface extends Controller
     @tool = tool
 
   onMouseDown: (e) =>
+    return if e.isDefaultPrevented()
     return unless @tool?
     e.preventDefault()
 

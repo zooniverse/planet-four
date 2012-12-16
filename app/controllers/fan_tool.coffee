@@ -17,22 +17,21 @@ class FanTool extends MarkingTool
     super
 
     @dots =
-      source: @createTarget new Kinetic.Circle $.extend {name: 'source'}, style.source
-      distance: @createTarget new Kinetic.RegularPolygon $.extend {name: 'distance'}, style.distance
+      distance: @createTarget new Kinetic.Circle $.extend {name: 'distance'}, style.distance
       spreadA: @createTarget new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.spread
       spreadB: @createTarget new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.spread
 
     @lines =
       distance: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.realLine
       spread: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.realLine
-      bounding: new Kinetic.Path style.guideLine
+      bounding: new Kinetic.Path $.extend {name: 'bounding'}, style.guideLine
 
     @group = new Kinetic.Group
 
     @group.add line for _, line of @lines
     @group.add dot for _, dot of @dots
     @dots.distance.moveToTop()
-    @dots.source.moveToTop()
+    @lines.bounding.moveToBottom()
     @layer.add @group
 
   onFirstClick: ([x, y]) ->
@@ -40,15 +39,14 @@ class FanTool extends MarkingTool
 
     @mark.set
       source: [x * width, y * height]
-      distance: 10
-      angle: -45
 
     @onFirstDrag [x, y]
 
   onFirstDrag: ([x, y]) ->
     {width, height} = @stage.getSize()
-    x *= width
-    y *= height
+    {left, top} = $(@stage.getContainer()).offset()
+    x *= width + left
+    y *= height + top
 
     @onDragDistance pageX: x, pageY: y
 
@@ -56,9 +54,16 @@ class FanTool extends MarkingTool
 
     @mark.set {spread}
 
-  onDragSource: (e) =>
+  sourceOffset: null
+  onDragBounding: (e) =>
     {x, y} = @mouseOffset e
-    @mark.set source: [x, y]
+
+    if @sourceOffset
+      @mark.set source: [x + @sourceOffset[0], y + @sourceOffset[1]]
+    else
+      $(document).one 'mouseup', => @sourceOffset = null
+
+    @sourceOffset = [@mark.source[0] - x, @mark.source[1] - y]
 
   onDragDistance: (e) =>
     {x, y} = @mouseOffset e
@@ -91,15 +96,27 @@ class FanTool extends MarkingTool
     @lines.distance.setPoints [{x: 0, y: 0}, {x: @mark.distance, y: 0}]
     @lines.spread.setPoints [{x: @mark.distance, y: -@mark.spread}, {x: @mark.distance, y: +@mark.spread}]
     @lines.bounding.setData """
-      M 0 0
+      M 15 -5
       L #{@mark.distance} #{-@mark.spread}
       A 1 1 0 1 1 #{@mark.distance} #{+@mark.spread}
-      Z
+      L 15 5
     """
 
     @group.setPosition @mark.source...
     @group.setRotationDeg @mark.angle
 
+    super
+
+  select: ->
+    dot.show() for _, dot of @dots
+    @lines.distance.show()
+    @lines.spread.show()
+    super
+
+  deselect: ->
+    dot.hide() for _, dot of @dots
+    @lines.distance.hide()
+    @lines.spread.hide()
     super
 
 module.exports = FanTool
