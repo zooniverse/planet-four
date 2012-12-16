@@ -33,7 +33,6 @@ module.exports =
     strokeWidth: 2
 
   cursors:
-    source: 'move'
-    distance: 'move'
-    spread: 'move'
+    distance: 'crosshair'
+    spread: 'crosshair'
     bounding: 'move'

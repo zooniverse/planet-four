@@ -7,6 +7,9 @@ class MarkingSurface extends Controller
 
   stage: null
 
+  marks: null
+  tools: null
+
   selection: null
 
   events:
@@ -20,6 +23,9 @@ class MarkingSurface extends Controller
       width: @el.width()
       height: @el.height()
 
+    @marks ?= []
+    @tools ?= []
+
     @setTool @tool
 
   setTool: (tool) ->
@@ -32,10 +38,26 @@ class MarkingSurface extends Controller
 
     {x, y} = @mouseOffset e
 
-    if (not @lastTool) or @lastTool.isComplete()
-      @lastMark = new @tool.mark
-      @lastTool = new @tool mark: @lastMark, stage: @stage
-      @lastTool.onFirstClick [x, y]
+    if (not @selection) or @selection.isComplete()
+      mark = new @tool.mark
+      @marks.push mark
+
+      mark.bind 'destroy', =>
+        @marks.splice i, 1 for m, i in @marks when m is mark
+
+      tool = new @tool {mark, @stage}
+      @tools.push tool
+
+      tool.bind 'select', =>
+        @selection = tool
+        t.deselect() for t in @tools when t isnt tool
+
+      tool.bind 'remove', =>
+        @tools.splice i, 1 for t, i in @tools when t is tool
+
+      tool.select()
+
+      tool.onFirstClick [x, y]
 
     doc = $(document)
 
@@ -45,7 +67,7 @@ class MarkingSurface extends Controller
 
   onStageDrag: (e) =>
     {x, y}  = @mouseOffset e
-    @lastTool.onFirstDrag [x, y]
+    @selection.onFirstDrag [x, y]
 
   mouseOffset: (e) ->
     {left, top} = @el.offset()

@@ -1,9 +1,13 @@
 Mark = require 'models/mark'
+{Module, Events} = require 'spine'
 Kinetic = window.Kinetic
 $ = require 'jqueryify'
 style = require 'lib/style'
 
-class MarkingTool
+class MarkingTool extends Module
+  @extend Events
+  @include Events
+
   @mark: Mark
 
   mark: null
@@ -75,15 +79,18 @@ class MarkingTool
     @layer.draw()
 
   select: ->
-    # @layer.setOpacity 1
+    @layer.setOpacity 1
+    @trigger 'select'
     @layer.moveToTop()
     @layer.draw()
 
   deselect: ->
-    # @layer.setOpacity 0.33
+    @layer.setOpacity 0.5
+    @trigger 'deselect'
     @layer.draw()
 
   remove: =>
+    @trigger 'remove'
     @layer.remove()
 
   isComplete: ->

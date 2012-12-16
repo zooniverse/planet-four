@@ -45,8 +45,8 @@ class FanTool extends MarkingTool
   onFirstDrag: ([x, y]) ->
     {width, height} = @stage.getSize()
     {left, top} = $(@stage.getContainer()).offset()
-    x *= width + left
-    y *= height + top
+    x = (x * width) + left
+    y =  (y * height) + top
 
     @onDragDistance pageX: x, pageY: y
 
@@ -111,12 +111,14 @@ class FanTool extends MarkingTool
     dot.show() for _, dot of @dots
     @lines.distance.show()
     @lines.spread.show()
+    @lines.bounding.setStrokeWidth style.guideLine.strokeWidth
     super
 
   deselect: ->
     dot.hide() for _, dot of @dots
     @lines.distance.hide()
     @lines.spread.hide()
+    @lines.bounding.setStrokeWidth 0
     super
 
 module.exports = FanTool
