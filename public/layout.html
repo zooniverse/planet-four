@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Mars</title>
+
+    <style type="text/css">
+      body {
+        margin: 0;
+      }
+
+      #app {
+        height: 100%;
+        outline: 1px solid gray;
+        position: absolute;
+        width: 100%;
+      }
+
+      #sidebar {
+        background: rgba(0, 0, 0, 0);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 240px;
+      }
+
+      #main {
+        background: #963;
+        bottom: 0;
+        left: 240px;
+        overflow: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .page {
+        opacity: 0.1;
+        transition: opacity 0.5s ease-in-out 0.25s;
+      }
+
+      .page.active {
+        opacity: 1;
+        z-index: 1;
+      }
+
+      .home {
+        height: 100%;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      .active .home {
+        opacity: 1;
+      }
+
+      .planet {
+        background: #f00;
+        border-radius: 50%;
+        height: 500px;
+        left: 50%;
+        margin: -250px 0 0 -250px;
+        position: absolute;
+        top: 0;
+        -moz-transform: scale(2) translateY(-240px);
+        transition: -moz-transform 1s ease-out;
+        width: 500px;
+      }
+
+      .active .planet {
+        -moz-transform: scale(1) translateY(0);
+      }
+
+      .ground {
+        background: #ff0;
+        bottom: -200px;
+        height: 200px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        transition: bottom 1s ease-out;
+        transition: bottom 1s ease-out;
+      }
+
+      .active .ground {
+        bottom: 0;
+      }
+
+      .classify {
+        background: #333;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      .subject {
+        background: #666;
+        height: 600px;
+        left: 50%;
+        margin: -300px 0 0 -360px;
+        position: absolute;
+        top: 50%;
+        -moz-transform: scale(0.5);
+        transition: -moz-transform 1s ease-in-out;
+        width: 720px;
+      }
+
+      .active .subject {
+        -moz-transform: scale(1);
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <div id="sidebar">
+        <script>
+          function activate(className) {
+            Array.prototype.slice.call(document.querySelectorAll('.page')).forEach(function(page) {
+              page.classList.remove('active');
+            });
+
+            document.querySelector('.' + className).classList.add('active');
+          }
+        </script>
+        <button onclick="activate('home');">Home</button><br />
+        <button onclick="activate('classify');">Classify</button>
+      </div>
+
+      <div id="main">
+        <div class="active home page">
+          <div class="planet"></div>
+          <div class="ground"></div>
+        </div>
+
+        <div class="classify page">
+          <div class="subject"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
