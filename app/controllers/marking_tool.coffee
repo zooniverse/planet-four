@@ -17,6 +17,7 @@ class MarkingTool
 
     @mark ?= new @constructor.mark params
     @mark.bind 'change', @render
+    @mark.bind 'destroy', @remove
 
     @layer = new Kinetic.Layer
     @stage.add @layer
@@ -52,6 +53,9 @@ class MarkingTool
   render: =>
     # Draw dots and lines or whatever.
     @layer.draw()
+
+  remove: =>
+    @layer.remove()
 
   isComplete: ->
     true
