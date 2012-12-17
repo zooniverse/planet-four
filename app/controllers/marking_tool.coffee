@@ -62,6 +62,7 @@ class MarkingTool extends Module
 
   handleLayerEvent: (e) =>
     name = e.shape.getName()
+
     return unless name
 
     @["on #{e.type}"]? e
@@ -106,8 +107,10 @@ class MarkingTool extends Module
     y: e.pageY - top
 
   createTarget: (shape) ->
+    minTarget = 20
+    naturalTarget = shape.getRadius() + 5
     group = new Kinetic.Group
-    target = new Kinetic.Circle $.extend {name: shape.getName(), radius: shape.getRadius() + 5}, style.target
+    target = new Kinetic.Circle $.extend {name: shape.getName(), radius: Math.max minTarget, naturalTarget}, style.target
     group.add target
     group.add shape
     group

@@ -1,6 +1,9 @@
 module.exports =
   target:
-    fill: 'rgba(127, 127, 127, 0.25)'
+    fill: 'gray'
+    stroke: 'white'
+    strokeWidth: 1
+    opacity: 0.25
 
   source:
     radius: 5

@@ -3,6 +3,7 @@ FanMark = require 'models/fan_mark'
 Kinetic = window.Kinetic
 $ = require 'jqueryify'
 style = require 'lib/style'
+optionsTemplate = require 'views/fan_tool_options'
 
 class FanTool extends MarkingTool
   @mark: FanMark
@@ -10,6 +11,8 @@ class FanTool extends MarkingTool
   group: null
   dots: null
   lines: null
+
+  optionsDialog: null
 
   cursors: style.cursors
 
@@ -33,6 +36,10 @@ class FanTool extends MarkingTool
     @dots.distance.moveToTop()
     @lines.bounding.moveToBottom()
     @layer.add @group
+
+    @optionsDialog = $(optionsTemplate @)
+    @optionsDialog.css position: 'absolute'
+    @optionsDialog.appendTo @stage.getContainer()
 
   onFirstClick: ([x, y]) ->
     {width, height} = @stage.getSize()
@@ -110,6 +117,31 @@ class FanTool extends MarkingTool
     @group.setPosition @mark.source...
     @group.setRotationDeg @mark.angle
 
+    spreadAPos = @dots.spreadA.getAbsolutePosition()
+    spreadBPos = @dots.spreadB.getAbsolutePosition()
+    optionsWidth = @optionsDialog.width()
+
+    @optionsDialog.css switch
+      when -90 < @mark.angle <= 0
+        left: ((@mark.source[0] + spreadAPos.x) / 2) - optionsWidth
+        top: (@mark.source[1] + spreadAPos.y) / 2
+
+      when -180 < @mark.angle <= -90
+        left: (@mark.source[0] + spreadBPos.x) / 2
+        top: (@mark.source[1] + spreadBPos.y) / 2
+
+      when 90 < @mark.angle <= 180
+        left: (@mark.source[0] + spreadAPos.x) / 2
+        top: (@mark.source[1] + spreadAPos.y) / 2
+
+      when 0 < @mark.angle <= 90
+        left: ((@mark.source[0] + spreadBPos.x) / 2) - optionsWidth
+        top: (@mark.source[1] + spreadBPos.y) / 2
+
+      else
+        left: 0
+        top: 0
+
     super
 
   select: ->
@@ -117,6 +149,7 @@ class FanTool extends MarkingTool
     @lines.distance.show()
     @lines.spread.show()
     @lines.bounding.setStrokeWidth style.guideLine.strokeWidth
+    @optionsDialog.show()
     super
 
   deselect: ->
@@ -124,6 +157,11 @@ class FanTool extends MarkingTool
     @lines.distance.hide()
     @lines.spread.hide()
     @lines.bounding.setStrokeWidth 0
+    @optionsDialog.hide()
+    super
+
+  remove: ->
+    @optionsDialog.remove()
     super
 
 module.exports = FanTool

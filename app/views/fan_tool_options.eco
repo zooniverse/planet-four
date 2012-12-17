@@ -1,0 +1,6 @@
+<div class="fan-tool-options">
+  <form>
+    <label><input type="radio" name="color" value="0" />Darker</label>
+    <label><input type="radio" name="color" value="1" />Lighter</label>
+  </form>
+</div>
