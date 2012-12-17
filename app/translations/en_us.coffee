@@ -1,8 +1,9 @@
 module.exports =
   navigation:
-    home: 'Home'
     classify: 'Classify'
     about: 'About'
+    discuss: 'Discuss'
+    blog: 'Blog'
 
   classify:
     fanTool: 'Fan'

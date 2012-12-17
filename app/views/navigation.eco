@@ -1,12 +1,12 @@
 <% translate = require 'lib/translate' %>
 
-<a href="#/home" class="navigation-logo"><img src="//placehold.it/100x60.png" /></a>
-
-<div>
-  <a href="#/home"><%= translate 'navigation.home' %></a>
+<div class="logo section">
+  <a href="#/home" class="navigation-logo">
+    <strong>Mars</strong> Fan Club
+  </a>
 </div>
 
-<div class="classify">
+<div class="classify section" data-link="#/classify">
   <a href="#/classify"><%= translate 'navigation.classify' %></a>
 
   <div class="classification-tools expando">
@@ -15,6 +15,22 @@
   </div>
 </div>
 
-<div>
+<div class="about section" data-link="#/about">
   <a href="#/about">About</a>
+
+  <div class="sub-nav expando">
+    <a href="#">The Research</a>
+    <a href="#">The Scientists</a>
+    <a href="#">The Developers</a>
+    <a href="#">Citizen Science</a>
+    <a href="#">Stargazing Live</a>
+  </div>
+</div>
+
+<div class="talk section">
+  <a href="#/talk"><%= translate 'navigation.discuss' %></a>
+</div>
+
+<div class="blog section">
+  <a href="#/blog"><%= translate 'navigation.blog' %></a>
 </div>

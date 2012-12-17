@@ -1,0 +1,50 @@
+.app-navigation {
+  color: $red;
+
+  .section {
+    background: rgba($white, 0.8);
+    box-shadow: 0 1px 2px rgba($black, 0.5);
+    margin-bottom: 5px;
+
+    > a {
+      display: block;
+      font-weight: bold;
+      padding: 8px 20px;
+    }
+  }
+
+  .navigation-logo {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 24px;
+    text-transform: uppercase;
+
+    strong {
+      display: block;
+      font-size: 40px;
+      letter-spacing: 0;
+      text-transform: lowercase;
+    }
+  }
+
+  .sub-nav {
+    & > a {
+      border-top: 1px solid rgba($black, 0.1);
+      box-shadow: 0 1px 0 $white inset;
+      display: block;
+      font-size: 12px;
+      padding: 3px 20px;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      background: $white;
+    }
+  }
+}

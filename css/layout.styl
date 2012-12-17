@@ -1,5 +1,6 @@
 html {
   background: blue;
+  font: 14px $sans;
   height: 100%;
   overflow-y: scroll;
 }
@@ -38,4 +39,26 @@ body {
       display: block;
     }
   }
+}
+
+.columns {
+  clearfix();
+
+  .column {
+    float: left;
+
+    &.one-third {
+      width: 33.33%;
+    }
+  }
+}
+
+button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
 }

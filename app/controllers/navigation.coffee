@@ -13,8 +13,11 @@ class Navigation extends Controller
   constructor: ->
     super
     @el.html template @
+    $(window).on 'hashchange', @onHashChange
 
   onClickTool: (e) ->
     doc.trigger 'change-classification-tool', $(e.target).val()
+
+  onHashChange: =>
 
 module.exports = Navigation
