@@ -14,9 +14,12 @@ class MarkingSurface extends Controller
 
   events:
     'mousedown': 'onMouseDown'
+    'keydown': 'onKeyDown'
 
   constructor: ->
     super
+
+    @el.attr tabindex: 0
 
     @stage = new Kinetic.Stage
       container: @el.get 0
@@ -35,6 +38,7 @@ class MarkingSurface extends Controller
     return if e.isDefaultPrevented()
     return unless @tool?
     e.preventDefault()
+    @el.focus()
 
     {x, y} = @mouseOffset e
 
@@ -52,8 +56,12 @@ class MarkingSurface extends Controller
         @selection = tool
         t.deselect() for t in @tools when t isnt tool
 
+      tool.bind 'deselect', =>
+        @selection = null if @selection is tool
+
       tool.bind 'remove', =>
         @tools.splice i, 1 for t, i in @tools when t is tool
+        @tools[@tools.length - 1]?.select() if @selection is tool
 
       tool.select()
 
@@ -68,6 +76,11 @@ class MarkingSurface extends Controller
   onStageDrag: (e) =>
     {x, y}  = @mouseOffset e
     @selection.onFirstDrag [x, y]
+
+  onKeyDown: (e) ->
+    if e.which in [8, 46] # Backspace and delete
+      e.preventDefault()
+      @selection?.mark.destroy()
 
   mouseOffset: (e) ->
     {left, top} = @el.offset()
