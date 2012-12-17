@@ -1,0 +1,20 @@
+<% translate = require 'lib/translate' %>
+
+<a href="#/home" class="navigation-logo"><img src="//placehold.it/100x60.png" /></a>
+
+<div>
+  <a href="#/home"><%= translate 'navigation.home' %></a>
+</div>
+
+<div class="classify">
+  <a href="#/classify"><%= translate 'navigation.classify' %></a>
+
+  <div class="classification-tools expando">
+    <button name="tool" value="fan"><%= translate 'classify.fanTool' %></button>
+    <button name="tool" value="interest"><%= translate 'classify.interestTool' %></button>
+  </div>
+</div>
+
+<div>
+  <a href="#/about">About</a>
+</div>
