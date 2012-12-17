@@ -12,7 +12,7 @@ class FanTool extends MarkingTool
   dots: null
   lines: null
 
-  optionsDialog: null
+  el: null
 
   cursors: style.cursors
 
@@ -37,9 +37,10 @@ class FanTool extends MarkingTool
     @lines.bounding.moveToBottom()
     @layer.add @group
 
-    @optionsDialog = $(optionsTemplate @)
-    @optionsDialog.css position: 'absolute'
-    @optionsDialog.appendTo @stage.getContainer()
+    @el = $(optionsTemplate @)
+    @el.css position: 'absolute'
+    @el.appendTo @stage.getContainer()
+    @el.on 'mousedown', @['on mousedown']
 
   onFirstClick: ([x, y]) ->
     {width, height} = @stage.getSize()
@@ -119,26 +120,27 @@ class FanTool extends MarkingTool
 
     spreadAPos = @dots.spreadA.getAbsolutePosition()
     spreadBPos = @dots.spreadB.getAbsolutePosition()
-    optionsWidth = @optionsDialog.width()
+    elWidth = @el.width()
+    elHeight = @el.height()
 
-    @optionsDialog.css switch
-      when -90 < @mark.angle <= 0
-        left: ((@mark.source[0] + spreadAPos.x) / 2) - optionsWidth
-        top: (@mark.source[1] + spreadAPos.y) / 2
+    @el.css switch
+      when -90 < @mark.angle <= 0 # Quadrant I
+        left: ((@mark.source[0] + spreadAPos.x) / 2) - elWidth
+        top: (@mark.source[1] + spreadAPos.y) / 2 - elHeight
 
-      when -180 < @mark.angle <= -90
+      when -180 < @mark.angle <= -90 # Quadrant II
         left: (@mark.source[0] + spreadBPos.x) / 2
-        top: (@mark.source[1] + spreadBPos.y) / 2
+        top: (@mark.source[1] + spreadBPos.y) / 2 - elHeight
 
-      when 90 < @mark.angle <= 180
+      when 90 < @mark.angle <= 180 # Quadrant III
         left: (@mark.source[0] + spreadAPos.x) / 2
         top: (@mark.source[1] + spreadAPos.y) / 2
 
-      when 0 < @mark.angle <= 90
-        left: ((@mark.source[0] + spreadBPos.x) / 2) - optionsWidth
+      when 0 < @mark.angle <= 90 # Quadrant IV
+        left: ((@mark.source[0] + spreadBPos.x) / 2) - elWidth
         top: (@mark.source[1] + spreadBPos.y) / 2
 
-      else
+      else 
         left: 0
         top: 0
 
@@ -149,7 +151,7 @@ class FanTool extends MarkingTool
     @lines.distance.show()
     @lines.spread.show()
     @lines.bounding.setStrokeWidth style.guideLine.strokeWidth
-    @optionsDialog.show()
+    @el.show()
     super
 
   deselect: ->
@@ -157,11 +159,11 @@ class FanTool extends MarkingTool
     @lines.distance.hide()
     @lines.spread.hide()
     @lines.bounding.setStrokeWidth 0
-    @optionsDialog.hide()
+    @el.hide()
     super
 
   remove: ->
-    @optionsDialog.remove()
+    @el.remove()
     super
 
 module.exports = FanTool

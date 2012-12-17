@@ -3,7 +3,7 @@ module.exports =
     fill: 'gray'
     stroke: 'white'
     strokeWidth: 1
-    opacity: 0.25
+    opacity: 0.125
 
   source:
     radius: 5
