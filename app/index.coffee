@@ -7,11 +7,12 @@ HomePage = require 'controllers/home_page'
 ClassifyPage = require 'controllers/classify_page'
 
 app = {}
+app.container = $('#app')
+
 app.navigation = new Navigation
-app.navigation.el.appendTo '#app'
 
 app.stack = new Stack
-  className: "main #{Stack::className}"
+  className: "app-main #{Stack::className}"
 
   controllers:
     home: HomePage
@@ -21,6 +22,11 @@ app.stack = new Stack
     '/home': 'home'
     '/classify': 'classify'
 
-app.stack.el.appendTo '#app'
+  default: 'home'
+
+app.navigation.el.appendTo app.container
+app.stack.el.appendTo app.container
+
+Route.setup()
 
 module.exports = app

@@ -1,3 +1,11 @@
 <% translate = require 'lib/translate' %>
 
-HOME PAGE
+<div class="planet"></div>
+
+<div class="satellite"></div>
+
+<h1>Explore the surface of Mars.</h1>
+<p>Planetary scientists need help identifying dust features on the surface of the Red Planet.</p>
+<p>Now you can explore the surface of Mars like never before.</p>
+
+<p class="action"><a href="#/classify">Start Exploring</a></p>
