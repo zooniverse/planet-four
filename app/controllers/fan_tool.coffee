@@ -48,14 +48,18 @@ class FanTool extends MarkingTool
     x = (x * width) + left
     y =  (y * height) + top
 
-    @onDragDistance pageX: x, pageY: y
+    dummyEvent = pageX: x, pageY: y, preventDefault: ->
+    @['on drag distance'] dummyEvent
 
     spread = @mark.distance / 5
-
     @mark.set {spread}
 
+  'on mousedown': (e) =>
+    e.preventDefault()
+    @select()
+
   sourceOffset: null
-  onDragBounding: (e) =>
+  'on drag bounding': (e) =>
     {x, y} = @mouseOffset e
 
     if @sourceOffset
@@ -65,7 +69,7 @@ class FanTool extends MarkingTool
 
     @sourceOffset = [@mark.source[0] - x, @mark.source[1] - y]
 
-  onDragDistance: (e) =>
+  'on drag distance': (e) =>
     {x, y} = @mouseOffset e
 
     deltaX = x - @mark.source[0]
@@ -78,7 +82,7 @@ class FanTool extends MarkingTool
 
     @mark.set {angle, distance}
 
-  onDragSpread: (e) =>
+  'on drag spread': (e) =>
     {x, y} = @mouseOffset e
     distance = @dots.distance.getAbsolutePosition()
 
@@ -100,6 +104,7 @@ class FanTool extends MarkingTool
       L #{@mark.distance} #{-@mark.spread}
       A 1 1 0 1 1 #{@mark.distance} #{+@mark.spread}
       L 15 5
+      Z
     """
 
     @group.setPosition @mark.source...

@@ -13,6 +13,8 @@ class MarkingTool extends Module
   mark: null
   stage: null
 
+  events: null
+
   cursors: null
 
   layer: null
@@ -28,9 +30,12 @@ class MarkingTool extends Module
     @layer = new Kinetic.Layer
     @stage.add @layer
 
-    @layer.on 'mousedown', @onMouseDown
+    # Methods named "on <event-type> <shape-name (optional)>" will be
+    # automatically handled. "Drag" is special and handled on mouse down.
+    # TODO: Handle touch events.
+    @layer.on 'mousedown mousemove mouseup click', @handleLayerEvent
 
-    if @cursors
+    if @cursors?
       body = $(document.body)
 
       @stage.on 'mouseover', ({shape}) =>
@@ -55,24 +60,22 @@ class MarkingTool extends Module
   onFirstDrag: ([x, y]) ->
     # Modify the mark.
 
-  # Where "something" is the name of a shape,
-  # methods named "onDragSomething" will be automatically called.
-  onMouseDown: (e) =>
-    @select()
-
+  handleLayerEvent: (e) =>
     name = e.shape.getName()
-    return unless name?
+    return unless name
 
-    cappedName = name.charAt(0).toUpperCase() + name[1...]
-    onDrag = @["onDrag#{cappedName}"]
+    @["on #{e.type}"]? e
 
-    if typeof onDrag is 'function'
-      e.preventDefault()
+    @["on #{e.type} #{name}"]? e
 
-      doc = $(document)
-      doc.on 'mousemove', onDrag
-      doc.one 'mouseup', =>
-        doc.off 'mousemove', onDrag
+    if e.type is 'mousedown'
+      onDrag = @["on drag #{name}"]
+
+      if typeof onDrag is 'function'
+        doc = $(document)
+        doc.on 'mousemove', onDrag
+        doc.one 'mouseup', =>
+          doc.off 'mousemove', onDrag
 
   render: =>
     # Draw dots and lines or whatever.
@@ -91,6 +94,7 @@ class MarkingTool extends Module
 
   remove: =>
     @trigger 'remove'
+    @layer.off 'mousedown mousemove mouseup click'
     @layer.remove()
 
   isComplete: ->
