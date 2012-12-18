@@ -1,19 +1,16 @@
-FanTool = require 'controllers/fan_tool'
-CircleTool = require 'controllers/circle_tool'
 {Controller} = require 'spine'
 template = require 'views/classify_page'
+ClassificationTools = require 'controllers/classification_tools'
 MarkingSurface = require 'controllers/marking_surface'
+FanTool = require 'controllers/fan_tool'
 $ = require 'jqueryify'
 
 html = $(document.body.parentNode)
 
-tools =
-  fan: FanTool
-  interest: CircleTool
-
 class ClassifyPage extends Controller
   className: 'classify-page'
 
+  classificationTools: null
   markingSurface: null
 
   elements:
@@ -24,13 +21,14 @@ class ClassifyPage extends Controller
 
     @html template @
 
+    @classificationTools = new ClassificationTools
+      tool: FanTool
+      classifier: @
+
     @markingSurface = new MarkingSurface
       el: @subjectContainer
       tool: FanTool
-
-    $(document).on 'change-classification-tool', (e, tool) =>
-      console.log 'Got tool', tool, tools[tool]
-      @markingSurface.setTool tools[tool]
+      classifier: @
 
   activate: ->
     super

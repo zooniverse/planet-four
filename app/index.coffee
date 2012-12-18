@@ -27,6 +27,7 @@ app.stack = new Stack
 
   default: 'home'
 
+app.stack.classify.classificationTools.el.appendTo app.navigation.classificationToolsContainer
 app.navigation.el.appendTo app.container
 app.stack.el.appendTo app.container
 

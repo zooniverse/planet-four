@@ -1,0 +1,30 @@
+<% translate = require 'lib/translate' %>
+
+<label>
+  <input type="radio" name="tool" value="fan" checked="checked">
+  <span class="label">
+    <img src="//placehold.it/80x30&amp;text=Fan" /><br />
+    <%= translate 'classify.fanTool' %>
+  </span>
+</label>
+
+<label>
+  <input type="radio" name="tool" value="interest">
+  <span class="label">
+    <img src="//placehold.it/30x30&amp;text=Circle" /><br />
+    <%= translate 'classify.interestTool' %>
+  </span>
+</label>
+
+<button name="finish">Finished</button>
+
+<div class="followup" style="display: none;">
+  <div class="share">
+    <a href="#/TODO/facebook">Facebook</a>
+    <a href="#/TODO/twitter">Twitter</a>
+  </div>
+
+  <button name="next">Next</button>
+
+  <a href="#/TODO/talk">Discuss</a>
+</div>
