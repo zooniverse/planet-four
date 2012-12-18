@@ -8,6 +8,28 @@
   }
 }
 
+@keyframes float-around {
+  0% {
+    margin: -10px 0 0 -20px;
+  }
+
+  25% {
+    margin: 10px 0 0 10px;
+  }
+
+  50% {
+    margin: -10px 0 0 20px;
+  }
+
+  75% {
+    margin: 10px 0 0 -10px;
+  }
+
+  100% {
+    margin: -10px 0 0 -20px;
+  }
+}
+
 .home-page {
   overflow: hidden;
   padding-top: 275px;
@@ -24,6 +46,16 @@
     position: absolute;
     top: 0;
     width: 800px;
+  }
+
+  .satellite {
+    // animation: float-around 30s ease-in-out infinite;
+    background: url("images/home/satellite.png");
+    height: 102px;
+    position: absolute;
+    right: 40px;
+    top: 100px;
+    width: 78px;
   }
 
   h1 {
