@@ -3,6 +3,7 @@
 
 class SubPage extends Controller
   className: 'sub-page'
+
   content: ''
 
   constructor: ->
@@ -25,13 +26,15 @@ class AboutPage extends Stack
   className: "#{Stack::className} about-page"
 
   controllers:
+    index: class extends SubPage then content: 'This is the about page index!'
     research: class extends SubPage then content: 'This is the research page!'
     scientists: class extends SubPage then content: 'This is the scientists page!'
 
   routes:
+    '/about': 'index'
     '/about/research': 'research'
     '/about/scientists': 'scientists'
 
-  default: 'research'
+  default: 'index'
 
 module.exports = AboutPage
