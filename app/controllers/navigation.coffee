@@ -16,7 +16,7 @@ class Navigation extends Controller
     $(window).on 'hashchange', @onHashChange
 
   onClickTool: (e) ->
-    doc.trigger 'change-classification-tool', $(e.target).val()
+    doc.trigger 'change-classification-tool', [$(e.target).val()]
 
   onHashChange: =>
 

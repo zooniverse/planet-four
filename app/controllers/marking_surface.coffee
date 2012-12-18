@@ -19,6 +19,9 @@ class MarkingSurface extends Controller
   constructor: ->
     super
 
+    @el ?= document.createElement 'div'
+    @el = $(@el)
+
     @el.attr tabindex: 0
 
     @stage = new Kinetic.Stage

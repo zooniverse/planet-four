@@ -4,22 +4,23 @@
   }
 
   100% {
-    background-position: -100% 0;
+    background-position: 200% 0;
   }
 }
 
 .home-page {
   overflow: hidden;
-  padding-top: 350px;
+  padding-top: 275px;
 
   .planet {
-    // animation: rotate 60s linear;
-    background: url("images/home/mars-map.jpg");
+    // animation: rotate 120s linear infinite;
+    background: url("images/home/mars-map.jpg") 125% 0;
+    background-size: cover;
     border-radius: 50%;
-    box-shadow: -67px -33px 100px $black inset;
+    box-shadow: -67px -33px 100px $black inset, 5px 25px 25px -15px $black;
     height: 800px;
     left: 50%;
-    margin: -500px 0 0 -400px;
+    margin: -575px 0 0 -400px;
     position: absolute;
     top: 0;
     width: 800px;
