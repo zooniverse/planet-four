@@ -39,7 +39,7 @@
     background: url("images/home/mars-map.jpg") 125% 0;
     background-size: cover;
     border-radius: 50%;
-    box-shadow: 0px 0 75px $black inset, -100px -25px 150px $black inset, 5px 25px 25px -15px $black;
+    box-shadow: 0px 0 75px $black inset, -100px -25px 150px $black inset;
     height: 800px;
     left: 50%;
     margin: -575px 0 0 -400px;
@@ -58,16 +58,31 @@
     width: 78px;
   }
 
-  h1 {
-    font-size: 38px;
-    margin: 0;
-  }
-
   .content {
     font-size: 12px;
     margin: 0 auto;
     text-align: center;
     width: 530px;
+  }
+
+  h1 {
+    font-size: 38px;
+    margin: 0 0 20px;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+
+  .column {
+    border-left: 1px solid rgba($black, 0.75);
+    height: 40px;
+    margin-top: 20px;
+    padding: 0 10px;
+
+    &:first-child {
+      border-left: 0;
+    }
   }
 
   .counter {
@@ -83,12 +98,11 @@
     }
   }
 
-  .column {
-    border-left: 1px solid rgba($black, 0.75);
-    height: 40px;
-
-    &:first-child {
-      border-left: 0;
-    }
+  .explore {
+    @extends #standard-button;
+    font-size: 16px;
+    line-height: 40px;
+    padding: 0;
+    width: 100%;
   }
 }
