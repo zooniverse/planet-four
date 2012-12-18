@@ -5,6 +5,7 @@ Route = require 'spine/lib/route'
 {Stack} = require 'spine/lib/manager'
 HomePage = require 'controllers/home_page'
 ClassifyPage = require 'controllers/classify_page'
+AboutPage = require 'controllers/about_page'
 
 app = {}
 app.container = $('#app')
@@ -17,10 +18,12 @@ app.stack = new Stack
   controllers:
     home: HomePage
     classify: ClassifyPage
+    about: AboutPage
 
   routes:
     '/home': 'home'
     '/classify': 'classify'
+    '/about': 'about'
 
   default: 'home'
 
