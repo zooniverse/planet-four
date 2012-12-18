@@ -10,7 +10,7 @@
 
 .home-page {
   overflow: hidden;
-  padding-top: 300px;
+  padding-top: 350px;
 
   .planet {
     // animation: rotate 60s linear;
@@ -23,5 +23,39 @@
     position: absolute;
     top: 0;
     width: 800px;
+  }
+
+  h1 {
+    font-size: 38px;
+    margin: 0;
+  }
+
+  .content {
+    font-size: 12px;
+    margin: 0 auto;
+    text-align: center;
+    width: 530px;
+  }
+
+  .counter {
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    > strong {
+      display: block;
+      font-size: 20px;
+      font-weight: normal;
+      letter-spacing: 0;
+    }
+  }
+
+  .column {
+    border-left: 1px solid rgba($black, 0.75);
+    height: 40px;
+
+    &:first-child {
+      border-left: 0;
+    }
   }
 }

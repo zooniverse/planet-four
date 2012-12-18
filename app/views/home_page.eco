@@ -4,25 +4,27 @@
 
 <div class="satellite"></div>
 
-<h1>Explore the surface of Mars.</h1>
+<div class="content">
+  <h1>Explore the surface of Mars.</h1>
 
-<hr />
+  <hr />
 
-<p>Planetary scientists need help identifying dust features on the surface of the Red Planet.</p>
-<p>Now you can explore the surface of Mars like never before.</p>
+  <p>Planetary scientists need help identifying dust features on the surface of the Red Planet.</p>
+  <p>Now you can explore the surface of Mars like never before.</p>
 
-<hr />
+  <hr />
 
-<div class="columns">
-  <div class="one-third participants column">
-    <strong>9270</strong> participants
-  </div>
+  <div class="columns">
+    <div class="one-third counter column">
+      <strong>9270</strong> participants
+    </div>
 
-  <div class="one-third fans column">
-    <strong>1234567</strong> fans measured
-  </div>
+    <div class="one-third counter column">
+      <strong>1234567</strong> fans measured
+    </div>
 
-  <div class="one-third start column">
-    <a href="#/classify">Start Exploring</a></p>
+    <div class="one-third start column">
+      <a href="#/classify">Start Exploring</a></p>
+    </div>
   </div>
 </div>

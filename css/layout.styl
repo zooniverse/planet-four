@@ -45,12 +45,18 @@ body {
   clearfix();
 
   .column {
+    box-sizing: border-box;
     float: left;
 
     &.one-third {
       width: 33.33%;
     }
   }
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid rgba($black, 0.75);
 }
 
 button {
