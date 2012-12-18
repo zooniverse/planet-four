@@ -8,7 +8,7 @@ class Navigation extends Controller
   className: 'app-navigation'
 
   events:
-    'click button[name="tool"]': 'onClickTool'
+    'change input[name="tool"]': 'onChangeTool'
 
   constructor: ->
     super
@@ -17,9 +17,9 @@ class Navigation extends Controller
 
     $(window).on 'hashchange', @onHashChange
 
-    @onHashChange()
+    setTimeout @onHashChange
 
-  onClickTool: (e) ->
+  onChangeTool: (e) ->
     doc.trigger 'change-classification-tool', [$(e.target).val()]
 
   onHashChange: =>

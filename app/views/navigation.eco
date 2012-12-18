@@ -10,8 +10,15 @@
   <a href="#/classify"><%= translate 'navigation.classify' %></a>
 
   <div class="classification-tools expando">
-    <button name="tool" value="fan"><%= translate 'classify.fanTool' %></button>
-    <button name="tool" value="interest"><%= translate 'classify.interestTool' %></button>
+    <label>
+      <input type="radio" name="tool" value="fan" checked="checked">
+      <span class="label"><%= translate 'classify.fanTool' %></span>
+    </label>
+
+    <label>
+      <input type="radio" name="tool" value="interest">
+      <span class="label"><%= translate 'classify.interestTool' %></span>
+    </label>
   </div>
 </div>
 
