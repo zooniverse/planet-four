@@ -12,12 +12,23 @@ class Navigation extends Controller
 
   constructor: ->
     super
+
     @el.html template @
+
     $(window).on 'hashchange', @onHashChange
+
+    @onHashChange()
 
   onClickTool: (e) ->
     doc.trigger 'change-classification-tool', [$(e.target).val()]
 
   onHashChange: =>
+    $('a.active, [data-link].active').removeClass 'active'
+
+    segments = location.hash.split '/'
+    hashes = (segments[..i].join '/' for _, i in segments)
+
+    for hash in hashes
+      $("a[href='#{hash}'], [data-link='#{hash}']").addClass 'active'
 
 module.exports = Navigation

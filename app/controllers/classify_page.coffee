@@ -5,6 +5,8 @@ template = require 'views/classify_page'
 MarkingSurface = require 'controllers/marking_surface'
 $ = require 'jqueryify'
 
+html = $(document.body.parentNode)
+
 tools =
   fan: FanTool
   interest: CircleTool
@@ -29,5 +31,13 @@ class ClassifyPage extends Controller
     $(document).on 'change-classification-tool', (e, tool) =>
       console.log 'Got tool', tool, tools[tool]
       @markingSurface.setTool tools[tool]
+
+  activate: ->
+    super
+    html.addClass 'on-classify'
+
+  deactivate: ->
+    super
+    html.removeClass 'on-classify'
 
 module.exports = ClassifyPage
