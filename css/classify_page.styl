@@ -1,10 +1,37 @@
+// Tools are actually in the app navigation.
 .classification-tools {
   label {
+    cursor: pointer;
     display: block;
 
-    > input {
+    input {
       position: absolute;
       visibility: hidden;
+    }
+  }
+
+  .label {
+    border-top: 1px solid rgba($white, 0.2);
+    display: block;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px 0;
+    text-align: center;
+
+    &:hover {
+      background: rgba($black, 0.2);
+    }
+  }
+
+  :checked + .label {
+    background: rgba($white, 0.1);
+  }
+
+  button {
+    @extends #push-button;
+
+    &[name="finish"] {
+      margin-top: 5px;
     }
   }
 }
