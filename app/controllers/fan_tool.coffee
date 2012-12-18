@@ -140,7 +140,7 @@ class FanTool extends MarkingTool
         left: ((@mark.source[0] + spreadBPos.x) / 2) - elWidth
         top: (@mark.source[1] + spreadBPos.y) / 2
 
-      else 
+      else
         left: 0
         top: 0
 

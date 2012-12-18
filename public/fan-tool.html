@@ -23,16 +23,32 @@
   <body>
     <div id="marking-surface"></div>
 
+    <div style="text-align: center">
+      <button name="tool" value="fan">Fan</button>
+      <button name="tool" value="circle">Circle</button>
+    </div>
+
     <script src="application.js"></script>
     <script>
       (function() {
         var MarkingSurface = require('controllers/marking_surface');
         var FanTool = require('controllers/fan_tool');
+        var CircleTool = require('controllers/circle_tool');
         var $ = require('jqueryify');
 
         window.m = new MarkingSurface({
           el: $('#marking-surface'),
-          tool: FanTool
+          tool: CircleTool
+        });
+
+        var tools = {
+          fan: FanTool,
+          circle: CircleTool
+        };
+
+        $(document).on('click', 'button[name="tool"]', function(e) {
+          var tool = $(e.target).val();
+          window.m.setTool(tools[tool]);
         });
       }());
     </script>

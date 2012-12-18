@@ -1,5 +1,5 @@
 FanTool = require 'controllers/fan_tool'
-# CircleTool = require 'controllers/circle_tool'
+CircleTool = require 'controllers/circle_tool'
 {Controller} = require 'spine'
 template = require 'views/classify_page'
 MarkingSurface = require 'controllers/marking_surface'
@@ -7,7 +7,7 @@ $ = require 'jqueryify'
 
 tools =
   fan: FanTool
-  # interest: CircleTool
+  interest: CircleTool
 
 class ClassifyPage extends Controller
   className: 'classify-page'
