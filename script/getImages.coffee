@@ -44,5 +44,6 @@ class ImageFetecher
 				if @done == @total
 					process.exit()
 
+fs.mkdirSync("./data")
 ImageFetecher.fetchImages("./data")
 
