@@ -4,6 +4,7 @@ ClassificationTools = require 'controllers/classification_tools'
 MarkingSurface = require 'controllers/marking_surface'
 FanTool = require 'controllers/fan_tool'
 $ = require 'jqueryify'
+Subject = require 'models/subject'
 
 html = $(document.body.parentNode)
 
