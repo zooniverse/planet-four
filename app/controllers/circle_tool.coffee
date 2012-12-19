@@ -17,9 +17,9 @@ class CircleTool extends MarkingTool
   constructor: ->
     super
 
-    @spread = @createTarget new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.spread
-    @radius = new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.realLine
-    @bounding = new Kinetic.Circle $.extend {name: 'bounding'}, style.guideLine
+    @spread = @createTarget new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.diamond
+    @radius = new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.dash
+    @bounding = new Kinetic.Circle $.extend {name: 'bounding'}, style.line
 
     @group = new Kinetic.Group
 

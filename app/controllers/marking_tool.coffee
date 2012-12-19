@@ -19,6 +19,8 @@ class MarkingTool extends Module
 
   cursors: null
 
+  targetMin: 15
+
   layer: null
 
   constructor: (params = {}) ->
@@ -82,13 +84,15 @@ class MarkingTool extends Module
       onDrag = @["on drag #{name}"]
 
       if typeof onDrag is 'function'
-        e.cancelBubble = true
         e.preventDefault()
-        e.stopPropagation()
 
         doc.on 'mousemove touchmove', onDrag
         doc.one 'mouseup touchend', =>
           doc.off 'mousemove touchmove', onDrag
+
+  'on mousedown': (e) ->
+    e.stopPropagation() # TODO: Prevent default instead (broke on touch?).
+    @select()
 
   render: =>
     # Draw dots and lines or whatever.
@@ -121,10 +125,9 @@ class MarkingTool extends Module
     y: e.pageY - top
 
   createTarget: (shape) ->
-    minTarget = 20
     naturalTarget = shape.getRadius() + 5
     group = new Kinetic.Group
-    target = new Kinetic.Circle $.extend {name: shape.getName(), radius: Math.max minTarget, naturalTarget}, style.target
+    target = new Kinetic.Circle $.extend {name: shape.getName(), radius: Math.max @targetMin, naturalTarget}, style.target
     group.add target
     group.add shape
     group

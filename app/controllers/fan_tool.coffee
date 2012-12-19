@@ -20,14 +20,14 @@ class FanTool extends MarkingTool
     super
 
     @dots =
-      distance: @createTarget new Kinetic.Circle $.extend {name: 'distance'}, style.distance
-      spreadA: @createTarget new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.spread
-      spreadB: @createTarget new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.spread
+      distance: @createTarget new Kinetic.Circle $.extend {name: 'distance'}, style.circle
+      spreadA: @createTarget new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.diamond
+      spreadB: @createTarget new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.diamond
 
     @lines =
-      distance: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.realLine
-      spread: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.realLine
-      bounding: new Kinetic.Path $.extend {name: 'bounding'}, style.guideLine
+      distance: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.dash
+      spread: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.dash
+      bounding: new Kinetic.Path $.extend {name: 'bounding'}, style.line
 
     @group = new Kinetic.Group
 
@@ -37,16 +37,17 @@ class FanTool extends MarkingTool
     @lines.bounding.moveToBottom()
     @layer.add @group
 
-    @el = $(optionsTemplate @)
-    @el.css position: 'absolute'
-    @el.appendTo @stage.getContainer()
-    @el.on 'mousedown', @['on mousedown']
+    # @el = $(optionsTemplate @)
+    # @el.css position: 'absolute'
+    # @el.appendTo @stage.getContainer()
+    # @el.on 'mousedown', @['on mousedown']
 
   onFirstClick: ([x, y]) ->
     {width, height} = @stage.getSize()
 
     @mark.set
       source: [x * width, y * height]
+      spread: 20
 
     @onFirstDrag [x, y]
 
@@ -58,12 +59,6 @@ class FanTool extends MarkingTool
 
     dummyEvent = pageX: x, pageY: y, preventDefault: ->
     @['on drag distance'] dummyEvent
-
-    spread = @mark.distance / 5
-    @mark.set {spread}
-
-  'on mousedown': (e) =>
-    @select()
 
   sourceOffset: null
   'on drag bounding': (e) =>
@@ -107,10 +102,10 @@ class FanTool extends MarkingTool
     @lines.distance.setPoints [{x: 0, y: 0}, {x: @mark.distance, y: 0}]
     @lines.spread.setPoints [{x: @mark.distance, y: -@mark.spread}, {x: @mark.distance, y: +@mark.spread}]
     @lines.bounding.setData """
-      M 15 -5
+      M 5 -5
       L #{@mark.distance} #{-@mark.spread}
       A 1 1 0 1 1 #{@mark.distance} #{+@mark.spread}
-      L 15 5
+      L 5 5
       Z
     """
 
@@ -119,29 +114,29 @@ class FanTool extends MarkingTool
 
     spreadAPos = @dots.spreadA.getAbsolutePosition()
     spreadBPos = @dots.spreadB.getAbsolutePosition()
-    elWidth = @el.width()
-    elHeight = @el.height()
+    # elWidth = @el.width()
+    # elHeight = @el.height()
 
-    @el.css switch
-      when -90 < @mark.angle <= 0 # Quadrant I
-        left: ((@mark.source[0] + spreadAPos.x) / 2) - elWidth
-        top: (@mark.source[1] + spreadAPos.y) / 2 - elHeight
+    # @el.css switch
+    #   when -90 < @mark.angle <= 0 # Quadrant I
+    #     left: ((@mark.source[0] + spreadAPos.x) / 2) - elWidth
+    #     top: (@mark.source[1] + spreadAPos.y) / 2 - elHeight
 
-      when -180 < @mark.angle <= -90 # Quadrant II
-        left: (@mark.source[0] + spreadBPos.x) / 2
-        top: (@mark.source[1] + spreadBPos.y) / 2 - elHeight
+    #   when -180 < @mark.angle <= -90 # Quadrant II
+    #     left: (@mark.source[0] + spreadBPos.x) / 2
+    #     top: (@mark.source[1] + spreadBPos.y) / 2 - elHeight
 
-      when 90 < @mark.angle <= 180 # Quadrant III
-        left: (@mark.source[0] + spreadAPos.x) / 2
-        top: (@mark.source[1] + spreadAPos.y) / 2
+    #   when 90 < @mark.angle <= 180 # Quadrant III
+    #     left: (@mark.source[0] + spreadAPos.x) / 2
+    #     top: (@mark.source[1] + spreadAPos.y) / 2
 
-      when 0 < @mark.angle <= 90 # Quadrant IV
-        left: ((@mark.source[0] + spreadBPos.x) / 2) - elWidth
-        top: (@mark.source[1] + spreadBPos.y) / 2
+    #   when 0 < @mark.angle <= 90 # Quadrant IV
+    #     left: ((@mark.source[0] + spreadBPos.x) / 2) - elWidth
+    #     top: (@mark.source[1] + spreadBPos.y) / 2
 
-      else
-        left: 0
-        top: 0
+    #   else
+    #     left: 0
+    #     top: 0
 
     super
 
@@ -149,20 +144,18 @@ class FanTool extends MarkingTool
     dot.show() for _, dot of @dots
     @lines.distance.show()
     @lines.spread.show()
-    @lines.bounding.setStrokeWidth style.guideLine.strokeWidth
-    @el.show().css display: ''
+    # @el.show().css display: ''
     super
 
   deselect: ->
     dot.hide() for _, dot of @dots
     @lines.distance.hide()
     @lines.spread.hide()
-    @lines.bounding.setStrokeWidth 0
-    @el.hide()
+    # @el.hide()
     super
 
   remove: ->
-    @el.remove()
+    # @el.remove()
     super
 
 module.exports = FanTool

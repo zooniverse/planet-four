@@ -3,37 +3,29 @@ module.exports =
     fill: 'gray'
     stroke: 'white'
     strokeWidth: 1
-    opacity: 0.125
+    opacity: 0.01
 
-  source:
-    radius: 5
-    fill: 'black'
-    stroke: 'white'
-    strokeWidth: 2
-
-  distance:
+  circle:
     radius: 5
     rotationDeg: 90
     fill: 'black'
     stroke: 'white'
     strokeWidth: 2
 
-  spread:
+  diamond:
     sides: 4
     radius: 5
     fill: 'white'
-    stroke: 'white'
-    strokeWidth: 2
 
-  realLine:
+  dash:
     stroke: 'white'
     strokeWidth: 1
     dashArray: [5, 5]
 
-  guideLine:
-    fill: 'rgba(0, 255, 0, 0.25)'
+  line:
+    fill: 'rgba(127, 127, 127, 0.01)'
     stroke: 'white'
-    strokeWidth: 2
+    strokeWidth: 1
 
   cursors:
     distance: 'crosshair'

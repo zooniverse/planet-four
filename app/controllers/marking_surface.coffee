@@ -48,6 +48,13 @@ class MarkingSurface extends Controller
   onMouseDown: (e) =>
     return unless @tool?
 
+    if 'touches' of e.originalEvent
+      # TODO: How can you tell if a touchstart default has been prevented?
+      # Stopping propagation at the tool level for now.
+      # return if e.originalEvent.defaultPrevented
+    else
+      return if e.isDefaultPrevented()
+
     e.preventDefault()
 
     @el.focus()

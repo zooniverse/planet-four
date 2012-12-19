@@ -7,14 +7,15 @@ class Mark extends Module
   constructor: (params = {}) ->
     @[property] = value for own property, value of params when property of @
 
-  set: (property, value) ->
+  set: (property, value, {fromMany} = {}) ->
     if typeof property is 'string'
-      @[property] = value
+      setter = @["set #{property}"]
+      @[property] = if setter then setter.call @, value else value
     else
       map = property
-      @set property, value for property, value of map
+      @set property, value, fromMany: true for property, value of map
 
-    @trigger 'change'
+    @trigger 'change' unless fromMany
 
   destroy: ->
     @trigger 'destroy'
