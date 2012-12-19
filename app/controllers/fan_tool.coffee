@@ -72,7 +72,7 @@ class FanTool extends MarkingTool
     if @sourceOffset
       @mark.set source: [x + @sourceOffset[0], y + @sourceOffset[1]]
     else
-      $(document).one 'mouseup', => @sourceOffset = null
+      $(document).one 'mouseup touchend', => @sourceOffset = null
 
     @sourceOffset = [@mark.source[0] - x, @mark.source[1] - y]
 

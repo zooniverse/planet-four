@@ -39,7 +39,7 @@ class MarkingTool extends Module
     if @cursors?
       body = $(document.body)
 
-      @stage.on 'mouseover', ({shape}) =>
+      @layer.on 'mouseover', ({shape}) =>
         cursor = @cursors[shape.getName()]
         return unless cursor?
 
@@ -49,7 +49,7 @@ class MarkingTool extends Module
           body.on 'mousedown.move', => body.css cursor: '-moz-grabbing' # TODO
           body.on 'mouseup.move', => body.css cursor: 'move'
 
-      @stage.on 'mouseout', =>
+      @layer.on 'mouseout', =>
         body.css cursor: ''
         body.off '.move'
 

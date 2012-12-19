@@ -79,12 +79,8 @@ class MarkingSurface extends Controller
 
       tool.onFirstClick [x, y]
 
-      if 'touches' of e.originalEvent
-        doc.on 'touchmove', @onStageDrag
-        doc.one 'touchend', => doc.off 'touchmove', @onStageDrag
-      else
-        doc.on 'mousemove', @onStageDrag
-        doc.one 'mouseup', => doc.off 'mousemove', @onStageDrag
+      doc.on 'mousemove touchmove', @onStageDrag
+      doc.one 'mouseup touchend', => doc.off 'mousemove touchmove', @onStageDrag
 
   onStageDrag: (e) =>
     {x, y}  = @mouseOffset e
