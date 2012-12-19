@@ -2,6 +2,8 @@
 Kinetic = window.Kinetic
 $ = require 'jqueryify'
 
+doc = $(document)
+
 class MarkingSurface extends Controller
   tool: null
 
@@ -14,6 +16,7 @@ class MarkingSurface extends Controller
 
   events:
     'mousedown': 'onMouseDown'
+    'touchstart': 'onMouseDown'
     'keydown': 'onKeyDown'
 
   constructor: ->
@@ -43,9 +46,10 @@ class MarkingSurface extends Controller
     @stage.setSize width: @el.width(), height: @el.height()
 
   onMouseDown: (e) =>
-    return if e.isDefaultPrevented()
     return unless @tool?
+
     e.preventDefault()
+
     @el.focus()
 
     {x, y} = @mouseOffset e
@@ -75,11 +79,12 @@ class MarkingSurface extends Controller
 
       tool.onFirstClick [x, y]
 
-    doc = $(document)
-
-    doc.on 'mousemove', @onStageDrag
-    doc.one 'mouseup', =>
-      doc.off 'mousemove', @onStageDrag
+      if 'touches' of e.originalEvent
+        doc.on 'touchmove', @onStageDrag
+        doc.one 'touchend', => doc.off 'touchmove', @onStageDrag
+      else
+        doc.on 'mousemove', @onStageDrag
+        doc.one 'mouseup', => doc.off 'mousemove', @onStageDrag
 
   onStageDrag: (e) =>
     {x, y}  = @mouseOffset e
@@ -91,6 +96,9 @@ class MarkingSurface extends Controller
       @selection?.mark.destroy()
 
   mouseOffset: (e) ->
+    e = e.originalEvent if 'originalEvent' of e
+    e = e.touches[0] if 'touches' of e
+
     {left, top} = @el.offset()
     x: (e.pageX - left) / @el.width()
     y: (e.pageY - top) / @el.height()

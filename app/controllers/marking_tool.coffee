@@ -4,6 +4,8 @@ Kinetic = window.Kinetic
 $ = require 'jqueryify'
 style = require 'lib/style'
 
+doc = $(document)
+
 class MarkingTool extends Module
   @extend Events
   @include Events
@@ -32,8 +34,7 @@ class MarkingTool extends Module
 
     # Methods named "on <event-type> <shape-name (optional)>" will be
     # automatically handled. "Drag" is special and handled on mouse down.
-    # TODO: Handle touch events.
-    @layer.on 'mousedown mousemove mouseup click', @handleLayerEvent
+    @layer.on 'mousedown touchstart', @handleLayerEvent
 
     if @cursors?
       body = $(document.body)
@@ -61,22 +62,33 @@ class MarkingTool extends Module
     # Modify the mark.
 
   handleLayerEvent: (e) =>
-    name = e.shape.getName()
+    type = e.type
+    name = e.shape?.getName()
+
+    # TODO: Probably not this.
+    type = switch
+      when 'touchstart' then 'mousedown'
+      when 'touchmove' then 'mousemove'
+      when 'touchend' then 'mouseup'
+      else type
+
+    @["on #{type}"]? e
 
     return unless name
 
-    @["on #{e.type}"]? e
+    @["on #{type} #{name}"]? e
 
-    @["on #{e.type} #{name}"]? e
-
-    if e.type is 'mousedown'
+    if type in ['mousedown', 'touchstart']
       onDrag = @["on drag #{name}"]
 
       if typeof onDrag is 'function'
-        doc = $(document)
-        doc.on 'mousemove', onDrag
-        doc.one 'mouseup', =>
-          doc.off 'mousemove', onDrag
+        e.cancelBubble = true
+        e.preventDefault()
+        e.stopPropagation()
+
+        doc.on 'mousemove touchmove', onDrag
+        doc.one 'mouseup touchend', =>
+          doc.off 'mousemove touchmove', onDrag
 
   render: =>
     # Draw dots and lines or whatever.
@@ -102,6 +114,8 @@ class MarkingTool extends Module
     true
 
   mouseOffset: (e) ->
+    e = e.originalEvent if 'originalEvent' of e
+    e = e.touches[0] if 'touches' of e
     {left, top} = $(@stage.getContainer()).offset()
     x: e.pageX - left
     y: e.pageY - top

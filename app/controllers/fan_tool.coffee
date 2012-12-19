@@ -63,7 +63,6 @@ class FanTool extends MarkingTool
     @mark.set {spread}
 
   'on mousedown': (e) =>
-    e.preventDefault()
     @select()
 
   sourceOffset: null
