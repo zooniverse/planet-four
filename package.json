@@ -9,9 +9,10 @@
     "jqueryify": "~0.0.1",
     "spine": "~1.0.7",
     "nib": "~0.9.0",
-    "cheerio":"*",
-    "request":"*",
+    "cheerio": "*",
+    "request": "*",
     "zooniverse": "git+ssh://git@github.com:zooniverse/Zooniverse.git#master",
-    "zootorial": "~0.0.4"
+    "underscore": "~1.4.3",
+    "zootorial": "~0.0.13"
   }
 }

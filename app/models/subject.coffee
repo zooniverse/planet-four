@@ -1,5 +1,6 @@
 {Model} = require 'spine'
 $ = require 'jqueryify'
+Api = require 'zooniverse/lib/api'
 
 class Subject extends Model
   @configure 'Subject zooniverse_id workflow_ids location coords metadata'.split ' '

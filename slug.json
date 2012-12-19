@@ -5,7 +5,10 @@
     "jqueryify",
     "spine",
     "spine/lib/manager",
-    "spine/lib/route"
+    "spine/lib/route",
+    "zooniverse/lib/api",
+    "underscore/underscore",
+    "zootorial"
   ],
 
   "libs": [
