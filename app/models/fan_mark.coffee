@@ -8,10 +8,15 @@ class FanMark extends Mark
 
   constructor: ->
     super
-    @source ?= [0, 0]
 
-  'set distance': (value) -> Math.max value, 15
+    @set
+      source: @source || [0, 0]
+      distance: @distance
+      angle: @angle
+      spread: @spread
 
-  'set spread': (value) -> Math.max value, 10
+  'set distance': (value) -> Math.max value, 10
+
+  'set spread': (value) -> Math.max value, 5
 
 module.exports = FanMark

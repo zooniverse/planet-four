@@ -45,9 +45,7 @@ class FanTool extends MarkingTool
   onFirstClick: ([x, y]) ->
     {width, height} = @stage.getSize()
 
-    @mark.set
-      source: [x * width, y * height]
-      spread: 20
+    @mark.set source: [x * width, y * height]
 
     @onFirstDrag [x, y]
 
@@ -95,9 +93,10 @@ class FanTool extends MarkingTool
     @mark.set {spread}
 
   render: ->
+    minSpreadPosition = Math.max @targetMin * 2, @mark.spread
     @dots.distance.setPosition @mark.distance, 0
-    @dots.spreadA.setPosition @mark.distance, -@mark.spread
-    @dots.spreadB.setPosition @mark.distance, +@mark.spread
+    @dots.spreadA.setPosition @mark.distance, -minSpreadPosition
+    @dots.spreadB.setPosition @mark.distance, +minSpreadPosition
 
     @lines.distance.setPoints [{x: 0, y: 0}, {x: @mark.distance, y: 0}]
     @lines.spread.setPoints [{x: @mark.distance, y: -@mark.spread}, {x: @mark.distance, y: +@mark.spread}]
@@ -106,7 +105,7 @@ class FanTool extends MarkingTool
       L #{@mark.distance} #{-@mark.spread}
       A 1 1 0 1 1 #{@mark.distance} #{+@mark.spread}
       L 5 5
-      Z
+      A 1 1 0 1 1 5 -5
     """
 
     @group.setPosition @mark.source...

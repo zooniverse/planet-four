@@ -19,7 +19,7 @@ class MarkingTool extends Module
 
   cursors: null
 
-  targetMin: 15
+  targetMin: if 'Touch' of window then 15 else 10
 
   layer: null
 

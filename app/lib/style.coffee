@@ -6,7 +6,7 @@ module.exports =
     opacity: 0.01
 
   circle:
-    radius: 5
+    radius: 7
     rotationDeg: 90
     fill: 'black'
     stroke: 'white'
@@ -14,7 +14,7 @@ module.exports =
 
   diamond:
     sides: 4
-    radius: 5
+    radius: 7
     fill: 'white'
 
   dash:

@@ -7,7 +7,11 @@ class CircleMark extends Mark
 
   constructor: ->
     super
-    @source ?= [0, 0]
+
+    @set
+      source: @source || [0, 0]
+      radius: @radius
+
 
   'set radius': (value) -> Math.max value, 15
 
