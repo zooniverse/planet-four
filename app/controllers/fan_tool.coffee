@@ -151,7 +151,7 @@ class FanTool extends MarkingTool
     @lines.distance.show()
     @lines.spread.show()
     @lines.bounding.setStrokeWidth style.guideLine.strokeWidth
-    @el.show()
+    @el.show().css display: ''
     super
 
   deselect: ->
