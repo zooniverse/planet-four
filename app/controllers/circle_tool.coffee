@@ -46,10 +46,6 @@ class CircleTool extends MarkingTool
     dummyEvent = pageX: x, pageY: y, preventDefault: ->
     @['on drag spread'] dummyEvent
 
-  'on mousedown': (e) =>
-    e.preventDefault()
-    @select()
-
   sourceOffset: null
   'on drag bounding': (e) =>
     {x, y} = @mouseOffset e
