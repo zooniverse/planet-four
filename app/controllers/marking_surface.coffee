@@ -34,8 +34,13 @@ class MarkingSurface extends Controller
 
     @setTool @tool
 
+    setTimeout @onResize
+
   setTool: (tool) ->
     @tool = tool
+
+  onResize: =>
+    @stage.setSize width: @el.width(), height: @el.height()
 
   onMouseDown: (e) =>
     return if e.isDefaultPrevented()
