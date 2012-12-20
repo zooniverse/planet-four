@@ -9,14 +9,24 @@
 </label>
 
 <label>
-  <input type="radio" name="tool" value="interest">
+  <input type="radio" name="tool" value="blotch">
   <span class="label">
     <img src="//placehold.it/30x30&amp;text=Circle" /><br />
+    <%= translate 'classify.blotchTool' %>
+  </span>
+</label>
+
+<label>
+  <input type="radio" name="tool" value="interest">
+  <span class="label">
+    <img src="//placehold.it/30x30&amp;text=Point" /><br />
     <%= translate 'classify.interestTool' %>
   </span>
 </label>
 
-<button name="finish">Finished</button>
+<div class="finish">
+  <button name="finish">Finished</button>
+</div>
 
 <div class="followup" style="display: none;">
   <div class="share">

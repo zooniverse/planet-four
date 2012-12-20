@@ -74,21 +74,23 @@ class MarkingTool extends Module
       when 'touchend' then 'mouseup'
       else type
 
-    @["on #{type}"]? e
-
-    return unless name
-
-    @["on #{type} #{name}"]? e
+    @["on #{type}"]?.call @, arguments...
+    @["on #{type} #{name}"]?.call @, arguments...
 
     if type in ['mousedown', 'touchstart']
-      onDrag = @["on drag #{name}"]
+      onDrag = @["on drag"]
+      onNamedDrag = @["on drag #{name}"]
 
       if typeof onDrag is 'function'
-        e.preventDefault()
+        dragAttached = true
+        doc.on 'mousemove.drag touchmove.drag', => onDrag.call @, arguments...
 
-        doc.on 'mousemove touchmove', onDrag
-        doc.one 'mouseup touchend', =>
-          doc.off 'mousemove touchmove', onDrag
+      if name and typeof onNamedDrag is 'function'
+        dragAttached = true
+        doc.on 'mousemove.drag touchmove.drag', => onNamedDrag.call @, arguments...
+
+      if dragAttached
+        doc.one 'mouseup touchend', => doc.off '.drag'
 
   'on mousedown': (e) ->
     e.stopPropagation() # TODO: Prevent default instead (broke on touch?).
@@ -125,9 +127,15 @@ class MarkingTool extends Module
     y: e.pageY - top
 
   createTarget: (shape) ->
-    naturalTarget = shape.getRadius() + 5
+    naturalTarget = if 'getOuterRadius' of shape
+      shape.getOuterRadius() + 5
+    else if 'getRadius' of shape
+      shape.getRadius() + 5
+
+    targetRadius = Math.max @targetMin, naturalTarget
+
     group = new Kinetic.Group
-    target = new Kinetic.Circle $.extend {name: shape.getName(), radius: Math.max @targetMin, naturalTarget}, style.target
+    target = new Kinetic.Circle $.extend {name: shape.getName(), radius: targetRadius}, style.target
     group.add target
     group.add shape
     group

@@ -8,4 +8,5 @@ module.exports =
 
   classify:
     fanTool: 'Fan'
+    blotchTool: 'Blotch'
     interestTool: 'Something interesting'

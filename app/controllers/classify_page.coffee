@@ -64,6 +64,7 @@ class ClassifyPage extends Controller
 
   onSubjectSelect: =>
     @el.removeClass 'loading'
+    @markingSurface.marks[0].destroy() until @markingSurface.marks.length is 0
     @classification = new Classification subject: Subject.current
     @subjectImg.attr src: Subject.current.location.standard[0]
 
@@ -84,8 +85,6 @@ class ClassifyPage extends Controller
 
   finishClassification: ->
     @classification.send()
-    @markingSurface.marks[0].destroy() until @markingSurface.marks.length is 0
-    @selectNextSubject()
 
   activate: ->
     super

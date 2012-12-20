@@ -3,7 +3,7 @@ $ = require 'jqueryify'
 Api = require 'zooniverse/lib/api'
 
 class Subject extends Model
-  @configure 'Subject zooniverse_id workflow_ids location coords metadata'.split(' ')...
+  @configure 'Subject', 'zooniverse_id', 'workflow_ids', 'location', 'coords', 'metadata'
 
   @queueLength: 5
 

@@ -2,10 +2,12 @@
 template = require 'views/classification_tools'
 FanTool = require 'controllers/fan_tool'
 CircleTool = require 'controllers/circle_tool'
+StarPointTool = require 'controllers/star_point_tool'
 
 tools =
   fan: FanTool
-  interest: CircleTool
+  blotch: CircleTool
+  interest: StarPointTool
 
 class ClassificationTools extends Controller
   classifier: null
@@ -15,6 +17,12 @@ class ClassificationTools extends Controller
   events:
     'change input[name="tool"]': 'onChangeTool'
     'click button[name="finish"]': 'onClickFinish'
+    'click button[name="next"]': 'onClickNext'
+
+  elements:
+    'input[name="tool"]': 'toolInputs'
+    '.finish': 'finishControls'
+    '.followup': 'followupControls'
 
   constructor: ->
     super
@@ -25,5 +33,14 @@ class ClassificationTools extends Controller
 
   onClickFinish: ->
     @classifier.finishClassification()
+    @toolInputs.attr disabled: true
+    @finishControls.hide()
+    @followupControls.show()
+
+  onClickNext: ->
+    @finishControls.show()
+    @toolInputs.attr disabled: false
+    @followupControls.hide()
+    @classifier.selectNextSubject()
 
 module.exports = ClassificationTools
