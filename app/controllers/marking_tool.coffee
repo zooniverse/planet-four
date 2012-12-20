@@ -5,6 +5,7 @@ $ = require 'jqueryify'
 style = require 'lib/style'
 
 doc = $(document)
+body = $(document.body)
 
 class MarkingTool extends Module
   @extend Events
@@ -39,23 +40,14 @@ class MarkingTool extends Module
     @layer.on 'mousedown touchstart', @handleLayerEvent
 
     if @cursors?
-      body = $(document.body)
-
-      @layer.on 'mouseover', ({shape}) =>
-        cursor = @cursors[shape.getName()]
-        return unless cursor?
-
+      @layer.on 'mousemove', ({shape}) =>
+        cursor = @cursors[shape.getName()] || ''
         body.css {cursor}
-
-        if cursor is 'move'
-          body.on 'mousedown.move', => body.css cursor: '-moz-grabbing' # TODO
-          body.on 'mouseup.move', => body.css cursor: 'move'
 
       @layer.on 'mouseout', =>
         body.css cursor: ''
-        body.off '.move'
 
-    # Create dots and lines or whatever.
+    # Then create dots and lines or whatever.
 
   onFirstClick: ([x, y]) ->
     # Modify the mark.

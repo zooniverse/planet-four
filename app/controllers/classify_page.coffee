@@ -66,7 +66,7 @@ class ClassifyPage extends Controller
     @el.removeClass 'loading'
     @markingSurface.marks[0].destroy() until @markingSurface.marks.length is 0
     @classification = new Classification subject: Subject.current
-    @subjectImg.attr src: Subject.current.location.standard[0]
+    @subjectImg.attr src: 'images/example-subject.jpg' # Subject.current.location.standard[0]
 
   onSubjectError: =>
     @el.removeClass 'loading'

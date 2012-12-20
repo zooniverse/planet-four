@@ -12,6 +12,8 @@ class EillipseTool extends MarkingTool
   radiusHandle2: null
   bounding: null
 
+  cursors: style.cursors
+
   constructor: ->
     super
 

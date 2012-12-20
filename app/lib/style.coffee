@@ -20,7 +20,7 @@ module.exports =
   dash:
     stroke: 'white'
     strokeWidth: 1
-    # dashArray: [5, 5]
+    dashArray: [5, 5]
 
   line:
     fill: 'rgba(127, 127, 127, 0.01)'
@@ -30,4 +30,7 @@ module.exports =
   cursors:
     distance: 'crosshair'
     spread: 'crosshair'
+    radius1: 'crosshair'
+    radius2: 'crosshair'
     bounding: 'move'
+    point: 'move'
