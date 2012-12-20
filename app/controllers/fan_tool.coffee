@@ -5,6 +5,10 @@ $ = require 'jqueryify'
 style = require 'lib/style'
 optionsTemplate = require 'views/fan_tool_options'
 
+# Destructure math for convenience.
+{acos, atan2, cos, max, PI, pow, sin, sqrt} = Math
+sq = (n) -> pow n, 2
+
 class FanTool extends MarkingTool
   @mark: FanMark
 
@@ -74,45 +78,73 @@ class FanTool extends MarkingTool
 
     deltaX = x - @mark.source[0]
     deltaY = y - @mark.source[1]
-    angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI)
+    angle = atan2(deltaY, deltaX) * (180 / PI)
 
-    aSquared = Math.pow x - @mark.source[0], 2
-    bSquared = Math.pow y - @mark.source[1], 2
-    distance = Math.sqrt aSquared + bSquared
+    aSquared = sq x - @mark.source[0]
+    bSquared = sq y - @mark.source[1]
+    distance = sqrt aSquared + bSquared
 
     @mark.set {angle, distance}
 
   'on drag spread': (e) =>
     {x, y} = @mouseOffset e
+
+    source = x: @mark.source[0], y: @mark.source[1]
     distance = @dots.distance.getAbsolutePosition()
 
-    aSquared = Math.pow x - distance.x, 2
-    bSquared = Math.pow y - distance.y, 2
-    spread = Math.sqrt aSquared + bSquared
+    aSquaredSD = sq source.x - distance.x
+    bSquaredSD = sq source.y - distance.y
+    sd = @mark.distance
 
-    @mark.set {spread}
+    aSquaredS = sq x - source.x
+    bSquaredS = sq y - source.y
+    sc = sqrt aSquaredS + bSquaredS
+
+    aSquaredD = sq x - distance.x
+    bSquaredD = sq y - distance.y
+    cd = sqrt aSquaredD + bSquaredD
+
+    angleDistanceLengthToMouse = (acos((sq(sd) + sq(sc) - sq(cd)) / (2 * sd * sc)) * (180 / PI))
+
+    @mark.set {spread: angleDistanceLengthToMouse}
 
   render: ->
-    minSpreadPosition = Math.max @targetMin * 2, @mark.spread
-    @dots.distance.setPosition @mark.distance, 0
-    @dots.spreadA.setPosition @mark.distance, -minSpreadPosition
-    @dots.spreadB.setPosition @mark.distance, +minSpreadPosition
+    # The triangle made from distance and spread angle:
+    adjacent = @mark.distance
+    hypotenuse = adjacent / cos @mark.spread / (180 / PI)
+    opposite = hypotenuse * sin @mark.spread / (180 / PI)
 
-    @lines.distance.setPoints [{x: 0, y: 0}, {x: @mark.distance, y: 0}]
-    @lines.spread.setPoints [{x: @mark.distance, y: -@mark.spread}, {x: @mark.distance, y: +@mark.spread}]
+    # NOTE: Inradius is the wrong thing to use, but it's close enough for now.
+    twiceInradius = ((adjacent * opposite) / (adjacent + opposite + hypotenuse)) * 2
+    spreadHandleX = @mark.distance - twiceInradius
+
+    # Don't overlap with the distance handle or the other spread handle.
+    spreadHandlePosition = max @targetMin * 2, twiceInradius
+
+    @dots.distance.setPosition @mark.distance, 0
+    @dots.spreadA.setPosition spreadHandleX, -spreadHandlePosition
+    @dots.spreadB.setPosition spreadHandleX, +spreadHandlePosition
+
+    @lines.distance.setPoints [{x: 5, y: 0}, {x: @mark.distance, y: 0}]
+
+    @lines.spread.setPoints [
+      {x: spreadHandleX, y: -twiceInradius}
+      {x: spreadHandleX, y: +twiceInradius}
+    ]
+
     @lines.bounding.setData """
-      M 5 -5
-      L #{@mark.distance} #{-@mark.spread}
-      A 1 1 0 1 1 #{@mark.distance} #{+@mark.spread}
-      L 5 5
-      A 1 1 0 1 1 5 -5
+      M 5 -2
+      L #{spreadHandleX} #{-twiceInradius}
+      A 1 1 0 1 1 #{spreadHandleX} #{+twiceInradius}
+      L 5 2
+      Z
     """
 
     @group.setPosition @mark.source...
     @group.setRotationDeg @mark.angle
 
-    spreadAPos = @dots.spreadA.getAbsolutePosition()
-    spreadBPos = @dots.spreadB.getAbsolutePosition()
+    # spreadAPos = @dots.spreadA.getAbsolutePosition()
+    # spreadBPos = @dots.spreadB.getAbsolutePosition()
     # elWidth = @el.width()
     # elHeight = @el.height()
 
