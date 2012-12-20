@@ -24,6 +24,6 @@ class ClassificationTools extends Controller
     @classifier.markingSurface.setTool tools[$(e.target).val()]
 
   onClickFinish: ->
-    console.log 'Finished with this subject'
+    @classifier.finishClassification()
 
 module.exports = ClassificationTools

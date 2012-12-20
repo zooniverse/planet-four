@@ -3,13 +3,14 @@ $ = require 'jqueryify'
 Api = require 'zooniverse/lib/api'
 
 class Subject extends Model
-  @configure 'Subject zooniverse_id workflow_ids location coords metadata'.split ' '
+  @configure 'Subject zooniverse_id workflow_ids location coords metadata'.split(' ')...
 
   @queueLength: 5
 
   @current: null
 
   @url: ->
+    # TODO
     '/projects/serengeti/groups/subjects'
 
   @next: =>
@@ -38,11 +39,9 @@ class Subject extends Model
 
     fetcher = new $.Deferred
 
-    request = new $.Deferred
-    mockResponse = ({zooniverse_id: i} for i in [0...number])
-    setTimeout (=> request.resolve mockResponse), 1000
-
+    request = Api.get(@url(), limit: number).deferred
     request.done (rawSubjects) =>
+      window.response = rawSubjects
       try
         subject.save() for subject in @fromJSON rawSubjects
         fetcher.resolve @all()
@@ -53,9 +52,10 @@ class Subject extends Model
 
   @fromJSON: (objects) =>
     instances = super
-    instances = [instances] unless instances instanceof Array
+    instanceList = instances
+    instanceList = [instanceList] unless instanceList instanceof Array
 
-    for instance in instances when instance.location?.standard
+    for instance in instanceList when instance.location?.standard
       standardImage = instance.location.standard
       standardImage = [standardImage] unless standardImage instanceof Array
 
@@ -63,9 +63,12 @@ class Subject extends Model
 
     instances
 
+  @selectTutorial: =>
+    # TODO
+    @create(metadata: tutorial: true).select()
+
   select: ->
     @constructor.current = @
-    @trigger 'select'
 
 module.exports = Subject
-window.Subject = Subject
+window.Subject = Subject unless +location.port < 1024

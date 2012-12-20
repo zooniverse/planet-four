@@ -20,7 +20,7 @@ module.exports =
   dash:
     stroke: 'white'
     strokeWidth: 1
-    dashArray: [5, 5]
+    # dashArray: [5, 5]
 
   line:
     fill: 'rgba(127, 127, 127, 0.01)'

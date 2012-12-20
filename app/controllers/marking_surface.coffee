@@ -1,10 +1,13 @@
-{Controller} = require 'spine'
+{Controller, Events} = require 'spine'
 Kinetic = window.Kinetic
 $ = require 'jqueryify'
 
 doc = $(document)
 
 class MarkingSurface extends Controller
+  @extend Events
+  @include Events
+
   tool: null
 
   stage: null
@@ -64,12 +67,14 @@ class MarkingSurface extends Controller
     if (not @selection) or @selection.isComplete()
       mark = new @tool.mark
       @marks.push mark
+      @trigger 'create-mark', mark
 
       mark.bind 'destroy', =>
         @marks.splice i, 1 for m, i in @marks when m is mark
 
       tool = new @tool {mark, @stage}
       @tools.push tool
+      @trigger 'create-tool', tool
 
       tool.bind 'select', =>
         @selection = tool

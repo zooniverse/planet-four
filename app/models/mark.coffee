@@ -4,6 +4,9 @@ class Mark extends Module
   @extend Events
   @include Events
 
+  type: 'mark'
+  destroyed: false
+
   constructor: (params = {}) ->
     @[property] = value for own property, value of params when property of @
 
@@ -17,7 +20,11 @@ class Mark extends Module
 
     @trigger 'change' unless fromMany
 
+  toJSON: ->
+    {@type}
+
   destroy: ->
     @trigger 'destroy'
+    @destroyed = true
 
 module.exports = Mark
