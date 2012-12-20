@@ -1,12 +1,12 @@
 {Controller} = require 'spine'
 template = require 'views/classification_tools'
 FanTool = require 'controllers/fan_tool'
-CircleTool = require 'controllers/circle_tool'
+EllipseTool = require 'controllers/ellipse_tool'
 StarPointTool = require 'controllers/star_point_tool'
 
 tools =
   fan: FanTool
-  blotch: CircleTool
+  blotch: EllipseTool
   interest: StarPointTool
 
 class ClassificationTools extends Controller
