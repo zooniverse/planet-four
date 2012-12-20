@@ -114,12 +114,12 @@ class FanTool extends MarkingTool
     hypotenuse = adjacent / cos @mark.spread / (180 / PI)
     opposite = hypotenuse * sin @mark.spread / (180 / PI)
 
-    # NOTE: Inradius is the wrong thing to use, but it's close enough for now.
-    twiceInradius = ((adjacent * opposite) / (adjacent + opposite + hypotenuse)) * 2
-    spreadHandleX = @mark.distance - twiceInradius
+    inradius = (adjacent * opposite) / (adjacent + opposite + hypotenuse)
+    toSpreadHandle = sqrt(sq inradius) + inradius
+    spreadHandleX = @mark.distance - toSpreadHandle
 
     # Don't overlap with the distance handle or the other spread handle.
-    spreadHandlePosition = max @targetMin * 2, twiceInradius
+    spreadHandlePosition = max @targetMin * 2, toSpreadHandle
 
     @dots.distance.setPosition @mark.distance, 0
     @dots.spreadA.setPosition spreadHandleX, -spreadHandlePosition
@@ -128,14 +128,14 @@ class FanTool extends MarkingTool
     @lines.distance.setPoints [{x: 5, y: 0}, {x: @mark.distance, y: 0}]
 
     @lines.spread.setPoints [
-      {x: spreadHandleX, y: -twiceInradius}
-      {x: spreadHandleX, y: +twiceInradius}
+      {x: spreadHandleX, y: -toSpreadHandle}
+      {x: spreadHandleX, y: +toSpreadHandle}
     ]
 
     @lines.bounding.setData """
       M 5 -2
-      L #{spreadHandleX} #{-twiceInradius}
-      A 1 1 0 1 1 #{spreadHandleX} #{+twiceInradius}
+      L #{spreadHandleX} #{-toSpreadHandle}
+      A 1 1 0 1 1 #{spreadHandleX} #{+toSpreadHandle}
       L 5 2
       Z
     """
