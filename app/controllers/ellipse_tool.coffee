@@ -19,7 +19,7 @@ class EillipseTool extends MarkingTool
 
     @radiusHandle1 = @createTarget new Kinetic.RegularPolygon $.extend {name: 'radius1'}, style.diamond
     @radiusHandle2 = @createTarget new Kinetic.RegularPolygon $.extend {name: 'radius2'}, style.diamond
-    @radiusPath = new Kinetic.Path style.line
+    @radiusPath = new Kinetic.Path style.dash
     @bounding = new Kinetic.Ellipse $.extend {name: 'bounding', x: 0, y: 0}, style.line
 
     @group = new Kinetic.Group
@@ -79,17 +79,16 @@ class EillipseTool extends MarkingTool
 
     super
 
-  # select: ->
-  #   @spread.show()
-  #   @radius.show()
-  #   super
+  select: ->
+    @radiusHandle1.show()
+    @radiusHandle2.show()
+    @radiusPath.show()
+    super
 
-  # deselect: ->
-  #   @spread.hide()
-  #   @radius.hide()
-  #   super
-
-  # remove: ->
-  #   super
+  deselect: ->
+    @radiusHandle1.hide()
+    @radiusHandle2.hide()
+    @radiusPath.hide()
+    super
 
 module.exports = EillipseTool
