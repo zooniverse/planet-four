@@ -29,23 +29,11 @@ class CircleTool extends MarkingTool
     @spread.moveToTop()
     @layer.add @group
 
-  onFirstClick: ([x, y]) ->
-    {width, height} = @stage.getSize()
+  onFirstClick: (e) ->
+    @mark.set center: @mouseOffset e
 
-    @mark.set center:
-      x: x * width
-      y: y * height
-
-    @onFirstDrag [x, y]
-
-  onFirstDrag: ([x, y]) ->
-    {width, height} = @stage.getSize()
-    {left, top} = $(@stage.getContainer()).offset()
-    x = (x * width) + left
-    y =  (y * height) + top
-
-    dummyEvent = pageX: x, pageY: y, preventDefault: ->
-    @['on drag spread'] dummyEvent
+  onFirstDrag: (e) ->
+    @['on drag spread'] e
 
   'on drag bounding': (e) =>
     @handleDrag e, 'center'

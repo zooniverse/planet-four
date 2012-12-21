@@ -46,23 +46,13 @@ class FanTool extends MarkingTool
     # @el.appendTo @stage.getContainer()
     # @el.on 'mousedown', @['on mousedown']
 
-  onFirstClick: ([x, y]) ->
-    {width, height} = @stage.getSize()
+  onFirstClick: (e) ->
+    @mark.set
+      source: @mouseOffset e
+      angle: 90
 
-    @mark.set source:
-      x: x * width
-      y: y * height
-
-    @onFirstDrag [x, y]
-
-  onFirstDrag: ([x, y]) ->
-    {width, height} = @stage.getSize()
-    {left, top} = $(@stage.getContainer()).offset()
-    x = (x * width) + left
-    y =  (y * height) + top
-
-    dummyEvent = pageX: x, pageY: y, preventDefault: ->
-    @['on drag distance'] dummyEvent
+  onFirstDrag: (e) ->
+    @['on drag distance'] e
 
   'on drag distance': (e) =>
     {x, y} = @mouseOffset e

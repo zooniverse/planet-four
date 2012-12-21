@@ -15,19 +15,11 @@ class PointTool extends MarkingTool
     @dot = @createTarget new Kinetic.Star $.extend {name: 'point', numPoints: 5, innerRadius: 10, outerRadius: 20}, style.line
     @layer.add @dot
 
-  onFirstClick: ->
-    @onFirstDrag arguments...
+  onFirstClick: (e) ->
+    @onFirstDrag e
 
-  onFirstDrag: ([x, y]) ->
-    {width, height} = @stage.getSize()
-    {left, top} = $(@stage.getContainer()).offset()
-
-    x = (x * width) + left
-    y =  (y * height) + top
-
-    dummyEvent = pageX: x, pageY: y, preventDefault: ->
-
-    @['on drag point'] dummyEvent
+  onFirstDrag: (e) ->
+    @['on drag point'] e
 
   'on drag point': (e) ->
     @mark.set @mouseOffset e

@@ -32,22 +32,11 @@ class EillipseTool extends MarkingTool
     @radiusHandle2.moveToTop()
     @layer.add @group
 
-  onFirstClick: ([x, y]) ->
-    {width, height} = @stage.getSize()
+  onFirstClick: (e) ->
+    @mark.set center: @mouseOffset e
 
-    @mark.set
-      center: [x * width, y * height]
-
-    @onFirstDrag [x, y]
-
-  onFirstDrag: ([x, y]) ->
-    {width, height} = @stage.getSize()
-    {left, top} = $(@stage.getContainer()).offset()
-    x = (x * width) + left
-    y =  (y * height) + top
-
-    dummyEvent = pageX: x, pageY: y, preventDefault: ->
-    @['on drag radius1'] dummyEvent
+  onFirstDrag: (e) ->
+    @['on drag radius1'] e
     @mark.set radius2: @mark.radius1 * 0.75
 
   'on drag radius1': (e) =>
@@ -62,12 +51,12 @@ class EillipseTool extends MarkingTool
   dragRadiusHandle: (e) ->
     {x, y} = @mouseOffset e
 
-    deltaX = x - @mark.center[0]
-    deltaY = y - @mark.center[1]
+    deltaX = x - @mark.center.x
+    deltaY = y - @mark.center.y
     angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI)
 
-    aSquared = Math.pow x - @mark.center[0], 2
-    bSquared = Math.pow y - @mark.center[1], 2
+    aSquared = Math.pow x - @mark.center.x, 2
+    bSquared = Math.pow y - @mark.center.y, 2
     radius = Math.sqrt aSquared + bSquared
 
     {angle, radius}

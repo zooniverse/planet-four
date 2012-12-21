@@ -62,8 +62,6 @@ class MarkingSurface extends Controller
 
     @el.focus()
 
-    {x, y} = @mouseOffset e
-
     if (not @selection) or @selection.isComplete()
       mark = new @tool.mark
       @marks.push mark
@@ -91,14 +89,13 @@ class MarkingSurface extends Controller
 
       tool.select()
 
-      tool.onFirstClick [x, y]
+      tool.onFirstClick e
 
       doc.on 'mousemove touchmove', @onStageDrag
       doc.one 'mouseup touchend', => doc.off 'mousemove touchmove', @onStageDrag
 
   onStageDrag: (e) =>
-    {x, y}  = @mouseOffset e
-    @selection.onFirstDrag [x, y]
+    @selection.onFirstDrag e
 
   onKeyDown: (e) ->
     if e.which in [8, 46] # Backspace and delete

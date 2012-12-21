@@ -49,10 +49,10 @@ class MarkingTool extends Module
 
     # Then create dots and lines or whatever.
 
-  onFirstClick: ([x, y]) ->
+  onFirstClick: (e) ->
     # Modify the mark.
 
-  onFirstDrag: ([x, y]) ->
+  onFirstDrag: (e) ->
     # Modify the mark.
 
   handleLayerEvent: (e) =>
