@@ -64,11 +64,16 @@ class Subject extends Model
     instances
 
   @selectTutorial: =>
-    # TODO
-    @create(metadata: tutorial: true).select()
+    tutorialSubject = @create
+      location: standard: 'images/example-subject.jpg' # TODO
+      coords: [0, 0]
+      metadata: tutorial: true
+
+    tutorialSubject.select()
 
   select: ->
     @constructor.current = @
+    @trigger 'selected'
 
 module.exports = Subject
 window.Subject = Subject unless +location.port < 1024

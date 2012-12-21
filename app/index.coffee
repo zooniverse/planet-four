@@ -7,6 +7,7 @@ HomePage = require 'controllers/home_page'
 ClassifyPage = require 'controllers/classify_page'
 AboutPage = require 'controllers/about_page'
 User = require 'zooniverse/lib/models/user'
+TopBar = require 'zooniverse/lib/controllers/top_bar'
 
 Api.init
   host: if !!location.href.match /demo|beta/
@@ -20,6 +21,8 @@ app = {}
 app.container = $('#app')
 
 app.navigation = new Navigation
+
+app.navigation.el.appendTo app.container
 
 app.stack = new Stack
   className: "app-main #{Stack::className}"
@@ -37,11 +40,14 @@ app.stack = new Stack
   default: 'home'
 
 app.stack.classify.classificationTools.el.appendTo app.navigation.classificationToolsContainer
-app.navigation.el.appendTo app.container
 app.stack.el.appendTo app.container
 
-Route.setup()
+app.topBar = new TopBar
+  app: 'serengeti'
+  appName: 'Planet Four'
 
-User.trigger 'sign-in' # TODO: This will be handled by the top bar.
+app.topBar.el.prependTo 'body'
+
+Route.setup()
 
 module.exports = app

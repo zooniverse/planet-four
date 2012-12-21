@@ -42,7 +42,8 @@ class ClassifyPage extends Controller
       steps: tutorialSteps
 
     User.bind 'sign-in', @onUserSignIn
-    Subject.bind 'select'
+
+    Subject.bind 'selected', @onSubjectSelect
 
   onUserSignIn: =>
     tutorialDone = User.current?.project.tutorial_done
@@ -53,15 +54,16 @@ class ClassifyPage extends Controller
       @selectNextSubject() if doingTutorial or not Subject.current?
     else
       if @tutorial?
-        # Subject.selectTutorial()
-        @selectNextSubject()
+        Subject.selectTutorial()
         @tutorial.start()
+        @tutorial.hide() unless @el.hasClass 'active'
       else
         @selectNextSubject()
 
   selectNextSubject: ->
     @el.addClass 'loading'
-    window.next = Subject.next @onSubjectSelect, @onSubjectError
+    next = Subject.next()
+    next.fail @onSubjectError
 
   onSubjectSelect: =>
     @el.removeClass 'loading'
@@ -90,11 +92,11 @@ class ClassifyPage extends Controller
   activate: ->
     super
     html.addClass 'on-classify'
-    # TODO: Show tutorial if we're on it.
+    @tutorial.show() if Subject.current?.metadata.tutorial
 
   deactivate: ->
     super
     html.removeClass 'on-classify'
-    # TODO: Hide tutorial if we're on it.
+    @tutorial.hide() if Subject.current?.metadata.tutorial
 
 module.exports = ClassifyPage
