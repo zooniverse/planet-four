@@ -11,7 +11,7 @@ class EllipseMark extends Mark
     super
 
     @set
-      center: @center || [0, 0]
+      center: @center || {x: 0, y: 0}
       radius: @radius
       radius1: @radius1
       radius2: @radius2

@@ -49,7 +49,9 @@ class FanTool extends MarkingTool
   onFirstClick: ([x, y]) ->
     {width, height} = @stage.getSize()
 
-    @mark.set source: [x * width, y * height]
+    @mark.set source:
+      x: x * width
+      y: y * height
 
     @onFirstDrag [x, y]
 
@@ -62,26 +64,15 @@ class FanTool extends MarkingTool
     dummyEvent = pageX: x, pageY: y, preventDefault: ->
     @['on drag distance'] dummyEvent
 
-  sourceOffset: null
-  'on drag bounding': (e) =>
-    {x, y} = @mouseOffset e
-
-    if @sourceOffset
-      @mark.set source: [x + @sourceOffset[0], y + @sourceOffset[1]]
-    else
-      $(document).one 'mouseup touchend', => @sourceOffset = null
-
-    @sourceOffset = [@mark.source[0] - x, @mark.source[1] - y]
-
   'on drag distance': (e) =>
     {x, y} = @mouseOffset e
 
-    deltaX = x - @mark.source[0]
-    deltaY = y - @mark.source[1]
+    deltaX = x - @mark.source.x
+    deltaY = y - @mark.source.y
     angle = atan2(deltaY, deltaX) * (180 / PI)
 
-    aSquared = sq x - @mark.source[0]
-    bSquared = sq y - @mark.source[1]
+    aSquared = sq x - @mark.source.x
+    bSquared = sq y - @mark.source.y
     distance = sqrt aSquared + bSquared
 
     @mark.set {angle, distance}
@@ -89,7 +80,7 @@ class FanTool extends MarkingTool
   'on drag spread': (e) =>
     {x, y} = @mouseOffset e
 
-    source = x: @mark.source[0], y: @mark.source[1]
+    source = @mark.source
     distance = @dots.distance.getAbsolutePosition()
 
     aSquaredSD = sq source.x - distance.x
@@ -107,6 +98,9 @@ class FanTool extends MarkingTool
     angleDistanceLengthToMouse = (acos((sq(sd) + sq(sc) - sq(cd)) / (2 * sd * sc)) * (180 / PI))
 
     @mark.set {spread: angleDistanceLengthToMouse}
+
+  'on drag bounding': (e) =>
+    @handleDrag e, 'source'
 
   render: ->
     # The triangle made from distance and spread angle:
@@ -140,7 +134,7 @@ class FanTool extends MarkingTool
       Z
     """
 
-    @group.setPosition @mark.source...
+    @group.setPosition @mark.source
     @group.setRotationDeg @mark.angle
 
     # spreadAPos = @dots.spreadA.getAbsolutePosition()

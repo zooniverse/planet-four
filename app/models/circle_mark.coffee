@@ -2,7 +2,7 @@ Mark = require './mark'
 
 class CircleMark extends Mark
   type: 'circle'
-  source: null
+  center: null
   radius: 0
   angle: 0
 
@@ -10,12 +10,12 @@ class CircleMark extends Mark
     super
 
     @set
-      source: @source || [0, 0]
+      center: @center || {x: 0, y: 0}
       radius: @radius
 
   'set radius': (value) -> Math.max value, 15
 
   toJSON: ->
-    {@type, @source, @radius}
+    {@type, @center, @radius}
 
 module.exports = CircleMark

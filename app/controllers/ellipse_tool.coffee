@@ -72,16 +72,8 @@ class EillipseTool extends MarkingTool
 
     {angle, radius}
 
-  sourceOffset: null
   'on drag bounding': (e) =>
-    {x, y} = @mouseOffset e
-
-    if @sourceOffset
-      @mark.set center: [x + @sourceOffset[0], y + @sourceOffset[1]]
-    else
-      $(document).one 'mouseup', => @sourceOffset = null
-
-    @sourceOffset = [@mark.center[0] - x, @mark.center[1] - y]
+    @handleDrag e, 'center'
 
   render: ->
     @radiusHandle1.setPosition @mark.radius1, 0
@@ -93,7 +85,7 @@ class EillipseTool extends MarkingTool
       L #{@mark.radius1} 0
     """
 
-    @group.setPosition @mark.center...
+    @group.setPosition @mark.center
     @group.setRotationDeg @mark.angle
 
     super

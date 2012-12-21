@@ -32,8 +32,9 @@ class CircleTool extends MarkingTool
   onFirstClick: ([x, y]) ->
     {width, height} = @stage.getSize()
 
-    @mark.set
-      source: [x * width, y * height]
+    @mark.set center:
+      x: x * width
+      y: y * height
 
     @onFirstDrag [x, y]
 
@@ -46,26 +47,18 @@ class CircleTool extends MarkingTool
     dummyEvent = pageX: x, pageY: y, preventDefault: ->
     @['on drag spread'] dummyEvent
 
-  sourceOffset: null
   'on drag bounding': (e) =>
-    {x, y} = @mouseOffset e
-
-    if @sourceOffset
-      @mark.set source: [x + @sourceOffset[0], y + @sourceOffset[1]]
-    else
-      $(document).one 'mouseup', => @sourceOffset = null
-
-    @sourceOffset = [@mark.source[0] - x, @mark.source[1] - y]
+    @handleDrag e, 'center'
 
   'on drag spread': (e) =>
     {x, y} = @mouseOffset e
 
-    deltaX = x - @mark.source[0]
-    deltaY = y - @mark.source[1]
+    deltaX = x - @mark.center.x
+    deltaY = y - @mark.center.y
     angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI)
 
-    aSquared = Math.pow x - @mark.source[0], 2
-    bSquared = Math.pow y - @mark.source[1], 2
+    aSquared = Math.pow x - @mark.center.x, 2
+    bSquared = Math.pow y - @mark.center.y, 2
     radius = Math.sqrt aSquared + bSquared
 
     @mark.set {angle, radius}
@@ -75,7 +68,7 @@ class CircleTool extends MarkingTool
     @radius.setPoints [{x: 0, y: 0}, {x: @mark.radius, y: 0}]
     @bounding.setRadius @mark.radius
 
-    @group.setPosition @mark.source...
+    @group.setPosition @mark.center
     @group.setRotationDeg @mark.angle
 
     super

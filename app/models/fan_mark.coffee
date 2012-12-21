@@ -11,7 +11,7 @@ class FanMark extends Mark
     super
 
     @set
-      source: @source || [0, 0]
+      source: @source || {x: 0, y: 0}
       distance: @distance
       angle: @angle
       spread: @spread

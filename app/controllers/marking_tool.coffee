@@ -88,6 +88,24 @@ class MarkingTool extends Module
     e.stopPropagation() # TODO: Prevent default instead (broke on touch?).
     @select()
 
+  mouseDownPos: null
+  handleDrag: (e, property) =>
+    {x, y} = @mouseOffset e
+
+    if @mouseDownPos
+      x = @mouseDownPos.x + x
+      y = @mouseDownPos.y + y
+
+      @mark.set property, {x, y}
+
+    else
+      @mouseDownPos =
+        x: (@mark[property].x || @mark[property][0]) - x
+        y: (@mark[property].y || @mark[property][1]) - y
+
+      $(document).one 'mouseup touchend', =>
+        @mouseDownPos = null
+
   render: =>
     # Draw dots and lines or whatever.
     @layer.draw()
