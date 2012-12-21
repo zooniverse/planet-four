@@ -31,9 +31,11 @@ class CircleTool extends MarkingTool
 
   onFirstClick: (e) ->
     @mark.set center: @mouseOffset e
+    super
 
   onFirstDrag: (e) ->
     @['on drag spread'] e
+    super
 
   'on drag bounding': (e) =>
     @handleDrag e, 'center'

@@ -50,9 +50,11 @@ class FanTool extends MarkingTool
     @mark.set
       source: @mouseOffset e
       angle: 90
+    super
 
   onFirstDrag: (e) ->
     @['on drag distance'] e
+    super
 
   'on drag distance': (e) =>
     {x, y} = @mouseOffset e
@@ -88,6 +90,9 @@ class FanTool extends MarkingTool
     angleDistanceLengthToMouse = (acos((sq(sd) + sq(sc) - sq(cd)) / (2 * sd * sc)) * (180 / PI))
 
     @mark.set {spread: angleDistanceLengthToMouse}
+
+    $(document).one 'mouseup touchend', =>
+      @trigger 'drag-spread'
 
   'on drag bounding': (e) =>
     @handleDrag e, 'source'

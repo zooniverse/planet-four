@@ -34,19 +34,27 @@ class EillipseTool extends MarkingTool
 
   onFirstClick: (e) ->
     @mark.set center: @mouseOffset e
+    super
 
   onFirstDrag: (e) ->
     @['on drag radius1'] e
     @mark.set radius2: @mark.radius1 * 0.75
+    super
 
   'on drag radius1': (e) =>
     {angle, radius} = @dragRadiusHandle e
     @mark.set {angle, radius1: radius}
 
+    $(document).one 'mouseup touchend', =>
+      @trigger 'drag-radius1'
+
   'on drag radius2': (e) =>
     {angle, radius} = @dragRadiusHandle e
     angle += 90
     @mark.set {angle, radius2: radius}
+
+    $(document).one 'mouseup touchend', =>
+      @trigger 'drag-radius2'
 
   dragRadiusHandle: (e) ->
     {x, y} = @mouseOffset e

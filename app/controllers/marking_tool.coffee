@@ -51,9 +51,12 @@ class MarkingTool extends Module
 
   onFirstClick: (e) ->
     # Modify the mark.
+    @trigger 'first-click'
 
   onFirstDrag: (e) ->
     # Modify the mark.
+    doc.one 'mouseup touchend', =>
+      @trigger 'first-drag'
 
   handleLayerEvent: (e) =>
     type = e.type
@@ -128,6 +131,10 @@ class MarkingTool extends Module
 
   isComplete: ->
     true
+
+  trigger: (eventName, etc...) ->
+    Events.trigger.call @, arguments...
+    $(@stage.getContainer()).trigger eventName, [@, etc...]
 
   # Get event position relative to the container.
   mouseOffset: (e) ->

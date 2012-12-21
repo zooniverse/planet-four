@@ -36,5 +36,5 @@
 
   <button name="next">Next</button>
 
-  <a href="#/TODO/talk">Discuss</a>
+  <a href="#/TODO/talk" class="talk">Discuss</a>
 </div>

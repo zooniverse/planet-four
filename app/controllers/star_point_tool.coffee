@@ -17,9 +17,11 @@ class PointTool extends MarkingTool
 
   onFirstClick: (e) ->
     @onFirstDrag e
+    super
 
   onFirstDrag: (e) ->
     @['on drag point'] e
+    super
 
   'on drag point': (e) ->
     @mark.set @mouseOffset e
