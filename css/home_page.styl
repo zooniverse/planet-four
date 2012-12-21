@@ -10,23 +10,26 @@
 
 @keyframes float-around {
   0% {
-    margin: -10px 0 0 -20px;
+    margin: -30px 60px 0 0;
+    transform: rotate(180deg);
   }
 
   25% {
-    margin: 10px 0 0 10px;
+    margin: 30px 0 0 0;
   }
 
   50% {
-    margin: -10px 0 0 20px;
+    margin: -30px 0 0 0;
   }
 
   75% {
-    margin: 10px 0 0 -10px;
+    margin: 30px 60px 0 0;
+    transform: rotate(200deg);
   }
 
   100% {
-    margin: -10px 0 0 -20px;
+    margin: -30px 60px 0 0;
+    transform: rotate(180deg);
   }
 }
 
@@ -37,7 +40,6 @@
   position: relative;
 
   .planet {
-    // animation: rotate 120s linear infinite;
     background: url("images/home/mars-map.jpg") 125% 0;
     background-size: cover;
     border-radius: 50%;
@@ -50,14 +52,21 @@
     width: 800px;
   }
 
+  &.active .planet {
+    animation: rotate 120s linear infinite;
+  }
+
   .satellite {
-    // animation: float-around 30s ease-in-out infinite;
     background: url("images/home/satellite.png");
     height: 102px;
     position: absolute;
     right: 40px;
     top: 100px;
     width: 78px;
+  }
+
+  &.active .satellite {
+    animation: float-around 15s ease-in-out infinite;
   }
 
   .content {
