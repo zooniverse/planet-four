@@ -2,7 +2,9 @@
   background: $black;
   border-radius: 5px;
   color: $white;
+  max-width: 33%;
   padding: 20px;
+  transition: left 0.5s ease-in-out, top 0.33s ease-in-out;
 
   button[name="close"] {
     position: absolute;
@@ -13,4 +15,21 @@
   p {
     margin: 0 0 10px;
   }
+
+  .header {
+    font-weight: bold;
+  }
+
+  .footer {
+    text-align: center;
+
+    button {
+      @extend #standard-button;
+    }
+  }
+}
+
+.zootorial-focuser {
+  transition: opacity 0.5s ease-in-out;
+  background: rgba($black, 0.5);
 }

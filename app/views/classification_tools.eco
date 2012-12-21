@@ -1,6 +1,6 @@
 <% translate = require 'lib/translate' %>
 
-<label>
+<label class="for-fan">
   <input type="radio" name="tool" value="fan" checked="checked">
   <span class="label">
     <img src="//placehold.it/80x30&amp;text=Fan" /><br />
@@ -8,7 +8,7 @@
   </span>
 </label>
 
-<label>
+<label class="for-blotch">
   <input type="radio" name="tool" value="blotch">
   <span class="label">
     <img src="//placehold.it/30x30&amp;text=Circle" /><br />
@@ -16,7 +16,7 @@
   </span>
 </label>
 
-<label>
+<label class="for-interest">
   <input type="radio" name="tool" value="interest">
   <span class="label">
     <img src="//placehold.it/30x30&amp;text=Point" /><br />

@@ -38,8 +38,8 @@ class ClassifyPage extends Controller
 
     @markingSurface.bind 'create-mark', @onCreateMark
 
-    # @tutorial = new Tutorial
-    #   steps: tutorialSteps
+    @tutorial = new Tutorial
+      steps: tutorialSteps
 
     User.bind 'sign-in', @onUserSignIn
     Subject.bind 'select'
@@ -53,7 +53,8 @@ class ClassifyPage extends Controller
       @selectNextSubject() if doingTutorial or not Subject.current?
     else
       if @tutorial?
-        Subject.selectTutorial()
+        # Subject.selectTutorial()
+        @selectNextSubject()
         @tutorial.start()
       else
         @selectNextSubject()
