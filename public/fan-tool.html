@@ -26,24 +26,32 @@
     <div style="text-align: center">
       <button name="tool" value="fan">Fan</button>
       <button name="tool" value="circle">Circle</button>
+      <button name="tool" value="ellipse">Ellipse</button>
+      <button name="tool" value="star">Star</button>
     </div>
 
     <script src="application.js"></script>
     <script>
       (function() {
+        Kinetic.Global.warn = function() {};
+
         var MarkingSurface = require('controllers/marking_surface');
         var FanTool = require('controllers/fan_tool');
         var CircleTool = require('controllers/circle_tool');
+        var EllipseTool = require('controllers/ellipse_tool');
+        var StarPointTool = require('controllers/star_point_tool');
         var $ = require('jqueryify');
 
         window.m = new MarkingSurface({
           el: $('#marking-surface'),
-          tool: CircleTool
+          tool: FanTool
         });
 
         var tools = {
           fan: FanTool,
-          circle: CircleTool
+          circle: CircleTool,
+          ellipse: EllipseTool,
+          star: StarPointTool
         };
 
         $(document).on('click', 'button[name="tool"]', function(e) {

@@ -111,6 +111,7 @@ class MarkingTool extends Module
   isComplete: ->
     true
 
+  # Get event position relative to the container.
   mouseOffset: (e) ->
     e = e.originalEvent if 'originalEvent' of e
     e = e.touches[0] if 'touches' of e
