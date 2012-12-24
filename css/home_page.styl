@@ -10,26 +10,33 @@
 
 @keyframes float-around {
   0% {
-    margin: -30px 60px 0 0;
-    transform: rotate(180deg);
+    margin-left: -400px;
+    transform: scale(0.5);
+    z-index: 3;
   }
 
   25% {
-    margin: 30px 0 0 0;
+    transform: scale(1);
   }
 
   50% {
-    margin: -30px 0 0 0;
+    margin-left: 350px;
+    transform: scale(0.5);
+    z-index: 3;
+  }
+
+  51% {
+    z-index: 1;
   }
 
   75% {
-    margin: 30px 60px 0 0;
-    transform: rotate(200deg);
+    transform: scale(0.25);
   }
 
   100% {
-    margin: -30px 60px 0 0;
-    transform: rotate(180deg);
+    margin-left: -400px;
+    transform: scale(0.5);
+    z-index: 1;
   }
 }
 
@@ -50,6 +57,7 @@
     position: absolute;
     top: 0;
     width: 800px;
+    z-index: 2;
   }
 
   &.active .planet {
@@ -60,13 +68,13 @@
     background: url("images/home/satellite.png");
     height: 102px;
     position: absolute;
-    right: 40px;
-    top: 100px;
+    left: 50%;
+    top: 50px;
     width: 78px;
   }
 
   &.active .satellite {
-    animation: float-around 15s ease-in-out infinite;
+    animation: float-around 25s ease-in-out infinite;
   }
 
   .content {
