@@ -2,7 +2,8 @@
 
 <div class="logo section">
   <a href="#/home" class="navigation-logo">
-    <strong>Mars</strong> Fan Club
+    <span class="planet">Planet</span>
+    <span class="four">Four</span>
   </a>
 </div>
 
