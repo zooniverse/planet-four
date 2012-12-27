@@ -26,6 +26,11 @@
     background: rgba($white, 0.1);
   }
 
+  :disabled + .label {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   button {
     @extends #push-button;
 
