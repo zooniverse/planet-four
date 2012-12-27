@@ -1,28 +1,6 @@
-{Controller} = require 'spine'
 {Stack} = require 'spine/lib/manager'
+SubPage = require './sub_page'
 translate = require 'lib/translate'
-
-class SubPage extends Controller
-  className: 'sub-page'
-
-  content: ''
-
-  constructor: ->
-    super
-    @html @content
-
-  activate: ->
-    super
-
-    # Activate the parent stack and deactivate the parent stack's siblings.
-    for controller of @stack.stack.controllers
-      controller = @stack.stack[controller]
-      return unless controller?
-
-      if controller is @stack
-        controller.activate()
-      else
-        controller.deactivate()
 
 class AboutPage extends Stack
   className: "#{Stack::className} about-page"
