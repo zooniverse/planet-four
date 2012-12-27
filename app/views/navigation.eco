@@ -16,7 +16,7 @@
 </div>
 
 <div class="about section" data-link="#/about">
-  <a href="#/about">About</a>
+  <a href="#/about"><%= translate 'navigation.about.root' %></a>
 
   <div class="sub-nav expando">
     <a href="#/about/research">The Research</a>
@@ -27,8 +27,13 @@
   </div>
 </div>
 
-<div class="profile section">
-  <a href="#/profile"><%= translate 'navigation.profile' %></a>
+<div class="profile section" data-link="#/profile">
+  <a href="#/profile/recents"><%= translate 'navigation.profile.root' %></a>
+
+  <div class="sub-nav expando">
+    <a href="#/profile/recents"><%= translate 'navigation.profile.recents' %></a>
+    <a href="#/profile/favorites"><%= translate 'navigation.profile.favorites' %></a>
+  </div>
 </div>
 
 <div class="talk section">

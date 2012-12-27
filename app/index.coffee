@@ -6,6 +6,7 @@ Route = require 'spine/lib/route'
 HomePage = require 'controllers/home_page'
 ClassifyPage = require 'controllers/classify_page'
 AboutPage = require 'controllers/about_page'
+ProfilePage = require 'controllers/profile_page'
 User = require 'zooniverse/lib/models/user'
 TopBar = require 'zooniverse/lib/controllers/top_bar'
 
@@ -31,11 +32,13 @@ app.stack = new Stack
     home: HomePage
     classify: ClassifyPage
     about: AboutPage
+    profile: ProfilePage
 
   routes:
     '/home': 'home'
     '/classify': 'classify'
     '/about': 'about'
+    '/profile': 'profile'
 
   default: 'home'
 

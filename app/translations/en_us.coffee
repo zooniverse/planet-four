@@ -1,8 +1,12 @@
 module.exports =
   navigation:
     classify: 'Classify'
-    about: 'About'
-    profile: 'Profile'
+    about:
+      root: 'About'
+    profile:
+      root: 'Profile'
+      recents: 'Recents'
+      favorites: 'Favorites'
     discuss: 'Discuss'
     blog: 'Blog'
 
@@ -62,3 +66,6 @@ module.exports =
       <p>This is Stargazing Live.</p>
     '''
 
+  profile:
+    noRecents: 'Nothing has been marked as a favorite!'
+    noFavorites: 'You have no recent classifications!'

@@ -75,5 +75,8 @@ class Subject extends Model
     @constructor.current = @
     @trigger 'selected'
 
+  talkHref: ->
+    "http://talk.planetfour.org/#/subjects/#{@zooniverse_id}"
+
 module.exports = Subject
 window.Subject = Subject unless +location.port < 1024

@@ -1,0 +1,19 @@
+<% Subject = require 'models/subject' %>
+<% Recent = require 'zooniverse/lib/models/recent' %>
+<% Favorite = require 'zooniverse/lib/models/favorite' %>
+
+<div class="item">
+  <a href="<%= Subject::talkHref.call @subjects %>">
+    <img src="<%= @subjects.location.standard[0] %>" />
+  </a>
+
+  <div class="controls">
+    <% if @ instanceof Recent: %>
+      <button name="add-favorite" value="<%= @zooniverse_id %>">&hearts;</button>
+    <% end %>
+
+    <% if @ instanceof Favorite: %>
+      <button name="remove-favorite" value="<%= @zooniverse_id %>">&times;</button>
+    <% end %>
+  </div>
+</div>
