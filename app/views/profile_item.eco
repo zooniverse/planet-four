@@ -9,11 +9,11 @@
 
   <div class="controls">
     <% if @ instanceof Recent: %>
-      <button name="add-favorite" value="<%= @zooniverse_id %>">&hearts;</button>
+      <button name="add-favorite" value="<%= @id %>">&hearts;</button>
     <% end %>
 
     <% if @ instanceof Favorite: %>
-      <button name="remove-favorite" value="<%= @zooniverse_id %>">&times;</button>
+      <button name="remove-favorite" value="<%= @id %>">&times;</button>
     <% end %>
   </div>
 </div>

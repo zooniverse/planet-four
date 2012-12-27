@@ -14,6 +14,8 @@ class ProfileItemPage extends SubPage
   page: 1
 
   events:
+    'click button[name="add-favorite"]': 'onClickAddFavorite'
+    'click button[name="remove-favorite"]': 'onClickRemoveFavorite'
     'click button[name="load-more"]': 'onClickLoadMore'
 
   elements:
@@ -21,9 +23,14 @@ class ProfileItemPage extends SubPage
 
   constructor: ->
     super
+
     @html pageTemplate @
+
     User.bind 'sign-in', @onUserSignIn
+
     @itemClass.bind 'create', @onItemCreate
+    @itemClass.bind 'mark-new', @onItemMarkNew
+    @itemClass.bind 'destroy', @onItemDestroy
 
   onUserSignIn: =>
     @page = 1
@@ -33,8 +40,32 @@ class ProfileItemPage extends SubPage
       @itemClass.fetch()
 
   onItemCreate: (item) =>
-    console.log 'Created', item.created_at, item
-    $(itemTemplate item).appendTo @itemsList
+    itemElement = $(itemTemplate item)
+    itemElement.attr 'data-item': item.id
+    itemElement.appendTo @itemsList
+    item.bind 'change', => itemElement.attr 'data-item': item.id
+
+  onItemMarkNew: (item) =>
+    element = @itemsList.find "[data-item='#{item.id}']"
+    element.prependTo @itemsList
+    element.addClass 'new'
+
+  onItemDestroy: (item) =>
+    @itemsList.find("[data-item='#{item.id}']").remove()
+
+  onClickAddFavorite: ({target}) ->
+    item = @itemClass.find $(target).val()
+
+    attributes = {}
+    attributes[name] = item[name] for name in Favorite.attributes
+
+    favorite = Favorite.create attributes
+    favorite.trigger 'mark-new'
+    favorite.send() # TODO: This doesn't work.
+
+  onClickRemoveFavorite: ({target}) ->
+    favorite = Favorite.find $(target).val()
+    favorite.unfavorite()
 
   onClickLoadMore: ->
     @page += 1

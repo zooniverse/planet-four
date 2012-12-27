@@ -1,0 +1,40 @@
+.profile-page {
+  .sub-page {
+    padding: 30px 20px;
+  }
+
+  .items {
+    clearfix();
+  }
+
+  .item {
+    box-sizing: border-box;
+    float: left;
+    padding: 10px;
+    position: relative;
+    width: 20%;
+
+    &.new {
+      outline: 1px solid green;
+    }
+
+    > a {
+      display: block;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .controls {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  .action {
+    text-align: center;
+  }
+}
