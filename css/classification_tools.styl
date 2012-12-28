@@ -31,11 +31,33 @@
     pointer-events: none;
   }
 
-  button {
-    @extends #push-button;
+  .finish,
+  .followup {
+    margin-top: 15px;
+  }
 
-    &[name="finish"] {
-      margin-top: 5px;
+  button,
+  .followup a {
+    @extends #push-button;
+    display: inline-block;
+    margin: 3px 0;
+    width: 100%;
+
+    &:hover {
+      background: $light-blue;
+    }
+  }
+
+  .share {
+    clearfix();
+
+    a {
+      float: left;
+      width: 48%;
+
+      &:first-child {
+        margin-right: 4%;
+      }
     }
   }
 }

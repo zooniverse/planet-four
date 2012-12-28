@@ -25,9 +25,14 @@ $sans = "Helvetica Neue", Arial, Helvetica, sans-serif;
   background: $light-blue;
   border-radius: 3px;
   box-shadow: 0 1px 0 rgba($white, 0.3) inset, 0 1px 3px $black;
+  color: $white;
   padding: 3px 0;
   text-align: center;
-  width: 100%;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: 0 1px 0 rgba($white, 0.3) inset, 0 100px 0 rgba($white, 0.1) inset, 0 1px 3px $black;
+  }
 
   &:active {
     box-shadow: 0 1px 1px rgba($black, 0.6) inset, 0 100px 0 rgba($black, 0.1) inset;

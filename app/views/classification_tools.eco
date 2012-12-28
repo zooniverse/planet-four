@@ -29,12 +29,10 @@
 </div>
 
 <div class="followup" style="display: none;">
-  <div class="share">
-    <a href="#/TODO/facebook">Facebook</a>
-    <a href="#/TODO/twitter">Twitter</a>
-  </div>
-
   <button name="next">Next</button>
-
-  <a href="#/TODO/talk" class="talk">Discuss</a>
+  <a href="#" class="talk">Discuss</a>
+  <div class="share">
+    <a href="#/TODO/facebook">[f]</a>
+    <a href="#/TODO/twitter">[t]</a>
+  </div>
 </div>
