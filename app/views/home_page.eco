@@ -16,11 +16,11 @@
 
   <div class="columns">
     <div class="one-third counter column">
-      <strong>9270</strong> participants
+      <strong class="participants count">&mdash;</strong> participants
     </div>
 
     <div class="one-third counter column">
-      <strong>1234567</strong> fans measured
+      <strong class="classifications count">&mdash;</strong> images classified
     </div>
 
     <div class="one-third start column">
