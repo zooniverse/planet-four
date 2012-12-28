@@ -3,6 +3,7 @@ template = require 'views/classification_tools'
 FanTool = require 'controllers/fan_tool'
 EllipseTool = require 'controllers/ellipse_tool'
 StarPointTool = require 'controllers/star_point_tool'
+Subject = require 'models/subject'
 
 tools =
   fan: FanTool
@@ -23,10 +24,16 @@ class ClassificationTools extends Controller
     'input[name="tool"]': 'toolInputs'
     '.finish': 'finishControls'
     '.followup': 'followupControls'
+    '.followup .talk': 'talkLink'
 
   constructor: ->
     super
     @html template @
+
+    Subject.bind 'selected', @onSubjectSelect
+
+  onSubjectSelect: =>
+    @talkLink.attr href: Subject.current.talkHref()
 
   onChangeTool: (e) ->
     @classifier.markingSurface.setTool tools[$(e.target).val()]
