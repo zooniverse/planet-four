@@ -75,6 +75,8 @@ class MarkingSurface extends Controller
       @trigger 'create-tool', tool
 
       tool.bind 'select', =>
+        @tools.splice i, 1 for t, i in @tools when t is tool
+        @tools.push tool
         @selection = tool
         t.deselect() for t in @tools when t isnt tool
 
