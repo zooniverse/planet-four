@@ -1,6 +1,6 @@
 {Stack} = require 'spine/lib/manager'
 SubPage = require './sub_page'
-translate = require 'lib/translate'
+translate = require 'translate'
 
 class AboutPage extends Stack
   className: "#{Stack::className} about-page"

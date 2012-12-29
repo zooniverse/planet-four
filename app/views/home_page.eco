@@ -1,4 +1,4 @@
-<% translate = require 'lib/translate' %>
+<% translate = require 'translate' %>
 
 <div class="planet"></div>
 

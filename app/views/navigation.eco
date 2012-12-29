@@ -1,4 +1,4 @@
-<% translate = require 'lib/translate' %>
+<% translate = require 'translate' %>
 
 <div class="logo section">
   <a href="#/home" class="navigation-logo">
@@ -8,7 +8,7 @@
 </div>
 
 <div class="classify section" data-link="#/classify">
-  <a href="#/classify"><%= translate 'navigation.classify' %></a>
+  <a href="#/classify"><%- translate span: 'navigation.classify' %></a>
 
   <div class="expando">
     <!--Insert classification tools here-->
@@ -16,7 +16,7 @@
 </div>
 
 <div class="about section" data-link="#/about">
-  <a href="#/about"><%= translate 'navigation.about.root' %></a>
+  <a href="#/about"><%- translate span: 'navigation.about.root' %></a>
 
   <div class="sub-nav expando">
     <a href="#/about/research">The Research</a>
@@ -28,18 +28,18 @@
 </div>
 
 <div class="profile section" data-link="#/profile">
-  <a href="#/profile/recents"><%= translate 'navigation.profile.root' %></a>
+  <a href="#/profile/recents"><%- translate span: 'navigation.profile.root' %></a>
 
   <div class="sub-nav expando">
-    <a href="#/profile/recents"><%= translate 'navigation.profile.recents' %></a>
-    <a href="#/profile/favorites"><%= translate 'navigation.profile.favorites' %></a>
+    <a href="#/profile/recents"><%- translate span: 'navigation.profile.recents' %></a>
+    <a href="#/profile/favorites"><%- translate span: 'navigation.profile.favorites' %></a>
   </div>
 </div>
 
 <div class="talk section">
-  <a href="#/talk"><%= translate 'navigation.discuss' %></a>
+  <a href="#/talk"><%- translate span: 'navigation.discuss' %></a>
 </div>
 
 <div class="blog section">
-  <a href="#/blog"><%= translate 'navigation.blog' %></a>
+  <a href="#/blog"><%- translate span: 'navigation.blog' %></a>
 </div>

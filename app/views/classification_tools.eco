@@ -1,10 +1,10 @@
-<% translate = require 'lib/translate' %>
+<% translate = require 'translate' %>
 
 <label class="for-fan">
   <input type="radio" name="tool" value="fan" checked="checked">
   <span class="label">
     <img src="//placehold.it/80x30&amp;text=Fan" /><br />
-    <%= translate 'classify.fanTool' %>
+    <%- translate span: 'classify.fanTool' %>
   </span>
 </label>
 
@@ -12,7 +12,7 @@
   <input type="radio" name="tool" value="blotch">
   <span class="label">
     <img src="//placehold.it/30x30&amp;text=Circle" /><br />
-    <%= translate 'classify.blotchTool' %>
+    <%- translate span: 'classify.blotchTool' %>
   </span>
 </label>
 
@@ -20,7 +20,7 @@
   <input type="radio" name="tool" value="interest">
   <span class="label">
     <img src="//placehold.it/30x30&amp;text=Point" /><br />
-    <%= translate 'classify.interestTool' %>
+    <%- translate span: 'classify.interestTool' %>
   </span>
 </label>
 

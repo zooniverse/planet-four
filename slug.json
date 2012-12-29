@@ -12,6 +12,7 @@
     "zooniverse/lib/models/recent",
     "zooniverse/lib/models/favorite",
     "underscore/underscore",
+    "translate",
     "zootorial"
   ],
 
