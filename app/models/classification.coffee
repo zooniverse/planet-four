@@ -14,6 +14,6 @@ class Classification
     annotations: (mark.toJSON() for mark in @marks when not mark.destroyed).concat [{@started}, {@agent}]
 
   send: ->
-    console.info 'Saving classification', @toJSON()
+    console?.info 'Saving classification', @toJSON()
 
 module.exports = Classification

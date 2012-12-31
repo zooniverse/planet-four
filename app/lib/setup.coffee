@@ -1,6 +1,12 @@
 require 'json2ify'
 require 'es5-shimify'
 
+BrowserCheck = require 'zooniverse/lib/controllers/browser_check'
+checker = new BrowserCheck
+checker.support.ie = 9
+checker.check
+
+
 # Load US English by default.
 translate = require 'translate'
 english = require 'lib/en_us'
