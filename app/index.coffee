@@ -1,4 +1,5 @@
 require 'lib/setup'
+
 Api = require 'zooniverse/lib/api'
 Navigation = require 'controllers/navigation'
 Route = require 'spine/lib/route'
@@ -30,7 +31,7 @@ app.stack = new Stack
 
   controllers:
     home: HomePage
-    classify: ClassifyPage
+    classify: class extends ClassifyPage then constructor: -> try super # At least display in IE8.
     about: AboutPage
     profile: ProfilePage
 
