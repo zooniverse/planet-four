@@ -18,6 +18,7 @@
 
   "libs": [
     "node_modules/zooniverse/vendor/base64.js",
-    "app/vendor/kinetic.js"
+    "public/js/canvas_hack.js",
+    "public/js/vendor/kinetic.js"
   ]
 }
