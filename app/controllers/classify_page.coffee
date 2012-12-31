@@ -28,12 +28,10 @@ class ClassifyPage extends Controller
     @html template @
 
     @classificationTools = new ClassificationTools
-      tool: FanTool
       classifier: @
 
     @markingSurface = new MarkingSurface
       el: @subjectContainer
-      tool: FanTool
       classifier: @
 
     @markingSurface.bind 'create-mark', @onCreateMark
@@ -77,9 +75,7 @@ class ClassifyPage extends Controller
 
   onCreateMark: (mark) =>
     # Re-assign the "type" property.
-    mark.set type: switch mark.type
-      when 'circle' then 'blotch'
-      when 'fan' then 'fan'
+    mark.set type: @classificationTools.tool
 
     @classification.marks.push mark
 

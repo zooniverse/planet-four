@@ -13,6 +13,8 @@ tools =
 class ClassificationTools extends Controller
   classifier: null
 
+  tool: null
+
   className: 'classification-tools'
 
   events:
@@ -32,11 +34,15 @@ class ClassificationTools extends Controller
 
     Subject.bind 'selected', @onSubjectSelect
 
+    setTimeout =>
+      @toolInputs.first().click()
+
   onSubjectSelect: =>
     @talkLink.attr href: Subject.current.talkHref()
 
   onChangeTool: (e) ->
-    @classifier.markingSurface.setTool tools[$(e.target).val()]
+    @tool = $(e.target).val()
+    @classifier.markingSurface.setTool tools[@tool]
 
   onClickFinish: ->
     @classifier.finishClassification()

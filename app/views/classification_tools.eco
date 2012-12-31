@@ -1,7 +1,7 @@
 <% translate = require 'translate' %>
 
 <label class="for-fan">
-  <input type="radio" name="tool" value="fan" checked="checked">
+  <input type="radio" name="tool" value="fan">
   <span class="label">
     <img src="//placehold.it/80x30&amp;text=Fan" /><br />
     <%- translate span: 'classify.fanTool' %>
