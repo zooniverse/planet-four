@@ -23,9 +23,9 @@ class FanTool extends MarkingTool
     super
 
     @dots =
-      distance: @createTarget new Kinetic.Circle $.extend {name: 'distance'}, style.circle
-      spreadA: @createTarget new Kinetic.Circle $.extend {name: 'spread'}, style.circle
-      spreadB: @createTarget new Kinetic.Circle $.extend {name: 'spread'}, style.circle
+      distance: new Kinetic.Circle $.extend {name: 'distance'}, style.circle
+      spreadA: new Kinetic.Circle $.extend {name: 'spread'}, style.circle
+      spreadB: new Kinetic.Circle $.extend {name: 'spread'}, style.circle
 
     @lines =
       distance: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.dash

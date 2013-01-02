@@ -10,7 +10,7 @@ class PointTool extends MarkingTool
   constructor: ->
     super
 
-    @shape = @createTarget new Kinetic.Star $.extend {name: 'point', numPoints: 5, innerRadius: 20, outerRadius: 50}, style.line
+    @shape = new Kinetic.Star $.extend {name: 'point', numPoints: 5, innerRadius: 20, outerRadius: 50}, style.line
     @layer.add @shape
 
   onFirstClick: (e) ->

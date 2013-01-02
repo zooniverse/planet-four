@@ -165,18 +165,4 @@ class MarkingTool extends Module
     x: e.pageX - left
     y: e.pageY - top
 
-  createTarget: (shape) ->
-    naturalTarget = if 'getOuterRadius' of shape
-      shape.getOuterRadius() + 5
-    else if 'getRadius' of shape
-      shape.getRadius() + 5
-
-    targetRadius = Math.max @targetMin, naturalTarget
-
-    group = new Kinetic.Group
-    target = new Kinetic.Circle $.extend {name: shape.getName(), radius: targetRadius}, style.target
-    group.add target
-    group.add shape
-    group
-
 module.exports = MarkingTool

@@ -16,8 +16,8 @@ class EillipseTool extends MarkingTool
   constructor: ->
     super
 
-    @radiusHandle1 = @createTarget new Kinetic.RegularPolygon $.extend {name: 'radius1'}, style.diamond
-    @radiusHandle2 = @createTarget new Kinetic.RegularPolygon $.extend {name: 'radius2'}, style.diamond
+    @radiusHandle1 = new Kinetic.Circle $.extend {name: 'radius1'}, style.circle
+    @radiusHandle2 = new Kinetic.Circle $.extend {name: 'radius2'}, style.circle
     @radiusPath = new Kinetic.Path style.dash
     @bounding = new Kinetic.Ellipse $.extend {name: 'bounding', x: 0, y: 0}, style.line
 
