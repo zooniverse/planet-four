@@ -13,7 +13,7 @@ module.exports =
   classify:
     fanTool: 'Fan'
     blotchTool: 'Blotch'
-    interestTool: 'Something interesting'
+    interestTool: 'Interesting feature'
     favorite: 'Mark as favorite'
     notSignedIn: 'Sign in'
     finished: 'Finished'
