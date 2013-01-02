@@ -24,15 +24,28 @@
   </span>
 </label>
 
+<label class="label for-favorite">
+  <span><input type="checkbox" name="favorite" /></span>
+  <%- translate span: 'classify.favorite' %>
+</label>
+
+<label class="for-sign-in">
+  <button name="sign-in"><%- translate span: 'classify.notSignedIn' %></button>
+</label>
+
 <div class="finish">
-  <button name="finish">Finished</button>
+  <button name="finish"><%- translate span: 'classify.finished' %></button>
 </div>
 
 <div class="followup" style="display: none;">
-  <button name="next">Next</button>
-  <a href="#" class="talk">Discuss</a>
+  <button name="next"><%- translate span: 'classify.next' %></button>
+  <a href="#" class="talk">
+    <i class="icon-comments"></i>
+    <%- translate span: 'classify.discuss' %>
+  </a>
+
   <div class="share">
-    <a href="#/TODO/facebook">[f]</a>
-    <a href="#/TODO/twitter">[t]</a>
+    <a href="#/TODO/facebook"><i class="icon-facebook-sign"></i></a>
+    <a href="#/TODO/twitter"><i class="icon-twitter"></i></a>
   </div>
 </div>

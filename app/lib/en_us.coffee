@@ -14,6 +14,11 @@ module.exports =
     fanTool: 'Fan'
     blotchTool: 'Blotch'
     interestTool: 'Something interesting'
+    favorite: 'Mark as favorite'
+    notSignedIn: 'Sign in'
+    finished: 'Finished'
+    next: 'Next'
+    discuss: 'Discuss'
 
   about:
     index: '''
