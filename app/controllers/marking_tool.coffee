@@ -18,7 +18,7 @@ class MarkingTool extends Module
   group: null
   shape: null
   deleteButton: null
-  targetMin: if 'Touch' of window then 15 else 10
+  targetMin: if 'Touch' of window then 22 else 10
 
   events: null
 

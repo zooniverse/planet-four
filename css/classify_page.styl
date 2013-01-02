@@ -9,9 +9,10 @@
       border: 2px solid $white;
       border-radius: 50%;
       color: $white;
+      cursor: pointer;
       display: block;
       height: 14px;
-      line-height: 1;
+      line-height: 10px;
       margin: -7px 0 0 -7px;
       position: absolute;
       text-align: center;
@@ -19,6 +20,14 @@
 
       &:hover {
         background: $red;
+      }
+
+      .touch & {
+        height: 40px;
+        font-size: 30px;
+        line-height: 32px
+        margin: -20px 0 0 -20px;
+        width: 40px;
       }
     }
   }

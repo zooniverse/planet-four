@@ -12,5 +12,7 @@ english = require 'lib/en_us'
 translate.load english
 
 # Ensure jQuery loads before Spine.
-require 'jqueryify'
-require 'spine'
+$ = require 'jqueryify'
+spine = require 'spine'
+
+$('html').addClass 'touch' if 'Touch' of window
