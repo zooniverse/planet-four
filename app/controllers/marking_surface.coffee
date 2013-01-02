@@ -49,6 +49,7 @@ class MarkingSurface extends Controller
     @stage.setSize width: @el.width(), height: @el.height()
 
   onMouseDown: (e) =>
+    return if $(e.target).is '.delete-button'
     return unless @tool?
 
     if 'touches' of e.originalEvent

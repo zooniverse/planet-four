@@ -7,13 +7,11 @@ style = require 'lib/style'
 class PointTool extends MarkingTool
   @mark: PointMark
 
-  dot: null
-
   constructor: ->
     super
 
-    @dot = @createTarget new Kinetic.Star $.extend {name: 'point', numPoints: 5, innerRadius: 10, outerRadius: 20}, style.line
-    @layer.add @dot
+    @shape = @createTarget new Kinetic.Star $.extend {name: 'point', numPoints: 5, innerRadius: 20, outerRadius: 50}, style.line
+    @layer.add @shape
 
   onFirstClick: (e) ->
     @onFirstDrag e
@@ -27,7 +25,12 @@ class PointTool extends MarkingTool
     @mark.set @mouseOffset e
 
   render: ->
-    @dot.setPosition x: @mark.x, y: @mark.y
+    @shape.setPosition x: @mark.x, y: @mark.y
+
+    @deleteButton.css
+      left: "#{@mark.x + 20}px"
+      top: "#{@mark.y + 20}px"
+
     super
 
 module.exports = PointTool

@@ -12,7 +12,6 @@ sq = (n) -> pow n, 2
 class FanTool extends MarkingTool
   @mark: FanMark
 
-  group: null
   dots: null
   lines: null
 
@@ -25,8 +24,8 @@ class FanTool extends MarkingTool
 
     @dots =
       distance: @createTarget new Kinetic.Circle $.extend {name: 'distance'}, style.circle
-      spreadA: @createTarget new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.diamond
-      spreadB: @createTarget new Kinetic.RegularPolygon $.extend {name: 'spread'}, style.diamond
+      spreadA: @createTarget new Kinetic.Circle $.extend {name: 'spread'}, style.circle
+      spreadB: @createTarget new Kinetic.Circle $.extend {name: 'spread'}, style.circle
 
     @lines =
       distance: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.dash
@@ -132,6 +131,11 @@ class FanTool extends MarkingTool
     @group.setPosition @mark.source
     @group.setRotationDeg @mark.angle
 
+    distancePosition = @dots.distance.getAbsolutePosition()
+    @deleteButton.css
+      left: "#{(@mark.source.x + distancePosition.x) / 2}px"
+      top: "#{(@mark.source.y + distancePosition.y) / 2}px"
+
     # spreadAPos = @dots.spreadA.getAbsolutePosition()
     # spreadBPos = @dots.spreadB.getAbsolutePosition()
     # elWidth = @el.width()
@@ -172,10 +176,6 @@ class FanTool extends MarkingTool
     @lines.distance.hide()
     @lines.spread.hide()
     # @el.hide()
-    super
-
-  remove: ->
-    # @el.remove()
     super
 
 module.exports = FanTool

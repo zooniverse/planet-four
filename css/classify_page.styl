@@ -1,7 +1,26 @@
 .classify-page {
   .subject-container {
     height: 648px;
+    position: relative;
     width: 840px;
+
+    .delete-button {
+      background: $black;
+      border: 2px solid $white;
+      border-radius: 50%;
+      color: $white;
+      display: block;
+      height: 14px;
+      line-height: 1;
+      margin: -7px 0 0 -7px;
+      position: absolute;
+      text-align: center;
+      width: 14px;
+
+      &:hover {
+        background: $red;
+      }
+    }
   }
 
   .subject {

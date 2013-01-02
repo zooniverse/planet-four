@@ -7,7 +7,6 @@ style = require 'lib/style'
 class EillipseTool extends MarkingTool
   @mark: EllipseMark
 
-  group: null
   radiusHandle1: null
   radiusHandle2: null
   bounding: null
@@ -84,6 +83,10 @@ class EillipseTool extends MarkingTool
 
     @group.setPosition @mark.center
     @group.setRotationDeg @mark.angle
+
+    @deleteButton.css
+      left: "#{@mark.center.x}px"
+      top: "#{@mark.center.y}px"
 
     super
 

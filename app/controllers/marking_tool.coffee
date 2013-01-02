@@ -15,12 +15,14 @@ class MarkingTool extends Module
 
   mark: null
   stage: null
+  group: null
+  shape: null
+  deleteButton: null
+  targetMin: if 'Touch' of window then 15 else 10
 
   events: null
 
   cursors: null
-
-  targetMin: if 'Touch' of window then 15 else 10
 
   layer: null
 
@@ -34,6 +36,11 @@ class MarkingTool extends Module
 
     @layer = new Kinetic.Layer
     @stage.add @layer
+
+    @deleteButton = $('<span class="delete-button">&times</span>')
+    @deleteButton.css position: 'absolute'
+    @deleteButton.on 'click', @onClickDeleteButton
+    @deleteButton.appendTo @stage.getContainer()
 
     # Methods named "on <event-type> <shape-name (optional)>" will be
     # automatically handled. "Drag" is special and handled on mouse down.
@@ -109,25 +116,39 @@ class MarkingTool extends Module
       $(document).one 'mouseup touchend', =>
         @mouseDownPos = null
 
+  onClickDeleteButton: (e) =>
+    @mark.destroy()
+
   render: =>
     # Draw dots and lines or whatever.
     @layer.draw()
 
   select: ->
     @layer.setOpacity 1
+    @deleteButton.show()
     @trigger 'select'
     @layer.moveToTop()
     @layer.draw()
 
   deselect: ->
     @layer.setOpacity 0.5
+    @deleteButton.hide()
     @trigger 'deselect'
     @layer.draw()
 
   remove: =>
-    @trigger 'remove'
-    @layer.off 'mousedown mousemove mouseup click'
-    @layer.remove()
+    (@group || @shape).transitionTo
+      duration: 0.25
+      easing: 'ease-out'
+      opacity: 0
+      scale: x: 0.001, y: 0.001
+      x: parseFloat @deleteButton.css 'left'
+      y: parseFloat @deleteButton.css 'top'
+      callback: =>
+        @trigger 'remove'
+        @layer.off 'mousedown mousemove mouseup click'
+        @layer.remove()
+        @deleteButton.off().fadeOut 'fast', => @deleteButton.remove()
 
   isComplete: ->
     true
