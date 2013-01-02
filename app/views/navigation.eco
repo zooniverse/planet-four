@@ -1,10 +1,7 @@
 <% translate = require 'translate' %>
 
 <div class="logo section">
-  <a href="#/home" class="navigation-logo">
-    <span class="planet">Planet</span>
-    <span class="four">Four</span>
-  </a>
+  <a href="#/home" class="navigation-logo">Planet Four</a>
 </div>
 
 <div class="classify section" data-link="#/classify">

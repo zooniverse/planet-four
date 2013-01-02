@@ -42,22 +42,14 @@
   }
 
   .navigation-logo {
-    line-height: 1;
-    text-align: center;
-    text-transform: uppercase;
+    background: url("images/logo.png") 18px 8px no-repeat;
+    height: 39px;
+    letter-spacing: -3em;
+    text-indent: -3em;
+    overflow: hidden;
 
-    .planet {
-      display: block;
-      font-size: 14px;
-      letter-spacing: 6px;
-      margin-left: 2px;
-    }
-
-    .four {
-      display: block;
-      font-size: 30px;
-      letter-spacing: 2px;
-      margin-top: -3px;
+    .on-classify & {
+      background-position: 18px -70px;
     }
   }
 
@@ -82,10 +74,10 @@
     text-decoration: none;
 
     &:hover {
-      background: $white;
+      background-color: $white;
 
       .on-classify & {
-        background: transparent;
+        background-color: transparent;
       }
     }
   }
