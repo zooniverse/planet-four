@@ -3,6 +3,7 @@ require 'es5-shimify'
 
 BrowserCheck = require 'zooniverse/lib/controllers/browser_check'
 checker = new BrowserCheck
+checker.support.mozilla = 12
 checker.support.msie = 9
 checker.check()
 
