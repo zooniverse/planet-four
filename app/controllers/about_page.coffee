@@ -1,6 +1,7 @@
 {Stack} = require 'spine/lib/manager'
 SubPage = require './sub_page'
 translate = require 'translate'
+developersView = require 'views/developers'
 
 class AboutPage extends Stack
   className: "#{Stack::className} about-page"
@@ -9,7 +10,7 @@ class AboutPage extends Stack
     index: class extends SubPage then content: translate 'about.index'
     research: class extends SubPage then content: translate 'about.research'
     scientists: class extends SubPage then content: translate 'about.scientists'
-    developers: class extends SubPage then content: translate 'about.developers'
+    developers: class extends SubPage then content: developersView @
     citizenScience: class extends SubPage then content: translate 'about.citizenScience'
     stargazingLive: class extends SubPage then content: translate 'about.stargazingLive'
 

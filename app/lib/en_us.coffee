@@ -59,9 +59,60 @@ module.exports =
       <p>These are the scientists.</p>
     '''
 
-    developers: '''
-      <p>These are the developers.</p>
-    '''
+    developers:
+      heading: 'Development team'
+
+      borden:
+        name: 'Kelly Borden'
+        image: 'images/dev-team/kelly.jpg'
+        description: '''
+          Kelly is an archaeologist by training but an educator by passion.
+          While working at the Museum of Science and Industry and the Adler Planetarium she became an enthusiastic science educator eager to bring science to the masses.
+          When not pondering the wonders of science, Kelly can often be found baking or spending time with her herd of cats – Murray, Ada, & Kepler.
+        '''
+
+      carstensen:
+        name: 'Brian Carstensen'
+        image: 'images/dev-team/brian.jpg'
+        description: '''
+          Brian is a web developer working on the Zooniverse family of projects at the Adler Planearium.
+          Brian has a degree in graphic design from Columbia College in Chicago, and worked in that field for a number of years before finding a niche in web development.
+        '''
+
+      lintott:
+        name: 'Chris Lintott'
+        image: 'images/dev-team/chris.jpg'
+        description: '''
+          Chris Lintott leads the Zooniverse team, and is his copious spare time is a researcher at the University of Oxford specialising in galaxy formation and evolution.
+          A keen popularizer of science, he is best known as co-presenter of the BBC's long running Sky at Night program. He's currently drinking a lot of sherry.
+        '''
+
+      miller:
+        name: 'David Miller'
+        image: 'images/dev-team/david.jpg'
+        description: '''
+          David is passionate about tellings stories through clear, clean, and effective design.
+          Before joining the Zooniverse team as Visual Designer, David worked for the Raindance Film Festival, the News 21 Initiative's Apart From War, and as a freelance designer for his small business, Miller Visual.
+          David is a graduate of the S.I. Newhouse School of Public Communications at Syracuse University.
+        '''
+
+      parrish:
+        name: 'Michael Parrish'
+        image: 'images/dev-team/michael.jpg'
+        description: '''
+          Michael has a degree in Computer Science and has been working with The Zooniverse for the past three years as a Software Developer.
+          Aside from web development; new technologies, science, AI, reptiles, and coffee tend to occupy his attention.
+        '''
+
+      smith:
+        name: 'Arfon Smith'
+        image: 'images/dev-team/arfon.jpg'
+        description: '''
+          Arfon is responsible for leading the development of the Zooniverse, a platform for online citizen science.
+          In August of 2011 he took up the position of Director of Citizen Science at the Adler Planetarium
+          where he continues to lead the software and infrastructure development for the Zooniverse.
+          He studied Chemistry at the University of Sheffield and completed his PhD in Astrochemistry at The University of Nottingham in 2006.
+        '''
 
     citizenScience: '''
       <p>This is Citizen Science.</p>

@@ -1,0 +1,17 @@
+<% translate = require 'translate' %>
+
+<% devs = 'borden carstensen lintott miller parrish smith'.split ' ' %>
+
+<h1><%- translate 'about.developers.heading' %></h1>
+
+<% for dev in devs: %>
+  <div class="team-member">
+    <% imgSrc = try translate "about.developers.#{dev}.image" %>
+
+    <% if imgSrc: %><img src="<%= imgSrc %>" class="photo" /><% end %>
+    <div class="description">
+      <%- translate h2: "about.developers.#{dev}.name" %>
+      <%- translate p: "about.developers.#{dev}.description" %>
+    </div>
+  </div>
+<% end %>
