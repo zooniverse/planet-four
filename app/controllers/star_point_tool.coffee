@@ -7,6 +7,8 @@ style = require 'lib/style'
 class PointTool extends MarkingTool
   @mark: PointMark
 
+  cursors: style.cursors
+
   constructor: ->
     super
 
