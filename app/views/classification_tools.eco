@@ -3,7 +3,7 @@
 <label class="for-fan">
   <input type="radio" name="tool" value="fan">
   <span class="label">
-    <img src="//placehold.it/80x30&amp;text=Fan" /><br />
+    <img src="images/classify/fan.png" /><br />
     <%- translate span: 'classify.fanTool' %>
   </span>
 </label>
@@ -11,7 +11,7 @@
 <label class="for-blotch">
   <input type="radio" name="tool" value="blotch">
   <span class="label">
-    <img src="//placehold.it/30x30&amp;text=Circle" /><br />
+    <img src="images/classify/ellipse.png" /><br />
     <%- translate span: 'classify.blotchTool' %>
   </span>
 </label>
@@ -19,7 +19,8 @@
 <label class="for-interest">
   <input type="radio" name="tool" value="interest">
   <span class="label">
-    <i class="icon-star-empty"></i> <%- translate span: 'classify.interestTool' %>
+    <img src="images/classify/star.png" /><br />
+    <%- translate span: 'classify.interestTool' %>
   </span>
 </label>
 
