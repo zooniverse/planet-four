@@ -104,6 +104,15 @@ module.exports =
           Aside from web development; new technologies, science, AI, reptiles, and coffee tend to occupy his attention.
         '''
 
+      simpson:
+        name: 'Robert Simpson'
+        image: 'images/dev-team/rob.jpg'
+        description: '''
+          Rob is an astrophysicist and web developer working at Oxford University as a member of the Zooniverse Team,
+          creating citizen science projects where anyone can contribute to real science online.
+          Rob loves astronomy, web geekery, improvisational comedy and listening to Radio 4.
+        '''
+
       smith:
         name: 'Arfon Smith'
         image: 'images/dev-team/arfon.jpg'
