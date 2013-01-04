@@ -6,19 +6,32 @@ html {
 }
 
 body {
-  background: url("images/backdrop.jpg") center bottom fixed;
-  background-size: cover;
   box-sizing: border-box;
   border-bottom: 4px solid $blue;
   border-top: 0;
   color: $blue;
-  margin: 0 4px;
+  margin: 0;
   min-height: 100%;
-  padding-bottom: 100px;
+  padding: 0 4px 100px;
 
   .on-classify & {
-    background: $blue;
     padding-bottom: 0;
+  }
+}
+
+#background {
+  background: url("images/backdrop.jpg") center bottom fixed;
+  background-size: cover;
+  bottom: 4px;
+  left: 4px;
+  opacity: 1;
+  position: fixed;
+  right: 4px;
+  top: 4px;
+  transition: opacity 0.5s ease-in-out;
+
+  .on-classify & {
+    opacity: 0;
   }
 }
 

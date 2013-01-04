@@ -24,9 +24,13 @@
   </span>
 </label>
 
-<label class="label for-favorite">
-  <span><input type="checkbox" name="favorite" /></span>
-  <%- translate span: 'classify.favorite' %>
+<label class="for-favorite">
+  <input type="checkbox" name="favorite" />
+  <span class="label">
+    <i class="icon-heart-empty unchecked-icon"></i>
+    <i class="icon-heart checked-icon"></i>
+    <%- translate span: 'classify.favorite' %>
+  </span>
 </label>
 
 <label class="for-sign-in">
@@ -34,11 +38,11 @@
 </label>
 
 <div class="finish">
-  <button name="finish"><i class="icon-angle-right"></i> <%- translate span: 'classify.finished' %></button>
+  <button name="finish"><%- translate span: 'classify.finished' %></button>
 </div>
 
 <div class="followup" style="display: none;">
-  <button name="next"><%- translate span: 'classify.next' %> <i class="icon-angle-right"></i> </button>
+  <button name="next"><%- translate span: 'classify.next' %></button>
 
   <a href="#" class="talk">
     <i class="icon-comments"></i>

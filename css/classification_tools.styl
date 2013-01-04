@@ -1,4 +1,7 @@
 .classification-tools {
+  background: linear-gradient(rgba($black, 0), rgba($black, 0.33), rgba($black, 0));
+  padding: 30px 5px;
+
   label {
     cursor: pointer;
     display: block;
@@ -7,12 +10,6 @@
       position: absolute;
       visibility: hidden;
     }
-
-    &.for-favorite,
-    &.for-sign-in {
-      font-size: 12px;
-      text-align: center;
-    }
   }
 
   .label {
@@ -20,27 +17,39 @@
     display: block;
     font-size: 10px;
     font-weight: bold;
-    padding: 5px 0;
+    padding: 10px 0;
     text-align: center;
+    user-select: none;
 
     &:hover {
       background: rgba($black, 0.2);
     }
 
+    .unchecked-icon {
+      display: inline-block;
+    }
+
+    .checked-icon {
+      color: $red;
+      display: none;
+    }
   }
 
   :checked + .label {
     background: rgba($white, 0.1);
+
+    .unchecked-icon {
+      display: none;
+    }
+
+    .checked-icon {
+      display: inline-block;
+    }
   }
 
   :disabled + .label {
-    opacity: 0.5;
+    opacity: 0.33;
     pointer-events: none;
-  }
-
-  .finish,
-  .followup {
-    // margin-top: 15px;
   }
 
   button,

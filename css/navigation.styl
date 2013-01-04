@@ -1,5 +1,7 @@
 .app-navigation {
   color: $red;
+  height: 585px;
+  transition: color 0.25s ease-in-out;
 
   .on-classify & {
     color: $white;
@@ -10,6 +12,7 @@
     border-top: 1px solid transparent;
     box-shadow: 0 1px 3px -2px rgba($black, 0.5);
     margin-bottom: 5px;
+    transition: background 0.5s ease-in-out;
 
     .on-classify & {
       background: transparent;
@@ -21,17 +24,22 @@
         border-top-color: transparent;
       }
 
+      &.logo {
+        opacity: 1;
+      }
+
       &.classify {
         opacity: 1;
+
+        & > a {
+          opacity: 0.5;
+        }
       }
     }
 
     > .expando {
-      display: none;
-    }
-
-    &.active > .expando {
-      display: block;
+      // Height is changed in navigation controller.
+      overflow: hidden;
     }
 
     > a {
@@ -50,6 +58,7 @@
 
     .on-classify & {
       background-position: 18px -72px;
+      opacity: 1;
     }
   }
 
