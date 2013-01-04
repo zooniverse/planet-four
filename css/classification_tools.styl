@@ -12,7 +12,8 @@
     }
   }
 
-  .label {
+  .label,
+  button[name="sign-in"] {
     border-top: 1px solid rgba($white, 0.2);
     display: block;
     font-size: 10px;
@@ -20,6 +21,7 @@
     padding: 10px 0;
     text-align: center;
     user-select: none;
+    width: 100%;
 
     &:hover {
       background: rgba($black, 0.2);
@@ -52,7 +54,8 @@
     pointer-events: none;
   }
 
-  button,
+  button[name="finish"],
+  button[name="next"],
   .followup a {
     @extends #push-button;
     display: inline-block;
