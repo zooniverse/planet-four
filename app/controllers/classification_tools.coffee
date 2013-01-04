@@ -62,7 +62,7 @@ class ClassificationTools extends Controller
     @classifier.markingSurface.setTool tools[@tool]
 
   onClickSignIn: ->
-    alert 'TODO: Sign in!'
+    $(window).trigger 'request-login-dialog'
 
   onChangeFavorite: ->
     @classifier.classification.favorite = @favoriteCheckbox.is ':checked'

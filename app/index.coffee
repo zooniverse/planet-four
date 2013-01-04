@@ -50,6 +50,11 @@ app.topBar = new TopBar
   app: 'serengeti'
   appName: 'Planet Four'
 
+$(window).on 'request-login-dialog', ->
+  app.topBar.onClickSignUp()
+  app.topBar.loginForm.signInButton.click()
+  app.topBar.loginDialog.reattach()
+
 app.topBar.el.prependTo 'body'
 
 Route.setup()
