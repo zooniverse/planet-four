@@ -2,6 +2,7 @@
 SubPage = require './sub_page'
 translate = require 'translate'
 developersView = require 'views/developers'
+scientistsView = require 'views/scientists'
 
 class AboutPage extends Stack
   className: "#{Stack::className} about-page"
@@ -9,7 +10,7 @@ class AboutPage extends Stack
   controllers:
     index: class extends SubPage then content: translate 'about.index'
     research: class extends SubPage then content: translate 'about.research'
-    scientists: class extends SubPage then content: translate 'about.scientists'
+    scientists: class extends SubPage then content: scientistsView @
     developers: class extends SubPage then content: developersView @
     citizenScience: class extends SubPage then content: translate 'about.citizenScience'
     stargazingLive: class extends SubPage then content: translate 'about.stargazingLive'

@@ -1,0 +1,17 @@
+<% translate = require 'translate' %>
+
+<% scientists = 'aye hansen'.split ' ' %>
+
+<h1><%- translate 'about.scientists.heading' %></h1>
+
+<% for scientist in scientists: %>
+  <div class="team-member">
+    <% imgSrc = try translate "about.scientists.#{scientist}.image" %>
+
+    <% if imgSrc: %><img src="<%= imgSrc %>" class="photo" /><% end %>
+    <div class="description">
+      <%- translate h2: "about.scientists.#{scientist}.name" %>
+      <%- translate div: "about.scientists.#{scientist}.description" %>
+    </div>
+  </div>
+<% end %>
