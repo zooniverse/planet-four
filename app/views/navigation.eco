@@ -34,9 +34,9 @@
 </div>
 
 <div class="talk section">
-  <a href="#/talk"><%- translate span: 'navigation.discuss' %></a>
+  <a href="http://talk.planetfour.org/"><%- translate span: 'navigation.discuss' %></a>
 </div>
 
 <div class="blog section">
-  <a href="#/blog"><%- translate span: 'navigation.blog' %></a>
+  <a href="http://blog.planetfour.org/"><%- translate span: 'navigation.blog' %></a>
 </div>
