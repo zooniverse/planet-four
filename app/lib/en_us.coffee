@@ -52,7 +52,64 @@ module.exports =
     '''
 
     research: '''
-      <p>This is the research.</p>
+      <h1>The research</h1>
+
+      <figure class="right">
+        <img src="images/about/spiders-and-fans.jpg" />
+        <figcaption>Figure 1. HiRISE image is ~1 km across. Spiders and fans are visible.</figcaption>
+      </figure>
+
+      <p>
+        Every winter Mars’ polar region is blanketed by a layer of frozen carbon dioxide, (dry ice) approximately 0.5 – 1 meter deep.
+        In the springtime, this seasonal polar cap sublimates (changes directly from ice to gas).
+        A host of unearthly phenomena are associated with this dynamic process, illustrated in Figure 1.
+      </p>
+
+      <figure class="right">
+        <img src="images/about/wind-model.png" />
+        <figcaption>Figure 2.  Model – figure from Piqueux et al., 2003</figcaption>
+      </figure>
+
+      <p>
+        Over the winter the seasonal ice layer is transformed to translucent slab ice, which allows sunlight to penetrate to the ground below in the spring.
+        The ground warms up causing the ice to sublimate from the bottom.
+        This results in gas becoming trapped below the ice layer, under increasing pressure.
+        When a crack or a rupture develops the gas flows out the opening.
+        The escaping gas carries along loose material eroded from the ground.
+        The gas and fine material flow up to the top of the ice layer and out into the ambient wind, as shown in Figure 2.
+        The material lands on top of the seasonal ice layer, downwind of the vent, in fan-shaped deposits.
+        After the seasonal ice layer is gone the fans blend back into the surface material and are no longer visible.
+      </p>
+
+      <p>
+        This same activity occurs every spring, and slowly erodes channels in the ground.
+        Often the channels are radially organized, thus earning the colloquial name “spiders”, and more formally “araneiform.”
+        Channels are wide and shallow, generally less than 2 meters deep.
+        In the winter the spiders are visible because the ice is draped over them;
+        in the summer when the terrain is ice-free we see that the spiders are indeed channels carved into the surface, shown in the time-lapse sequence in Figure 3.
+      </p>
+
+      <figure>
+        <img src="images/about/time-lapse.jpg" />
+        <figcaption>Figure 3. Timelapse sequence of a spider initially covered with ~1m of ice (upper left), to ice-free (lower right).</figcaption>
+      </figure>
+
+      <p>
+        The fans are markers for the wind direction and speed at the time that the gas was escaping and carrying its load of entrained material.
+        Sometimes the vents close and re-open and sometimes the wind changes direction, with the result that we see multiple fans from a single source region.
+        This is all raw data that can be compared to predictions of models for Mars’ atmospheric dynamics, known as global circulation models (GCMs).
+        Sometimes when the conditions are just right the gas will condense into fresh frost particles and form bright fans.
+      </p>
+
+      <h2>Measuring time on Mars</h2>
+
+      <p>
+        Rather than having months and days of the year the date on Mars’ yearly calendar is given by the solar longitude, Ls.
+        When Ls = 0 it is the first day of spring in the northern hemisphere, and the beginning of fall in the southern hemisphere, known on earth as the vernal equinox.
+        Ls = 90 marks the beginning of summer in the northern hemisphere and the beginning of winter in the southern hemisphere.
+        At Ls = 180 the sun crosses the equator and it is the beginning of fall in the northern hemisphere, and the beginning of spring in the southern hemisphere.
+        At Ls = 270 northern winter starts and southern summer gets underway.
+      </p>
     '''
 
     scientists: '''
