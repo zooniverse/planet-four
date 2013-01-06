@@ -9,18 +9,14 @@ class AboutPage extends Stack
 
   controllers:
     index: class extends SubPage then content: translate 'about.index'
-    research: class extends SubPage then content: translate 'about.research'
     scientists: class extends SubPage then content: scientistsView @
     developers: class extends SubPage then content: developersView @
-    citizenScience: class extends SubPage then content: translate 'about.citizenScience'
     stargazingLive: class extends SubPage then content: translate 'about.stargazingLive'
 
   routes:
     '/about': 'index'
-    '/about/research': 'research'
     '/about/scientists': 'scientists'
     '/about/developers': 'developers'
-    '/about/citizen-science': 'citizenScience'
     '/about/stargazing-live': 'stargazingLive'
 
   default: 'index'

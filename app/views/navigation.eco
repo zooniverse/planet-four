@@ -16,10 +16,8 @@
   <a href="#/about"><%- translate span: 'navigation.about.root' %></a>
 
   <div class="sub-nav expando">
-    <a href="#/about/research">The Research</a>
     <a href="#/about/scientists">The Scientists</a>
     <a href="#/about/developers">The Developers</a>
-    <a href="#/about/citizen-science">Citizen Science</a>
     <a href="#/about/stargazing-live">Stargazing Live</a>
   </div>
 </div>
