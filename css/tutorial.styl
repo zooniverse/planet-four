@@ -1,7 +1,12 @@
 .zootorial-dialog.tutorial {
-  background: $black;
-  border-radius: 5px;
+  background: $blue;
+  border: 1px solid $black;
+  border-radius: 3px;
+  box-shadow: 0 1px 0px rgba($white, 0.2) inset, 0 1px 6px rgba($black, 0.4);
   color: $white;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
   max-width: 33%;
   padding: 20px;
   transition: left 0.5s ease-in-out, top 0.33s ease-in-out;
@@ -26,7 +31,8 @@
     text-align: center;
 
     button {
-      @extend #standard-button;
+      @extend #push-button;
+      padding: 3px 20px
     }
   }
 }
