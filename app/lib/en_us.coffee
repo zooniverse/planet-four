@@ -111,6 +111,19 @@ module.exports =
           <p>Dr. Hansen retired from JPL in 2010 but continues in all her endeavors under the auspices of the Planetary Science Institute in Tucson.</p>
         '''
 
+      schwamb:
+        name: 'Meg Schwamb, Yale University'
+        image: 'images/sci-team/meg.jpg'
+        description: '''
+          <p>
+            Meg Schwamb, Yale University is a National Science Foundation Astronomy & Astrophysics Postdoctoral Fellow in the Yale Center for Astronomy & Astrophysics (YCAA) and the Physics Department.
+            Meg studies the small bodies of the outer solar system and what they can tell us about how the solar system formed.
+            She is currently hunting for dwarf planets residing in the southern skies.
+            While not observing, Meg can be found hanging out with her black cat Stella.
+            Meg is supported by the NSF Astronomy and Astrophysics Postdoctoral Fellowship under award AST-1003258.
+          </p>
+        '''
+
     developers:
       heading: 'The development team'
 
@@ -177,6 +190,7 @@ module.exports =
 
     stargazingLive: '''
       <h1>Stargazing Live</h1>
+
       <p>
         Stargazing Live is the BBC's annual celebration of astronomy, with Professor Brian Cox and Dara O Briain hosting three nights of stargazing and discussion, live from Jodrell Bank.
         As well as asking some of the big questions, there will be hints and tips for getting started in stargazing and advice on navigating your way around the skies.

@@ -1,6 +1,6 @@
 <% translate = require 'translate' %>
 
-<% scientists = 'aye hansen'.split ' ' %>
+<% scientists = 'aye hansen schwamb'.split ' ' %>
 
 <h1><%- translate 'about.scientists.heading' %></h1>
 
