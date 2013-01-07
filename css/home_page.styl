@@ -1,27 +1,21 @@
 @keyframes rotate {
   0% {
-    background-position: 0 0;
+    transform: translateX(0);
   }
 
   100% {
-    background-position: 200% 0;
+    transform: translateX(-50%);
   }
 }
 
 @keyframes float-around {
   0% {
-    margin-left: -400px;
-    transform: scale(0.5);
+    transform: translateX(-350px) rotate(90deg);
     z-index: 3;
   }
 
-  25% {
-    transform: scale(1);
-  }
-
   50% {
-    margin-left: 350px;
-    transform: scale(0.5);
+    transform: translateX(350px) rotate(0);
     z-index: 3;
   }
 
@@ -29,13 +23,8 @@
     z-index: 1;
   }
 
-  75% {
-    transform: scale(0.25);
-  }
-
   100% {
-    margin-left: -400px;
-    transform: scale(0.5);
+    transform: translateX(-350px) rotate(90deg);
     z-index: 1;
   }
 }
@@ -47,27 +36,42 @@
   position: relative;
 
   .planet {
-    background: url("images/home/mars-map.jpg") 125% 0;
     background-size: cover;
     border-radius: 50%;
-    box-shadow: 0px 0 75px $black inset, -100px -25px 150px $black inset;
     height: 800px;
     left: 50%;
     margin: -575px 0 0 -400px;
+    overflow: hidden;
     position: absolute;
     top: 0;
     width: 800px;
     z-index: 2;
+
+    .surface {
+      background: url("images/home/mars-map.jpg") 125% 0;
+      height: 100%;
+      width: 400%;
+    }
+
+    .dimension {
+      border-radius: 50%;
+      box-shadow: 0px 0 75px $black inset, -100px -25px 150px $black inset;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
   }
 
-  &.active .planet {
-    // animation: rotate 120s linear infinite;
+  &.active .planet .surface {
+    animation: rotate 120s linear infinite;
   }
 
   .satellite {
-    background: url("images/home/mro.png");
+    background: url("images/home/mro.png") 0 0;
     height: 97px;
-    margin-left: 300px;
+    margin-left: -58px;
     position: absolute;
     left: 50%;
     top: 50px;
@@ -75,7 +79,7 @@
   }
 
   &.active .satellite {
-    // animation: float-around 25s ease-in-out infinite;
+    animation: float-around 60s ease-in-out infinite;
   }
 
   .content {

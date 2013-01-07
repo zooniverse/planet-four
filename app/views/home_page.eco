@@ -1,6 +1,9 @@
 <% translate = require 'translate' %>
 
-<div class="planet"></div>
+<div class="planet">
+  <div class="surface"></div>
+  <div class="dimension"></div>
+</div>
 
 <div class="satellite"></div>
 
