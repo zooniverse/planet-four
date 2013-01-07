@@ -128,7 +128,7 @@ module.exports =
         '''
 
       schwamb:
-        name: 'Meg Schwamb'
+        name: 'Dr. Meg Schwamb'
         image: 'images/sci-team/meg.jpg'
         description: '''
           <p>
