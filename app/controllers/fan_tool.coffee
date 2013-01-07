@@ -24,8 +24,8 @@ class FanTool extends MarkingTool
 
     @dots =
       distance: new Kinetic.Circle $.extend {name: 'distance'}, style.circle
-      spreadA: new Kinetic.Circle $.extend {name: 'spread'}, style.circle
-      spreadB: new Kinetic.Circle $.extend {name: 'spread'}, style.circle
+      spreadA: new Kinetic.RegularPolygon $.extend {name: 'spread', sides: 4}, style.circle
+      spreadB: new Kinetic.RegularPolygon $.extend {name: 'spread', sides: 4}, style.circle
 
     @lines =
       distance: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.dash
@@ -52,6 +52,7 @@ class FanTool extends MarkingTool
     super
 
   onFirstDrag: (e) ->
+    @mark.set spread: 5
     @['on drag distance'] e
     super
 
