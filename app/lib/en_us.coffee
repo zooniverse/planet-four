@@ -101,14 +101,6 @@ module.exports =
     scientists:
       heading: 'The science team'
 
-      anya:
-        name: 'Dr. Anya Portyankina'
-        image: 'images/sci-team/anya.jpg'
-        description: '''
-          <p>Dr. Portyankina completed her doctorate work on the evolution of polar areas of Mars using data from the Mars Orbiting Camera (MOC), analyzing hundreds of MOC images searching for clues of seasonal changes and also worked with High Resolution Stereo Camera  (HRSC) on board the European Mars Express and Venus Monitoring Camera (VMC) from Venus Express.  In 2005 she defended her PhD in Göttingen University on the topic “Atmosphere-surface vapor exchange and ices in the Martian polar regions.”  After the thesis defense she carried on with planning scientific operations for VMC, analysis of data from HRSC and started participating in the work of High Resolution Imaging Science Experiment (HiRISE) on board the Mars Reconnaissance Orbiter.</p>
-          <p>She uses a combination of computer modeling, data analysis and laboratory experiments to advance her primary scientific interests: studying behavior of ices on planetary bodies, their interactions with atmospheres and how ices are able to shape planetary surfaces into terrains we currently observe.</p>
-        '''
-
       aye:
         name: 'Dr. Klaus-Michael Aye'
         image: 'images/sci-team/michael.jpg'
@@ -123,6 +115,14 @@ module.exports =
         description: '''
           <p>Dr. Hansen is the Deputy Principal Investigator for the High Resolution Imaging Science Experiment (HiRISE) on the Mars Reconnaissance Orbiter.  Her area of interest is studying the seasonal CO2 polar cap of Mars.  She continues to pursue that interest as a Co-Investigator on the High resolution Stereo and Color Imager (HiSCI) being built to fly on the Mars Trace Gas Orbiter that will launch in 2016.</p>
           <p>As a Co-Investigator on the Juno mission to Jupiter, launched in 2011, Dr. Hansen is responsible for the development and operation of the JunoCam outreach camera that will engage the public in planning images of Jupiter.  Dr. Hansen retired from JPL in 2010 but continues in all her endeavors under the auspices of the Planetary Science Institute in Tucson.</p>
+        '''
+
+      portyankina:
+        name: 'Dr. Anya Portyankina'
+        image: 'images/sci-team/anya.jpg'
+        description: '''
+          <p>Dr. Portyankina completed her doctorate work on the evolution of polar areas of Mars using data from the Mars Orbiting Camera (MOC), analyzing hundreds of MOC images searching for clues of seasonal changes and also worked with High Resolution Stereo Camera  (HRSC) on board the European Mars Express and Venus Monitoring Camera (VMC) from Venus Express.  In 2005 she defended her PhD in Göttingen University on the topic “Atmosphere-surface vapor exchange and ices in the Martian polar regions.”  After the thesis defense she carried on with planning scientific operations for VMC, analysis of data from HRSC and started participating in the work of High Resolution Imaging Science Experiment (HiRISE) on board the Mars Reconnaissance Orbiter.</p>
+          <p>She uses a combination of computer modeling, data analysis and laboratory experiments to advance her primary scientific interests: studying behavior of ices on planetary bodies, their interactions with atmospheres and how ices are able to shape planetary surfaces into terrains we currently observe.</p>
         '''
 
       schwamb:
