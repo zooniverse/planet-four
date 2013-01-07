@@ -36,7 +36,7 @@
   position: relative;
 
   .planet {
-    background-size: cover;
+    background: url("images/home/mars-map.jpg") 125% 0;
     border-radius: 50%;
     height: 800px;
     left: 50%;
@@ -47,11 +47,11 @@
     width: 800px;
     z-index: 2;
 
-    .surface {
-      background: url("images/home/mars-map.jpg") 125% 0;
-      height: 100%;
-      width: 400%;
-    }
+    // .surface {
+    //   background: url("images/home/mars-map.jpg") 125% 0;
+    //   height: 100%;
+    //   width: 200%;
+    // }
 
     .dimension {
       border-radius: 50%;
@@ -64,9 +64,9 @@
     }
   }
 
-  &.active .planet .surface {
-    animation: rotate 120s linear infinite;
-  }
+  // &.active .planet .surface {
+  //   animation: rotate 120s linear infinite;
+  // }
 
   .satellite {
     background: url("images/home/mro.png") 0 0;
