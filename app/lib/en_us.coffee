@@ -204,6 +204,10 @@ module.exports =
         Stargazing Live and the Zooniverse first worked together in 2012, when viewers contributed more than a million classifications in the quest for a planet via <a href="http://www.planethunters.org/">planethunters.org</a>.
         This year, we're exploring a world a little closer to home.
       </p>
+
+      <figure>
+        <img src="images/about/planet-hunters.jpg" style="width: 50%;" />
+      </figure>
     '''
 
   profile:
