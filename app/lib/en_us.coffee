@@ -45,8 +45,10 @@ module.exports =
       </p>
 
       <figure class="right">
-        <img src="images/about/wind-model.png" />
-        <figcaption>Figure 2.  Model – figure from Piqueux et al., 2003</figcaption>
+        <img src="images/about/fan-1.png" />
+        <img src="images/about/fan-2.png" />
+        <img src="images/about/fan-3.png" />
+        <figcaption>Figure 2</figcaption>
       </figure>
 
       <p>
