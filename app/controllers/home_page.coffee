@@ -7,8 +7,9 @@ class HomePage extends Controller
   className: 'home-page'
 
   elements:
-    '.participants.count': 'participantsCount'
-    '.classifications.count': 'classificationsCount'
+    '.participants': 'participantsCount'
+    '.area': 'areaCount'
+    '.classifications': 'classificationsCount'
 
   constructor: ->
     super

@@ -8,25 +8,42 @@
 <div class="satellite"></div>
 
 <div class="content">
-  <h1>Explore the surface of Mars.</h1>
+  <div class="columns">
+    <div class="one-third counter column">
+      <strong class="participants count">&mdash;</strong>
+      participants worldwide
+    </div>
+
+    <div class="one-third counter column">
+      <strong class="count"><span class="area">&mdash;</span> km<sup>2</sup></strong>
+      Martian surface explored
+    </div>
+
+    <div class="one-third counter column">
+      <strong class="classifications count">&mdash;</strong>
+      MRO images classified
+    </div>
+  </div>
 
   <hr />
 
-  <p>Planetary scientists need help identifying dust features on the surface of the Red Planet.</p>
-  <p>Now you can explore the surface of Mars like never before.</p>
+  <p>
+    With the help of Stargazing Live, <strong class="participants">&mdash;</strong> citizen scientists<br />
+    are exploring the surface of Mars like never before.
+  </p>
 
   <hr />
 
   <div class="columns">
-    <div class="one-third counter column">
-      <strong class="participants count">&mdash;</strong> participants
+    <div class="one-third column">
+      <a href="#/about/stargazing-live"><img src="images/about/stargazing-live-logo.png" /></a>
     </div>
 
-    <div class="one-third counter column">
-      <strong class="classifications count">&mdash;</strong> images classified
+    <div class="one-third column">
+      &nbsp;
     </div>
 
-    <div class="one-third start column">
+    <div class="one-third column">
       <a href="#/classify" class="explore">Start Exploring</a>
     </div>
   </div>
