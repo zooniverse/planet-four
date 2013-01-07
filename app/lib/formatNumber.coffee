@@ -9,7 +9,7 @@ module.exports = (number, {decimalPlaces, separator} = defaults) ->
 
   for n, i in numbers.split('').reverse()
     result.push n
-    result.push ',' if (i + 1) % 3 is 0
+    result.push ',' if (i + 1) % 3 and numbers.length > 3
 
   result = result.reverse()
 
