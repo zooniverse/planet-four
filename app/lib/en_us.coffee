@@ -205,7 +205,9 @@ module.exports =
         '''
 
     stargazingLive: '''
-      <h1>Stargazing Live</h1>
+      <h1 style="text-align: center;">
+        <img src="images/about/stargazing-live-logo.png" alt="Stargazing Live" />
+      </h1>
 
       <p>
         Stargazing Live is the BBC's annual celebration of astronomy, with Professor Brian Cox and Dara O Briain hosting three nights of stargazing and discussion, live from Jodrell Bank.
