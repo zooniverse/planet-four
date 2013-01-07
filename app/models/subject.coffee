@@ -66,7 +66,7 @@ class Subject extends Model
     tutorialSubject = @create
       zooniverse_id: 'TUTORIAL_SUBJECT'
       workflow_ids: ['50e9e3d33ae740f1f3000002']
-      location: standard: 'http://planetfour.org/subjects/standard/50e745295e2ed211dc0037f5.jpg'
+      location: standard: 'images/tutorial-subject.jpg'
       coords: [-81.801, 76.14]
       metadata:
         tutorial: true

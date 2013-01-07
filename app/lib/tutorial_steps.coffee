@@ -4,7 +4,7 @@
 module.exports = [
   new Step
     header: 'Welcome to Planet Four!'
-    content: 'This short tutorial will show you how you can help scientists study weather patterns on Mars.'
+    content: 'This short tutorial will show you how to help explore the surface of Mars: an alien world.'
     attachment: to: '.subject-container'
 
   new Step
@@ -13,8 +13,8 @@ module.exports = [
     focus: '.subject-container'
 
   new Step
-    content: 'The two deposits we see here are in fans, so make sure the Fan tool is selected.'
-    attachment: x: 'left', to: '.classification-tools label:first-child', at: x: 'right'
+    content: 'The first deposit we see here is a fan, so make sure the Fan tool is selected.'
+    attachment: x: 'left', to: '.for-fan', at: x: 'right'
     focus: '.classification-tools'
 
   new Step
@@ -28,8 +28,19 @@ module.exports = [
     nextOn: 'drag-spread': '.subject-container'
 
   new Step
-    content: 'There is another fan below, more toward the center. Mark it the same way you marked the first one.'
-    attachment: x: 'right', to: '.subject-container', at: x: 'right'
+    content: 'The deposit below has no identifiable source, so let\'s mark it using the "blotch" tool.'
+    attachment: x: 'left', to: '.for-blotch', at: x: 'right'
+    nextOn: 'change': '.for-blotch input'
+
+  new Step
+    content: 'Hold your mouse down near the center of the deposit and drag out to the widest point before releasing.'
+    attachment: x: 'left', to: '.subject-container', at: x: 'left'
+    nextOn: 'first-drag': '.subject-container'
+
+  new Step
+    content: 'Now adjust the size of the other radius to match the deposit.'
+    attachment: x: 'left', to: '.subject-container', at: x: 'left'
+    nextOn: 'drag-radius2': '.subject-container'
 
   new Step
     content: 'Great. Now you\'re ready to make some classifications of your own. Click "Finished" to move on to a new subject.'

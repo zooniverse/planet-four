@@ -27,6 +27,11 @@ module.exports =
     fill: 'rgba(127, 127, 127, 0.01)'
     stroke: 'white'
     strokeWidth: 1
+    # shadow:
+    #   color: 'black'
+    #   blur: 1
+    #   offset: [1, 2]
+    #   opacity: 1
 
   cursors:
     distance: 'crosshair'
