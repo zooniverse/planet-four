@@ -126,11 +126,11 @@ module.exports =
         '''
 
       schwamb:
-        name: 'Meg Schwamb, Yale University'
+        name: 'Meg Schwamb'
         image: 'images/sci-team/meg.jpg'
         description: '''
           <p>
-            Meg Schwamb, Yale University is a National Science Foundation Astronomy & Astrophysics Postdoctoral Fellow in the Yale Center for Astronomy & Astrophysics (YCAA) and the Physics Department.
+            Meg Schwamb is a National Science Foundation Astronomy & Astrophysics Postdoctoral Fellow in the Yale Center for Astronomy & Astrophysics (YCAA) and the Physics Department.
             Meg studies the small bodies of the outer solar system and what they can tell us about how the solar system formed.
             She is currently hunting for dwarf planets residing in the southern skies.
             While not observing, Meg can be found hanging out with her black cat Stella.
