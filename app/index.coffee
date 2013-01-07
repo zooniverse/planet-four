@@ -10,6 +10,7 @@ AboutPage = require 'controllers/about_page'
 ProfilePage = require 'controllers/profile_page'
 User = require 'zooniverse/lib/models/user'
 TopBar = require 'zooniverse/lib/controllers/top_bar'
+googleAnalytics = require 'zooniverse/lib/google_analytics'
 
 Api.init
   host: if !!location.href.match /demo|beta/
@@ -58,5 +59,9 @@ $(window).on 'request-login-dialog', ->
 app.topBar.el.prependTo 'body'
 
 Route.setup()
+
+googleAnalytics.init
+  account: 'UA-1224199-41'
+  domain: 'planetfour.org'
 
 module.exports = app
