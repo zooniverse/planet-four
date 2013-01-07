@@ -10,8 +10,7 @@ class Subject extends Model
   @current: null
 
   @url: ->
-    # TODO
-    '/projects/serengeti/groups/subjects'
+    '/projects/planet_four/subjects'
 
   @next: =>
     @current?.destroy()

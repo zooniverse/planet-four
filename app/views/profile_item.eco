@@ -4,7 +4,7 @@
 
 <div class="item">
   <a href="<%= Subject::talkHref.call @subjects %>">
-    <img src="<%= @subjects.location.standard[0] %>" />
+    <img src="<%= @subjects.location.standard %>" />
   </a>
 
   <div class="controls">

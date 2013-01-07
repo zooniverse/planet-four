@@ -13,7 +13,7 @@ class HomePage extends Controller
     super
     @html template @
 
-    Api.get '/projects/serengeti', (project) =>
+    Api.get '/projects/planet_four', (project) =>
       @participantsCount.html project.user_count
       @classificationsCount.html project.classification_count
 

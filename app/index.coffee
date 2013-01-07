@@ -47,7 +47,7 @@ app.stack.classify.classificationTools.el.appendTo app.navigation.classification
 app.stack.el.appendTo app.container
 
 app.topBar = new TopBar
-  app: 'serengeti'
+  app: 'planet_four'
   appName: 'Planet Four'
 
 $(window).on 'request-login-dialog', ->
