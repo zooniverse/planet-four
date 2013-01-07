@@ -24,6 +24,15 @@ module.exports =
     index: '''
       <h1>About Planet Four</h1>
 
+      <p>
+        We’re asking everyone to help us find ‘fans’ on the Martian surface.
+        Your classifications on this site will enable researchers to better understand the climate and surface of Mars.
+        The images you see here are taken using a high-resolution camera in orbit around the Red Planet.
+        We collect together everybody’s markings of objects on these images and average the result.
+        This is a task that computers are not reliable at, but which humans are really good at.
+        By crowdsourcing your efforts, we can produce data that will show us what is happening in these images.
+      </p>
+
       <figure class="right">
         <img src="images/about/spiders-and-fans.jpg" />
         <figcaption>Figure 1. HiRISE image is ~1 km across. Spiders and fans are visible.</figcaption>
@@ -79,6 +88,13 @@ module.exports =
         Ls = 90 marks the beginning of summer in the northern hemisphere and the beginning of winter in the southern hemisphere.
         At Ls = 180 the sun crosses the equator and it is the beginning of fall in the northern hemisphere, and the beginning of spring in the southern hemisphere.
         At Ls = 270 northern winter starts and southern summer gets underway.
+      </p>
+
+      <h2>About HiRISE</h2>
+
+      <p>
+        The data on this site comes from HiRISE (the High Resolution Imaging Science Experiment), which is a camera on board the Mars Reconnaissance Orbiter.
+        HiRISE can image Mars with resolutions of 0.3 m/pixel (about 1 foot), resolving objects below a meter across.
       </p>
     '''
 
