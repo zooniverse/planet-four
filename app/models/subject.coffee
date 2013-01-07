@@ -64,7 +64,9 @@ class Subject extends Model
 
   @selectTutorial: =>
     tutorialSubject = @create
-      location: standard: 'images/example-subject.jpg' # TODO
+      zooniverse_id: 'TUTORIAL_SUBJECT'
+      workflow_ids: ['WORKFLOW_ID']
+      location: standard: 'images/example-subject.jpg'
       coords: [0, 0]
       metadata: tutorial: true
 
