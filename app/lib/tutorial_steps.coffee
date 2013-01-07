@@ -37,7 +37,7 @@ module.exports = [
     nextOn: 'click': 'button[name="finish"]'
 
   new Step
-    content: 'Some images will have many deposits, some will have none. Some fan will share a source -- please mark them all!'
+    content: 'Some images will have many deposits, some will have none. Some fans will share a source -- please mark them all!'
     attachment: x: 'left', to: '.followup .talk', at: x: 'right'
 
   new Step
