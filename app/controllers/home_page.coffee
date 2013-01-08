@@ -16,7 +16,7 @@ class HomePage extends Controller
     @html template @
 
     Api.get '/projects/planet_four', (project) =>
-      @participantsCount.html project.classifier_count
-      @classificationsCount.html project.classification_count
+      @participantsCount.html formatNumber project.classifier_count
+      @classificationsCount.html formatNumber project.classification_count
 
 module.exports = HomePage
