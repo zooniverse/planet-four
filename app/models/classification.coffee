@@ -21,7 +21,9 @@ class Classification extends Module
 
   toJSON: ->
     annotations = (mark.toJSON() for mark in @marks when not mark.destroyed).concat [{@started}, {@agent}]
-    classification: {subject_ids: [@subject.id], annotations, @favorite}
+    classification: {subject_ids: [@subject.id], annotations}
+    classification.favorite = true if @favorite
+    classification
 
   url: ->
     "/projects/planet_four/workflows/#{@subject.workflow_ids[0]}/classifications"
