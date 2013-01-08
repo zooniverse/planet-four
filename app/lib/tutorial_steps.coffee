@@ -52,6 +52,6 @@ module.exports = [
     attachment: x: 'left', to: '.followup .talk', at: x: 'right'
 
   new Step
-    content: 'You can ask questions and discuss your findings with the Planet Four science team and other citizen scientists after you\'ve finished classifying each subject. Have fun exploring!'
+    content: 'You can ask questions and discuss your findings with the Planet Four science team and other citizen scientists after you\'ve finished classifying each subject. You can also bring an image to the attention of the science team using the "interesting feature" tool. Have fun exploring!'
     attachment: x: 'left', to: '.followup .talk', at: x: 'right'
 ]
