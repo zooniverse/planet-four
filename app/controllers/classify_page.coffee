@@ -20,6 +20,7 @@ class ClassifyPage extends Controller
 
   events:
     'click button[name="start-tutorial"]': 'startTutorial'
+    'click button[name="sign-in"]': 'onClickSignIn'
 
   elements:
     '.subject-container': 'subjectContainer'
@@ -47,6 +48,7 @@ class ClassifyPage extends Controller
     Subject.bind 'selected', @onSubjectSelect
 
   onUserSignIn: =>
+    @el.toggleClass 'signed-in', User.current?
     tutorialDone = User.current?.project.classification_count > 0
     doingTutorial = Subject.current?.metadata.tutorial
 
@@ -90,6 +92,9 @@ class ClassifyPage extends Controller
 
   finishClassification: ->
     @classification.send()
+
+  onClickSignIn: ->
+    $(window).trigger 'request-login-dialog'
 
   activate: ->
     super

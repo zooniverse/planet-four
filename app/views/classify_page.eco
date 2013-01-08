@@ -2,8 +2,14 @@
   <img class="subject" />
 </div>
 
-<div class="help">
-  <button name="start-tutorial">Tutorial</button>
-  &bull;
-  <a href="#/about/examples">Examples</a>
-</div>
+<footer>
+  <div class="help">
+    <button name="start-tutorial">Tutorial</button>
+    &bull;
+    <a href="#/about/examples">Examples</a>
+  </div>
+
+  <div class="sign-in-prompt">
+    <button name="sign-in">Sign in</button> now so we can credit you for your work!
+  </div>
+</footer>
