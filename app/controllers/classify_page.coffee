@@ -44,7 +44,7 @@ class ClassifyPage extends Controller
     Subject.bind 'selected', @onSubjectSelect
 
   onUserSignIn: =>
-    tutorialDone = User.current?.project.tutorial_done
+    tutorialDone = User.current?.project.classification_count > 0
     doingTutorial = Subject.current?.metadata.tutorial
 
     if tutorialDone
