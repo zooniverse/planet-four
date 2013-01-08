@@ -1,6 +1,6 @@
 <% translate = require 'translate' %>
 
-<% devs = 'borden carstensen lintott miller parrish simpson smith'.split ' ' %>
+<% devs = 'borden carstensen lintott miller parrish simpson smith whyte'.split ' ' %>
 
 <h1><%- translate 'about.developers.heading' %></h1>
 

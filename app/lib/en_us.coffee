@@ -204,6 +204,15 @@ module.exports =
           He studied Chemistry at the University of Sheffield and completed his PhD in Astrochemistry at The University of Nottingham in 2006.
         '''
 
+      whyte:
+        name: 'Laura Whyte'
+        image: 'images/dev-team/laura.jpg'
+        description: '''
+          Laura Whyte completed a PhD in astrophysics at the University of Nottingham in 2004. With a background in
+          adult education and software development Laura is the lead of ZooTeach and is very excited about 
+          what the future holds for the Zooniverse and formal education.
+        '''
+
     stargazingLive: '''
       <h1 style="text-align: center;">
         <img src="images/about/stargazing-live-logo.png" alt="Stargazing Live" />
@@ -219,12 +228,12 @@ module.exports =
       <p>A free guide to the night sky, and plenty more resources are available at <a href="http://www.bbc.co.uk/programmes/b019h4g8">the show's website</a>.</p>
 
       <p>
-        Stargazing Live and the Zooniverse first worked together in 2012, when viewers contributed more than a million classifications in the quest for a planet via <a href="http://www.planethunters.org/">planethunters.org</a>.
+        Stargazing Live and the Zooniverse first worked together in 2012, whenviewers contributed more than a million classifications and <a href="http://blog.planethunters.org/?s=stargazing">identified a Neptune sized planet candidate</a> in the nation wide quest via <a href="http://www.planethunters.org">planethunters.org</a>. 
         This year, we're exploring a world a little closer to home.
       </p>
 
       <figure>
-        <img src="images/about/planet-hunters.jpg" style="width: 50%;" />
+        <img src="images/about/planet-hunters.jpg" style="width: 70%;" />
       </figure>
     '''
 
