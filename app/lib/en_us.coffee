@@ -101,7 +101,7 @@ module.exports =
     '''
 
     examples: '''
-      <h1>Examples</h1>
+      <h1>Classification Examples</h1>
 
       <p>Here are some example classifications of some typical images you might see.</p>
 
