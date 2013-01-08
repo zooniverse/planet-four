@@ -38,7 +38,7 @@ module.exports = [
     nextOn: 'first-drag': '.subject-container'
 
   new Step
-    content: 'Now adjust the size of the other radius to match the deposit.'
+    content: 'Now adjust the size of the other radius to match the deposit. Some blotches won\'t be quite circular. Just surround them as best you can.'
     attachment: x: 'left', to: '.subject-container', at: x: 'left'
     nextOn: 'drag-radius2': '.subject-container'
 
