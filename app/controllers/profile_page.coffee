@@ -40,6 +40,7 @@ class ProfileItemPage extends SubPage
       @itemClass.fetch()
 
   onItemCreate: (item) =>
+    return if item.subjects.length is 0
     itemElement = $(itemTemplate item)
     itemElement.attr 'data-item': item.id
     itemElement.appendTo @itemsList
