@@ -80,5 +80,22 @@ class Subject extends Model
   talkHref: ->
     "http://talk.planetfour.org/#/subjects/#{@zooniverse_id}"
 
+  facebookHref: ->
+    title = 'Planet Four'
+    summary = 'Classifying features on the surface of Mars!'
+    image = $("<a href='#{@location.standard}'></a>").get(0).href
+    """
+      https://www.facebook.com/sharer/sharer.php
+      ?s=100
+      &p[url]=#{encodeURIComponent @talkHref()}
+      &p[title]=#{encodeURIComponent title}
+      &p[summary]=#{encodeURIComponent summary}
+      &p[images][0]=#{image}
+    """.replace '\n', '', 'g'
+
+  twitterHref: ->
+    message = "Classifying features on the surface of Mars! #{@talkHref()}"
+    "http://twitter.com/home?status=#{encodeURIComponent message}"
+
 module.exports = Subject
 window.Subject = Subject unless +location.port < 1024

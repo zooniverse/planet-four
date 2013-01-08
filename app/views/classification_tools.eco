@@ -50,7 +50,7 @@
   </a>
 
   <div class="share">
-    <a href="#/TODO/facebook"><i class="icon-facebook-sign"></i></a>
-    <a href="#/TODO/twitter"><i class="icon-twitter"></i></a>
+    <a href="#/TODO/facebook" class="facebook"><i class="icon-facebook-sign"></i></a>
+    <a href="#/TODO/twitter" class="twitter"><i class="icon-twitter"></i></a>
   </div>
 </div>

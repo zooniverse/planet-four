@@ -33,6 +33,8 @@ class ClassificationTools extends Controller
     '.finish': 'finishControls'
     '.followup': 'followupControls'
     '.followup .talk': 'talkLink'
+    '.followup .facebook': 'facebookLink'
+    '.followup .twitter': 'twitterLink'
 
   constructor: ->
     super
@@ -52,6 +54,8 @@ class ClassificationTools extends Controller
 
   onSubjectSelect: =>
     @talkLink.attr href: Subject.current.talkHref()
+    @facebookLink.attr href: Subject.current.facebookHref()
+    @twitterLink.attr href: Subject.current.twitterHref()
 
   reset: =>
     @toolInputs.first().click()
