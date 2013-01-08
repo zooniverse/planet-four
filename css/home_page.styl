@@ -10,12 +10,12 @@
 
 @keyframes float-around {
   0% {
-    transform: translateX(-350px) rotate(90deg);
+    transform: translate3d(-350px, 0, 0) rotate(90deg);
     z-index: 3;
   }
 
   50% {
-    transform: translateX(350px) rotate(0);
+    transform: translate3d(350px, 0, 0) rotate(0);
     z-index: 3;
   }
 
@@ -24,7 +24,7 @@
   }
 
   100% {
-    transform: translateX(-350px) rotate(90deg);
+    transform: translate3d(-350px, 0, 0) rotate(90deg);
     z-index: 1;
   }
 }
