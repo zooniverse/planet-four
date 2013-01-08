@@ -18,6 +18,9 @@ class ClassifyPage extends Controller
   classificationTools: null
   markingSurface: null
 
+  events:
+    'click button[name="start-tutorial"]': 'startTutorial'
+
   elements:
     '.subject-container': 'subjectContainer'
     '.subject-container .subject': 'subjectImg'
@@ -52,11 +55,14 @@ class ClassifyPage extends Controller
       @selectNextSubject() if doingTutorial or not Subject.current?
     else
       if @tutorial?
-        Subject.selectTutorial()
-        @tutorial.start()
+        @startTutorial()
         @tutorial.hide() unless @el.hasClass 'active'
       else
         @selectNextSubject()
+
+  startTutorial: ->
+    Subject.selectTutorial()
+    @tutorial?.start()
 
   selectNextSubject: ->
     @el.addClass 'loading'

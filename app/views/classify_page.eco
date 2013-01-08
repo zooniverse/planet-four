@@ -1,3 +1,7 @@
 <div class="subject-container">
   <img class="subject" />
 </div>
+
+<div class="help">
+  <button name="start-tutorial">Tutorial</button>
+</div>
