@@ -100,6 +100,57 @@ module.exports =
       </p>
     '''
 
+    examples: '''
+      <h1>Examples</h1>
+
+      <p>Here are some example classifications of some typical images you might see.</p>
+
+      <div class="example columns">
+        <div class="one-third column">
+          <figure>
+            <img src="images/examples/fan-1.jpg" />
+            <figcaption>Fan</figcaption>
+          </figure>
+        </div>
+        <div class="one-third column">
+          <figure>
+            <img src="images/examples/blotch-1.jpg" />
+            <figcaption>Blotch</figcaption>
+          </figure>
+        </div>
+        <div class="one-third column">
+          <figure>
+            <img src="images/examples/fan-2.jpg" />
+            <figcaption>Fan</figcaption>
+          </figure>
+        </div>
+        <div class="one-third column">
+          <figure>
+            <img src="images/examples/blotch-2.jpg" />
+            <figcaption>Blotch</figcaption>
+          </figure>
+        </div>
+        <div class="one-third column">
+          <figure>
+            <img src="images/examples/fans-3.jpg" />
+            <figcaption>Six fans from three sources</figcaption>
+          </figure>
+        </div>
+        <div class="one-third column">
+          <figure>
+            <img src="images/examples/blotch-3.jpg" />
+            <figcaption>Blotch</figcaption>
+          </figure>
+        </div>
+        <div class="one-third column">
+          <figure>
+            <img src="images/examples/fan-plus-interesting.jpg" />
+            <figcaption>Fan + interesting</figcaption>
+          </figure>
+        </div>
+      </div>
+    '''
+
     scientists:
       heading: 'The science team'
 

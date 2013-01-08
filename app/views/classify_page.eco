@@ -4,4 +4,6 @@
 
 <div class="help">
   <button name="start-tutorial">Tutorial</button>
+  &bull;
+  <a href="#/about/examples">Examples</a>
 </div>
