@@ -22,27 +22,14 @@ module.exports =
 
   about:
     index: '''
-      <h1>About Planet Four</h1>
+      <h1>About</h1>
 
-      <p>
-        We’re asking everyone to help us find ‘fans’ on the Martian surface.
-        Your classifications on this site will enable researchers to better understand the climate and surface of Mars.
-        The images you see here are taken using a high-resolution camera in orbit around the Red Planet.
-        We collect together everybody’s markings of objects on these images and average the result.
-        This is a task that computers are not reliable at, but which humans are really good at.
-        By crowdsourcing your efforts, we can produce data that will show us what is happening in these images.
-      </p>
+      <p>Welcome to Planet Four, a citizen science project designed to help planetary scientists identify and measure features on the surface of Mars . . . the likes of which don’t exist on Earth. All of the images on this site depict the southern polar region, an area of Mars that we know little about, and the majority of which have never been seen by human eyes before!</p>
 
       <figure class="right">
         <img src="images/about/spiders-and-fans.jpg" />
         <figcaption>Figure 1. HiRISE image is ~1 km across. Spiders and fans are visible.</figcaption>
       </figure>
-
-      <p>
-        Every winter Mars’ polar region is blanketed by a layer of frozen carbon dioxide, (dry ice) approximately 0.5 – 1 meter deep.
-        In the springtime, this seasonal polar cap sublimates (changes directly from ice to gas).
-        A host of unearthly phenomena are associated with this dynamic process, illustrated in Figure 1.
-      </p>
 
       <figure class="right">
         <img src="images/about/fan-1.png" />
@@ -51,53 +38,36 @@ module.exports =
         <figcaption>Figure 2</figcaption>
       </figure>
 
-      <p>
-        Over the winter the seasonal ice layer is transformed to translucent slab ice, which allows sunlight to penetrate to the ground below in the spring.
-        The ground warms up causing the ice to sublimate from the bottom.
-        This results in gas becoming trapped below the ice layer, under increasing pressure.
-        When a crack or a rupture develops the gas flows out the opening.
-        The escaping gas carries along loose material eroded from the ground.
-        The gas and fine material flow up to the top of the ice layer and out into the ambient wind, as shown in Figure 2.
-        The material lands on top of the seasonal ice layer, downwind of the vent, in fan-shaped deposits.
-        After the seasonal ice layer is gone the fans blend back into the surface material and are no longer visible.
-      </p>
+      <h2>What am I looking for?</h2>
 
-      <p>
-        This same activity occurs every spring, and slowly erodes channels in the ground.
-        Often the channels are radially organized, thus earning the colloquial name “spiders”, and more formally “araneiform.”
-        Channels are wide and shallow, generally less than 2 meters deep.
-        In the winter the spiders are visible because the ice is draped over them;
-        in the summer when the terrain is ice-free we see that the spiders are indeed channels carved into the surface, shown in the time-lapse sequence in Figure 3.
-      </p>
+      <p>We need your help to find and mark ‘fans’ and ‘blotches’ on the Martian surface.  Scientists believe that these features indicate wind direction and speed.  By tracking ‘fans’ and ‘blotches’ over the course of several Martian years to see how they form, evolve, disappear and reform, we can help planetary scientists better understand Mars’ climate.  We also hope to find out if these features  form in the same spot each year and also learn how they change.</p>
+
+      <h2>So how do these ‘fans’ form?</h2>
+
+      <p>Rather than measuring days or months, the Martian year is indicated by the solar longitude, Ls.  The year begins at Ls = 0, which is the first day of spring in the northern hemisphere and the first day of autumn in the southern hemisphere.</p>
+
+      <p>Planetary scientists don’t know exactly how ‘fans’ and ‘blotches’ occur, but many believe that during the autumn a seasonal layer of carbon dioxide ice, otherwise known as dry ice, forms on the southern pole.  In the winter, (beginning at Ls = 90) this layer transforms into translucent slab ice.  Once spring arrives, (Ls =180) sunlight is able to penetrate and warm the ground below, causing the ice to <em>sublimate</em> (turn directly from ice into gas) from the bottom.</p>
+
+      <p>This <em>sublimation</em> causes gas to become trapped below the ice layer under increasing pressure.  When a crack or a rupture develops, the gas bursts, not unlike a geyser, out of the opening carrying along loose material eroded from the ground.  When the gas and loose materials reach the surface of the ice they are often blown downwind of the vent in fan-shaped deposits, as shown in Figure 2.  If there isn’t any wind the materials aren’t blown, but rather drop straight down forming a ‘blotch.’</p>
+
+      <p>In the summer, (beginning at Ls = 270) the carbon dioxide melts and the ‘fans’ blend back into the surface material and are no longer visible.  This annual process begins again in the following autumn and slowly erodes channels in the ground.  These wide, shallow channels, generally less than 2 meters deep, are known as ‘spiders,’ though their technical name is <em>araneiform</em>.</p>
+
+      <p>‘Spiders’ are visible in the winter when ice is draped over them, but when the terrain is ice-free in the summer, we can see that the ‘spiders’ are actually channels carved into the surface of Mars.  Figure 3 shows the surface of Mars transforming from the spring at Ls = 181.1 to  Ls = 325.4, which is mid-summer.</p>
 
       <figure>
         <img src="images/about/time-lapse.jpg" />
         <figcaption>Figure 3. Timelapse sequence of a spider initially covered with ~1m of ice (upper left), to ice-free (lower right).</figcaption>
       </figure>
 
-      <p>
-        The fans are markers for the wind direction and speed at the time that the gas was escaping and carrying its load of entrained material.
-        Sometimes the vents close and re-open and sometimes the wind changes direction, with the result that we see multiple fans from a single source region.
-        This is all raw data that can be compared to predictions of models for Mars’ atmospheric dynamics, known as global circulation models (GCMs).
-        Sometimes when the conditions are just right the gas will condense into fresh frost particles and form bright fans.
-      </p>
+      <h2>Where do the images come from?</h2>
 
-      <h2>Measuring time on Mars</h2>
+      <p>The images on this site come from the HiRISE (High Resolution Imaging Science Experiment) camera on board the Mars Reconnaissance Orbiter.  HiRISE can image Mars with resolutions of 0.3 m/pixel (about 1 foot), resolving objects below a meter across.</p>
 
-      <p>
-        Rather than having months and days of the year the date on Mars’ yearly calendar is given by the solar longitude, Ls.
-        When Ls = 0 it is the first day of spring in the northern hemisphere, and the beginning of fall in the southern hemisphere, known on earth as the vernal equinox.
-        Ls = 90 marks the beginning of summer in the northern hemisphere and the beginning of winter in the southern hemisphere.
-        At Ls = 180 the sun crosses the equator and it is the beginning of fall in the northern hemisphere, and the beginning of spring in the southern hemisphere.
-        At Ls = 270 northern winter starts and southern summer gets underway.
-      </p>
+      <h2>Why do you need our help?</h2>
 
-      <h2>About HiRISE</h2>
+      <p>There are far too many images for a group of scientists to get through alone and computers are just no good at detecting the features we are trying to mark.  The human mind is far superior at analyzing images with the complexity of the Martian surface!</p>
 
-      <p>
-        The data on this site comes from HiRISE (the High Resolution Imaging Science Experiment), which is a camera on board the Mars Reconnaissance Orbiter.
-        HiRISE can image Mars with resolutions of 0.3 m/pixel (about 1 foot), resolving objects below a meter across.
-      </p>
+      <p>Your markings will be collected together with the markings made by other volunteers on that same image. Taking an average of these markings, we will produce an extremely reliable map of the ‘fan,’ and ‘blotch’ features on the surface of Mars and the first large scale measurement of wind on the planet!</p>
     '''
 
     examples: '''
