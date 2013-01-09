@@ -121,6 +121,64 @@ module.exports =
       </div>
     '''
 
+    faq: '''
+      <h1>Frequently Asked Questions</h1>
+
+      <p class="question">How do I chose if the dark feature must be classified as a fan or as a blotch?</p>
+
+      <p class="answer">
+        If you see the source from which the dark feature stretches out or any directionality in it
+        (i.e. you can say if it goes from left to right) - mark it as a fan.
+        Otherwise, mark it as a blotch.
+      </p>
+
+      <p class="question">What are those wiggly ridges/channels/veins? Are they rivers/river deltas?</p>
+
+      <p class="answer">
+        Those wiggly line structure are actually troughs in the Martin surface.
+        Several of these troughs that converge to one central point are called spiders (or araneiforms).
+        But sometimes they randomly cover area (lace terrain) or form something like polygonal terrain.
+        The troughs are carved by carbon dioxide gas, not liquid water, as one could first think from their appearance.
+        It is too cold in this areas for liquid water, about -123C.
+        More details on the process can be found on <a href="#/about">the About page</a>.
+      </p>
+
+      <p class="question">Why do fans originate from linear dark features? <a href="http://talk.planetfour.org/#/subjects/APF0000hdj">(Example)</a></p>
+
+      <p class="answer">
+        You are looking at the area completely covered by CO2 ice.
+        In spring, when jets are about to erupt this ice layer is subject to high amount of stress
+        under which it finally fractures by forming long, often linear, cracks.
+        Pressured CO2 from underneath the ice layer  finds these cracks and escapes through them.
+        If it brings along some dust, it creates the fans that we observe here.
+      </p>
+
+      <p class="question">What are these bright circular features at the sources of fans? <a href="http://talk.planetfour.org/#/subjects/APF0000j1b">(Example)</a></p>
+
+      <p class="answer">
+        These a boulders.
+        They stick out of the ice layer and get warm faster than the ice around them.
+        Only the ice that directly touches them starts to sublime,
+        this is how the fans tend to develop starting at those boulders.
+      </p>
+
+      <p class="question">What are these bright red (or green) patches?</p>
+
+      <p class="answer">
+        The color images are combinations of 3 color filters,
+        so if you see just a green stripe or bright red dot or strikingly blue smudge,
+        that likely means that there is data missing in the other filters.
+        For example, sometimes you'll see half of the image being plain green.
+        This means data from the red filter is missing.
+        When whole image appears dark red, then the blue filter is missing.
+        These are tiny technical glitches.
+      </p>
+
+      <hr />
+
+      <p>And a tip: If one can see fans, it means whole area covered by CO2 ice layer. Because when there is no CO2 ice fan material looks just like usual surface.</p>
+    '''
+
     scientists:
       heading: 'The science team'
 
