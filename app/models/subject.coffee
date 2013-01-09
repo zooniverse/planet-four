@@ -64,8 +64,9 @@ class Subject extends Model
 
   @selectTutorial: =>
     tutorialSubject = @create
+      id: '50eb8c5c3ae74028ea000001'
       zooniverse_id: 'APF0000x3t'
-      workflow_ids: ['50eb8c5c3ae74028ea000001']
+      workflow_ids: ['50e9e3d33ae740f1f3000002']
       location: standard: 'images/tutorial-subject.jpg'
       coords: [-81.801, 76.14]
       metadata:
