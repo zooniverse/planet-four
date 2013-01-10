@@ -55,7 +55,8 @@ class ProfileItemPage extends SubPage
     @itemsList.find("[data-item='#{item.id}']").remove()
 
   onClickAddFavorite: ({target}) ->
-    item = @itemClass.find $(target).val()
+    target = $(target)
+    item = @itemClass.find target.val()
 
     attributes = {}
     attributes[name] = item[name] for name in Favorite.attributes
@@ -63,6 +64,7 @@ class ProfileItemPage extends SubPage
     favorite = Favorite.create attributes
     favorite.trigger 'mark-new'
     favorite.send() # TODO: This doesn't work.
+    target.attr disabled: true
 
   onClickRemoveFavorite: ({target}) ->
     favorite = Favorite.find $(target).val()

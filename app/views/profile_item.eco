@@ -8,7 +8,7 @@
   </a>
 
   <div class="controls">
-    <% if @ instanceof Recent: %>
+    <% if @ instanceof Recent and not @favorited: %>
       <button name="add-favorite" value="<%= @id %>">&hearts;</button>
     <% end %>
 
