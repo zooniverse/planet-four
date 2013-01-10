@@ -124,59 +124,58 @@ module.exports =
     faq: '''
       <h1>Frequently Asked Questions</h1>
 
-      <p class="question">How do I chose if the dark feature must be classified as a fan or as a blotch?</p>
+      <p class="question">How do I determine if a dark feature is a fan or a blotch?</p>
 
       <p class="answer">
-        If you see the source from which the dark feature stretches out or any directionality in it
-        (i.e. you can say if it goes from left to right) - mark it as a fan.
+        If you can see the source from which the dark feature stretches out
+        or if you can tell that it stretches in a particular direction (from left to right, for example,) mark it as a fan.
         Otherwise, mark it as a blotch.
       </p>
 
-      <p class="question">What are those wiggly ridges/channels/veins? Are they rivers/river deltas?</p>
+      <p class="question">What are those wiggly ridges/channels/veins? Are they rivers or river deltas?</p>
 
       <p class="answer">
-        Those wiggly line structure are actually troughs in the Martin surface.
-        Several of these troughs that converge to one central point are called spiders (or araneiforms).
-        But sometimes they randomly cover area (lace terrain) or form something like polygonal terrain.
-        The troughs are carved by carbon dioxide gas, not liquid water, as one could first think from their appearance.
-        It is too cold in this areas for liquid water, about -123C.
-        More details on the process can be found on <a href="#/about">the About page</a>.
+        Those wiggly line structures are actually channels in the Martin surface.
+        Several channels that converge to one central point are called spiders (or araneiforms).
+        Sometimes they randomly cover area (lace terrain) or form something like polygonal terrain.
+        The channels are carved by carbon dioxide gas, not liquid water, as you might think given their appearance.
+        It is too cold in these areas for liquid water, about -123C.
+        More details on their formation can be found on <a href="#/about">the About page</a>.
       </p>
 
       <p class="question">Why do fans originate from linear dark features? <a href="http://talk.planetfour.org/#/subjects/APF0000hdj">(Example)</a></p>
 
       <p class="answer">
-        You are looking at the area completely covered by CO2 ice.
-        In spring, when jets are about to erupt this ice layer is subject to high amount of stress
-        under which it finally fractures by forming long, often linear, cracks.
-        Pressured CO2 from underneath the ice layer  finds these cracks and escapes through them.
-        If it brings along some dust, it creates the fans that we observe here.
+        The area you are looking at is completely covered by CO2 ice.
+        In the spring, this ice layer is subject to stress under which if finally fractures, forming long, often linear cracks.
+        Pressured CO2 below the ice layer finds these cracks and escapes through them as jets.
+        When these CO2 jets carry dust along they create fans.
       </p>
 
       <p class="question">What are these bright circular features at the sources of fans? <a href="http://talk.planetfour.org/#/subjects/APF0000j1b">(Example)</a></p>
 
       <p class="answer">
-        These a boulders.
-        They stick out of the ice layer and get warm faster than the ice around them.
+        The bright circular features are boulders.
+        They stick out of the ice layer and warm faster than the ice around them.
         Only the ice that directly touches them starts to sublime,
-        this is how the fans tend to develop starting at those boulders.
+        this is how fans tend to develop starting at these boulders.
       </p>
 
       <p class="question">What are these bright red (or green) patches?</p>
 
       <p class="answer">
         The color images are combinations of 3 color filters,
-        so if you see just a green stripe or bright red dot or strikingly blue smudge,
-        that likely means that there is data missing in the other filters.
-        For example, sometimes you'll see half of the image being plain green.
+        so if you see a green stripe, a bright red dot or a strikingly blue smudge,
+        that likely means that there is some data missing in the other filters.
+        For example, sometimes you'll see half of an image as plain green.
         This means data from the red filter is missing.
-        When whole image appears dark red, then the blue filter is missing.
+        When whole image appears dark red, the blue filter is missing.
         These are tiny technical glitches.
       </p>
 
       <hr />
 
-      <p>And a tip: If one can see fans, it means whole area covered by CO2 ice layer. Because when there is no CO2 ice fan material looks just like usual surface.</p>
+      <p>And a tip: If you can see fans this means that the whole area covered by a CO2 ice layer. When there is no CO2 ice, fan material looks just like usual surface.</p>
     '''
 
     scientists:
