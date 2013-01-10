@@ -220,7 +220,7 @@ module.exports =
         '''
 
     developers:
-      heading: 'The development team'
+      heading: 'The Development Team'
 
       borden:
         name: 'Kelly Borden'
