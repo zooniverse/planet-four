@@ -180,7 +180,7 @@ module.exports =
     '''
 
     scientists:
-      heading: 'The science team'
+      heading: 'The Science Team'
 
       aye:
         name: 'Dr. Klaus-Michael Aye'
