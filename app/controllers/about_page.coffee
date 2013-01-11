@@ -11,6 +11,7 @@ class AboutPage extends Stack
     index: class extends SubPage then content: translate 'about.index'
     examples: class extends SubPage then content: translate 'about.examples'
     faq: class extends SubPage then content: translate 'about.faq'
+    education: class extends SubPage then content: translate 'about.education'
     scientists: class extends SubPage then content: scientistsView @
     developers: class extends SubPage then content: developersView @
     stargazingLive: class extends SubPage then content: translate 'about.stargazingLive'
@@ -19,6 +20,7 @@ class AboutPage extends Stack
     '/about': 'index'
     '/about/examples': 'examples'
     '/about/faq': 'faq'
+    '/about/education': 'education'
     '/about/scientists': 'scientists'
     '/about/developers': 'developers'
     '/about/stargazing-live': 'stargazingLive'
