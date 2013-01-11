@@ -183,7 +183,7 @@ module.exports =
 
       <h2>Can I use Planet Four in the classroom?</h2>
 
-      <p>Yes, yes and again yes. Planet Four, just like all the <a href="http://zooniverse.org">Zooniverse</a> projects, offers students a unique opportunity to explore real scientific data, which making a contribution to cutting edge research. We would like to stress that as each image is marked by multiple volunteers, it really does not matter if your students don't mark all the features correctly. That being said, the task itself is simple enough that we believe most people can take part and make a worthwhile contribution regardless of age.</p>
+      <p>Yes, yes and again yes. Planet Four, just like all the <a href="http://zooniverse.org">Zooniverse</a> projects, offers students a unique opportunity to explore real scientific data, while making a contribution to cutting edge research. We would like to stress that as each image is marked by multiple volunteers, it really does not matter if your students don't mark all the features correctly. That being said, the task itself is simple enough that we believe most people can take part and make a worthwhile contribution regardless of age.</p>
 
       <h2>What resources are there to support use in the classroom?</h2>
 
