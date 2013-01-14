@@ -145,7 +145,7 @@ class MarkingTool extends Module
       x: parseFloat @deleteButton.css 'left'
       y: parseFloat @deleteButton.css 'top'
       callback: =>
-        @trigger 'remove'
+        @trigger 'removed'
         @layer.off 'mousedown mousemove mouseup click'
         @layer.remove()
         @deleteButton.off().fadeOut 'fast', => @deleteButton.remove()

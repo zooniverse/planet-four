@@ -84,7 +84,7 @@ class MarkingSurface extends Controller
       tool.bind 'deselect', =>
         @selection = null if @selection is tool
 
-      tool.bind 'remove', =>
+      tool.bind 'removed', =>
         @tools.splice i, 1 for t, i in @tools when t is tool
         if @selection is tool
           @selection = null
