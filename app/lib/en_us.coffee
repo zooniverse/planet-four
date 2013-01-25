@@ -183,7 +183,7 @@ module.exports =
 
       <h2>Can I use Planet Four in the classroom?</h2>
 
-      <p>Yes, yes and again yes. Planet Four, just like all the <a href="http://zooniverse.org">Zooniverse</a> projects, offers students a unique opportunity to explore real scientific data, while making a contribution to cutting edge research. We would like to stress that as each image is marked by multiple volunteers, it really does not matter if your students don't mark all the features correctly. That being said, the task itself is simple enough that we believe most people can take part and make a worthwhile contribution regardless of age.</p>
+      <p>We would love you to! Planet Four, just like all the <a href="http://zooniverse.org">Zooniverse</a> projects, offers students a unique opportunity to explore real scientific data, while making a contribution to cutting edge research. We would like to stress that as each image is marked by multiple volunteers, it really does not matter if your students don't mark all the features correctly. That being said, the task itself is simple enough that we believe most people can take part and make a worthwhile contribution regardless of age.</p>
 
       <h2>What resources are there to support use in the classroom?</h2>
 
@@ -191,7 +191,7 @@ module.exports =
 
       <p>The Zooniverse has also recently launched <a href="http://www.zooteach.org">ZooTeach</a> where educators can share resources relating to Planet Four and the other citizen science projects. Planet Four is a recent addition, so if you have any idea's for how to use the project in the classroom, it would be great if you could share your lesson idea's or resources!</p>
 
-      <h2>How can I keep up to date with Planet Four?</h2>
+      <h2>How can I keep up to date with education and Planet Four?</h2>
 
       <p><a href="http://blog.planetfour.org/">The Planet Four Blog</a> is a great place to keep up to date with the latests science results, but there is also a <a href="http://education.zooniverse.org">Zooniverse Education Blog</a> as well as a <a href="https://twitter.com/ZooTeach">@zooteach</a> Twitter feed.</p>
     '''
