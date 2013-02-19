@@ -11,6 +11,7 @@ ProfilePage = require 'controllers/profile_page'
 User = require 'zooniverse/lib/models/user'
 TopBar = require 'zooniverse/lib/controllers/top_bar'
 googleAnalytics = require 'zooniverse/lib/google_analytics'
+require 'zootorial/google-analytics'
 
 Api.init
   host: if !!location.href.match /demo|beta/

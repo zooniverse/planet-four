@@ -15,7 +15,8 @@
     "zooniverse/lib/google_analytics",
     "underscore/underscore",
     "translate",
-    "zootorial"
+    "zootorial",
+    "zootorial/google-analytics"
   ],
 
   "libs": [
