@@ -58,7 +58,9 @@ class ClassifyPage extends Controller
     else
       if @tutorial?
         @startTutorial()
-        @tutorial.hide() unless @el.hasClass 'active'
+        unless @el.hasClass 'active'
+          @tutorial.dialog.close()
+          @tutorial.dialog.el.css display: 'none'
       else
         @selectNextSubject()
 
@@ -99,11 +101,11 @@ class ClassifyPage extends Controller
   activate: ->
     super
     html.addClass 'on-classify'
-    @tutorial.show() if Subject.current?.metadata.tutorial
+    @tutorial.dialog.open() if Subject.current?.metadata.tutorial
 
   deactivate: ->
     super
     html.removeClass 'on-classify'
-    @tutorial.hide() if Subject.current?.metadata.tutorial
+    @tutorial.dialog.close() if Subject.current?.metadata.tutorial
 
 module.exports = ClassifyPage
