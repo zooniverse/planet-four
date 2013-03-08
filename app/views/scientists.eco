@@ -1,4 +1,4 @@
-<% translate = require 'translate' %>
+<% translate = require 't7e' %>
 
 <% scientists = 'aye hansen portyankina schwamb'.split ' ' %>
 

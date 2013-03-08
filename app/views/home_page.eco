@@ -1,4 +1,4 @@
-<% translate = require 'translate' %>
+<% translate = require 't7e' %>
 
 <div class="planet">
   <div class="surface"></div>

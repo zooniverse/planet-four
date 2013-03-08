@@ -14,7 +14,7 @@
     "zooniverse/lib/models/favorite",
     "zooniverse/lib/google_analytics",
     "underscore/underscore",
-    "translate",
+    "t7e",
     "zootorial",
     "zootorial/google-analytics"
   ],

@@ -1,6 +1,6 @@
 {Stack} = require 'spine/lib/manager'
 SubPage = require './sub_page'
-translate = require 'translate'
+translate = require 't7e'
 developersView = require 'views/developers'
 scientistsView = require 'views/scientists'
 

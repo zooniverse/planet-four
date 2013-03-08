@@ -1,4 +1,4 @@
-<% translate = require 'translate' %>
+<% translate = require 't7e' %>
 
 <% devs = 'borden carstensen lintott miller parrish simpson smith whyte'.split ' ' %>
 

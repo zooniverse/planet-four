@@ -8,7 +8,7 @@ checker.support.msie = 9
 checker.check()
 
 # Load US English by default.
-translate = require 'translate'
+translate = require 't7e'
 english = require 'lib/en_us'
 translate.load english
 

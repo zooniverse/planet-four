@@ -14,6 +14,6 @@
     "zooniverse": "git+ssh://git@github.com:zooniverse/Zooniverse.git#master",
     "underscore": "~1.4.3",
     "zootorial": "~0.2.3",
-    "translate": "git://github.com/brian-c/translate.git"
+    "t7e": "git://github.com/brian-c/t7e.git"
   }
 }
