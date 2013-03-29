@@ -47,8 +47,8 @@ class MarkingTool extends Module
     @layer.on 'mousedown touchstart', @handleLayerEvent
 
     if @cursors?
-      @layer.on 'mousemove', ({shape}) =>
-        cursor = @cursors[shape.getName()] || ''
+      @layer.on 'mousemove', ({targetNode}) =>
+        cursor = @cursors[targetNode.getName()] || ''
         body.css {cursor}
 
       @layer.on 'mouseout', =>
@@ -67,7 +67,7 @@ class MarkingTool extends Module
 
   handleLayerEvent: (e) =>
     type = e.type
-    name = e.shape?.getName()
+    name = e.targetNode?.getName()
 
     # TODO: Probably not this.
     type = switch
