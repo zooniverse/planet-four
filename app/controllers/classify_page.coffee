@@ -101,11 +101,11 @@ class ClassifyPage extends Controller
   activate: ->
     super
     html.addClass 'on-classify'
-    @tutorial.dialog.open() if Subject.current?.metadata.tutorial
+    @tutorial.dialog.el.show() if Subject.current?.metadata.tutorial
 
   deactivate: ->
     super
     html.removeClass 'on-classify'
-    @tutorial.dialog.close() if Subject.current?.metadata.tutorial
+    @tutorial.dialog.el.hide() if Subject.current?.metadata.tutorial
 
 module.exports = ClassifyPage
