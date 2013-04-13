@@ -59,8 +59,7 @@ class ClassifyPage extends Controller
       if @tutorial?
         @startTutorial()
         unless @el.hasClass 'active'
-          @tutorial.dialog.close()
-          @tutorial.dialog.el.css display: 'none'
+          @tutorial.dialog.el.hide()
       else
         @selectNextSubject()
 
