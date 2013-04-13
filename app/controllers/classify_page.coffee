@@ -101,7 +101,9 @@ class ClassifyPage extends Controller
   activate: ->
     super
     html.addClass 'on-classify'
-    @tutorial.dialog.el.show() if Subject.current?.metadata.tutorial
+    if Subject.current?.metadata.tutorial
+      @tutorial.dialog.el.show()
+      @tutorial.dialog.attach()
 
   deactivate: ->
     super
