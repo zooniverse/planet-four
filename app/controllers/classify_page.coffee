@@ -54,6 +54,7 @@ class ClassifyPage extends Controller
 
     if tutorialDone
       @tutorial?.end()
+      @tutorial?.dialog.close()
       @selectNextSubject() if doingTutorial or not Subject.current?
     else
       if @tutorial?
