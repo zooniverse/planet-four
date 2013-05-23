@@ -11,7 +11,7 @@ ProfilePage = require 'controllers/profile_page'
 User = require 'zooniverse/lib/models/user'
 TopBar = require 'zooniverse/lib/controllers/top_bar'
 googleAnalytics = require 'zooniverse/lib/google_analytics'
-require 'zootorial/google-analytics'
+# require 'zootorial/google-analytics'
 
 Api.init
   host: if !!location.href.match /demo|beta/
@@ -19,8 +19,9 @@ Api.init
   else if +location.port < 1024
     'https://api.zooniverse.org'
   else
-    "#{location.protocol}//#{location.hostname}:3000"
-
+    'https://dev.zooniverse.org'
+    #"#{location.protocol}//#{location.hostname}:3000"
+ 
 app = {}
 app.container = $('#app')
 

@@ -13,7 +13,7 @@
     "request": "*",
     "zooniverse": "git+ssh://git@github.com:zooniverse/Zooniverse.git#master",
     "underscore": "~1.4.3",
-    "zootorial": "~0.2.3",
+    "zootorial": "~0.2.4",
     "t7e": "git://github.com/brian-c/t7e.git"
   }
 }
