@@ -16,4 +16,4 @@ translate.load english
 $ = require 'jqueryify'
 spine = require 'spine'
 
-$('html').addClass 'touch' if 'Touch' of window
+$('html').addClass 'touch' if !!~navigator.userAgent.indexOf 'iP'
