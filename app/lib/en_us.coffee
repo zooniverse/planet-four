@@ -19,6 +19,7 @@ module.exports =
     finished: 'Finished'
     next: 'Next'
     discuss: 'Discuss'
+    outOfSubjects: "'Error fetching subjects. Maybe we\'re out!'"
 
   about:
     index: '''

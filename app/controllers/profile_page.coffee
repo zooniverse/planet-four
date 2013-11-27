@@ -3,9 +3,9 @@ SubPage = require './sub_page'
 pageTemplate = require 'views/profile_item_page'
 itemTemplate = require 'views/profile_item'
 translate = require 't7e'
-User = require 'zooniverse/lib/models/user'
-Recent = require 'zooniverse/lib/models/recent'
-Favorite = require 'zooniverse/lib/models/favorite'
+User = require 'zooniverse/models/user'
+Recent = require 'zooniverse/models/recent'
+Favorite = require 'zooniverse/models/favorite'
 
 class ProfileItemPage extends SubPage
   itemName: ''

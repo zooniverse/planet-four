@@ -4,7 +4,7 @@
   <input type="radio" name="tool" value="fan">
   <span class="label">
     <img src="images/classify/fan.png" /><br />
-    <%- translate span: 'classify.fanTool' %>
+    <%- translate 'classify.fanTool' %>
   </span>
 </label>
 
@@ -12,7 +12,7 @@
   <input type="radio" name="tool" value="blotch">
   <span class="label">
     <img src="images/classify/ellipse.png" /><br />
-    <%- translate span: 'classify.blotchTool' %>
+    <%- translate 'classify.blotchTool' %>
   </span>
 </label>
 
@@ -20,7 +20,7 @@
   <input type="radio" name="tool" value="interest">
   <span class="label">
     <img src="images/classify/star.png" /><br />
-    <%- translate span: 'classify.interestTool' %>
+    <%- translate 'classify.interestTool' %>
   </span>
 </label>
 
@@ -29,24 +29,24 @@
   <span class="label">
     <i class="icon-heart-empty unchecked-icon"></i>
     <i class="icon-heart checked-icon"></i>
-    <%- translate span: 'classify.favorite' %>
+    <%- translate 'classify.favorite' %>
   </span>
 </label>
 
 <label class="for-sign-in">
-  <button name="sign-in"><%- translate span: 'classify.notSignedIn' %></button>
+  <button name="sign-in"><%- translate 'classify.notSignedIn' %></button>
 </label>
 
 <div class="finish">
-  <button name="finish"><%- translate span: 'classify.finished' %></button>
+  <button name="finish"><%- translate 'classify.finished' %></button>
 </div>
 
 <div class="followup" style="display: none;">
-  <button name="next"><%- translate span: 'classify.next' %></button>
+  <button name="next"><%- translate 'classify.next' %></button>
 
   <a href="#" class="talk">
     <i class="icon-comments"></i>
-    <%- translate span: 'classify.discuss' %>
+    <%- translate 'classify.discuss' %>
   </a>
 
   <div class="share">

@@ -15,7 +15,7 @@ class HomePage extends Controller
     super
     @html template @
 
-    Api.get '/projects/planet_four', (project) =>
+    Api.current.get '/projects/planet_four', (project) =>
       @participantsCount.html formatNumber project.classifier_count
       @classificationsCount.html formatNumber project.classification_count
 

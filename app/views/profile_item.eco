@@ -1,6 +1,6 @@
-<% Subject = require 'models/subject' %>
-<% Recent = require 'zooniverse/lib/models/recent' %>
-<% Favorite = require 'zooniverse/lib/models/favorite' %>
+<% Subject = require 'zooniverse/models/subject' %>
+<% Recent = require 'zooniverse/models/recent' %>
+<% Favorite = require 'zooniverse/models/favorite' %>
 
 <div class="item">
   <a href="<%= Subject::talkHref.call @subjects %>">

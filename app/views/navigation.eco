@@ -5,7 +5,7 @@
 </div>
 
 <div class="classify section" data-link="#/classify">
-  <a href="#/classify"><%- translate span: 'navigation.classify' %></a>
+  <a href="#/classify"><%- translate 'navigation.classify' %></a>
 
   <div class="expando">
     <!--Insert classification tools here-->
@@ -13,7 +13,7 @@
 </div>
 
 <div class="about section" data-link="#/about">
-  <a href="#/about"><%- translate span: 'navigation.about.root' %></a>
+  <a href="#/about"><%- translate 'navigation.about.root' %></a>
 
   <div class="sub-nav expando">
     <a href="#/about/examples">Classification Examples</a>
@@ -26,18 +26,18 @@
 </div>
 
 <div class="profile section" data-link="#/profile">
-  <a href="#/profile/recents"><%- translate span: 'navigation.profile.root' %></a>
+  <a href="#/profile/recents"><%- translate 'navigation.profile.root' %></a>
 
   <div class="sub-nav expando">
-    <a href="#/profile/recents"><%- translate span: 'navigation.profile.recents' %></a>
-    <a href="#/profile/favorites"><%- translate span: 'navigation.profile.favorites' %></a>
+    <a href="#/profile/recents"><%- translate 'navigation.profile.recents' %></a>
+    <a href="#/profile/favorites"><%- translate 'navigation.profile.favorites' %></a>
   </div>
 </div>
 
 <div class="talk section">
-  <a href="http://talk.planetfour.org/"><%- translate span: 'navigation.discuss' %></a>
+  <a href="http://talk.planetfour.org/"><%- translate 'navigation.discuss' %></a>
 </div>
 
 <div class="blog section">
-  <a href="http://blog.planetfour.org/"><%- translate span: 'navigation.blog' %></a>
+  <a href="http://blog.planetfour.org/"><%- translate 'navigation.blog' %></a>
 </div>

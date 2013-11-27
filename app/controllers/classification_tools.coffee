@@ -3,8 +3,8 @@ template = require 'views/classification_tools'
 FanTool = require 'controllers/fan_tool'
 EllipseTool = require 'controllers/ellipse_tool'
 StarPointTool = require 'controllers/star_point_tool'
-User = require 'zooniverse/lib/models/user'
-Subject = require 'models/subject'
+User = require 'zooniverse/models/user'
+Subject = require 'zooniverse/models/subject'
 
 tools =
   fan: FanTool
@@ -40,9 +40,8 @@ class ClassificationTools extends Controller
     super
     @html template @
 
-    User.bind 'sign-in', @onUserSignIn
-
-    Subject.bind 'selected', @onSubjectSelect
+    User.on 'change', @onUserSignIn
+    Subject.on 'select', @onSubjectSelect
 
     setTimeout @reset
 
@@ -66,7 +65,7 @@ class ClassificationTools extends Controller
     @classifier.markingSurface.setTool tools[@tool]
 
   onClickSignIn: ->
-    $(window).trigger 'request-login-dialog'
+    (require('zooniverse/controllers/login-dialog')).show()
 
   onChangeFavorite: ->
     @classifier.classification.favorite = @favoriteCheckbox.is ':checked'

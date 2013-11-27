@@ -2,7 +2,7 @@
 
 <% devs = 'borden carstensen lintott miller parrish simpson smith whyte'.split ' ' %>
 
-<h1><%- translate 'about.developers.heading' %></h1>
+<%- translate 'h1', 'about.developers.heading' %>
 
 <% for dev in devs: %>
   <div class="team-member">
@@ -10,8 +10,8 @@
 
     <% if imgSrc: %><img src="<%= imgSrc %>" class="photo" /><% end %>
     <div class="description">
-      <%- translate h2: "about.developers.#{dev}.name" %>
-      <%- translate p: "about.developers.#{dev}.description" %>
+      <%- translate 'h2', "about.developers.#{dev}.name" %>
+      <%- translate 'p', "about.developers.#{dev}.description" %>
     </div>
   </div>
 <% end %>

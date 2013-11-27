@@ -1,12 +1,13 @@
 {Controller} = require 'spine'
+translate = require 't7e'
 template = require 'views/classify_page'
 ClassificationTools = require 'controllers/classification_tools'
 MarkingSurface = require 'controllers/marking_surface'
 FanTool = require 'controllers/fan_tool'
 $ = require 'jqueryify'
-User = require 'zooniverse/lib/models/user'
-Subject = require 'models/subject'
-Classification = require 'models/classification'
+User = require 'zooniverse/models/user'
+Subject = require 'zooniverse/models/subject'
+Classification = require 'zooniverse/models/classification'
 {Tutorial} = require 'zootorial'
 tutorialSteps = require 'lib/tutorial_steps'
 
@@ -43,9 +44,8 @@ class ClassifyPage extends Controller
     @tutorial = new Tutorial
       steps: tutorialSteps
 
-    User.bind 'sign-in', @onUserSignIn
-
-    Subject.bind 'selected', @onSubjectSelect
+    User.on 'change', @onUserSignIn
+    Subject.on 'select', @onSubjectSelect
 
   onUserSignIn: =>
     @el.toggleClass 'signed-in', User.current?
@@ -65,7 +65,16 @@ class ClassifyPage extends Controller
         @selectNextSubject()
 
   startTutorial: ->
-    Subject.selectTutorial()
+    tutorialSubject = new Subject
+      id: '50eb8c5c3ae74028ea000001'
+      zooniverse_id: 'APF0000x3t'
+      workflow_ids: ['50e9e3d33ae740f1f3000002']
+      location: standard: 'images/tutorial-subject.jpg'
+      coords: [-81.801, 76.14]
+      metadata:
+        tutorial: true
+    tutorialSubject.select()
+
     @tutorial?.start()
 
   selectNextSubject: ->
@@ -81,22 +90,22 @@ class ClassifyPage extends Controller
 
   onSubjectError: =>
     @el.removeClass 'loading'
-    alert 'Error fetching subjects. Maybe we\'re out!'
+    alert translate 'classify.outOfSubjects'
 
   onCreateMark: (mark) =>
     # Re-assign the "type" property.
     mark.set type: @classificationTools.tool
 
-    @classification.marks.push mark
+    @classification.annotate mark
 
     mark.bind 'destroy', =>
-      @classification.marks.splice i, 1 for m, i in @classification.marks when m is mark
+      @classification.removeAnnotation mark
 
   finishClassification: ->
     @classification.send()
 
   onClickSignIn: ->
-    $(window).trigger 'request-login-dialog'
+    (require('zooniverse/controllers/login-dialog')).show()
 
   activate: ->
     super

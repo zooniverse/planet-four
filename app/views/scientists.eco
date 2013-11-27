@@ -2,7 +2,7 @@
 
 <% scientists = 'aye hansen portyankina schwamb'.split ' ' %>
 
-<h1><%- translate 'about.scientists.heading' %></h1>
+<%- translate 'h1', 'about.scientists.heading' %>
 
 <% for scientist in scientists: %>
   <div class="team-member">
@@ -10,8 +10,8 @@
 
     <% if imgSrc: %><img src="<%= imgSrc %>" class="photo" /><% end %>
     <div class="description">
-      <%- translate h2: "about.scientists.#{scientist}.name" %>
-      <%- translate div: "about.scientists.#{scientist}.description" %>
+      <%- translate 'h2', "about.scientists.#{scientist}.name" %>
+      <%- translate 'div', "about.scientists.#{scientist}.description" %>
     </div>
   </div>
 <% end %>
