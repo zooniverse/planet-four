@@ -11,26 +11,18 @@
   <div class="columns">
     <div class="one-half counter column">
       <strong class="participants count">&mdash;</strong>
-      participants worldwide
+      <%- translate 'home.participants' %>
     </div>
-
-    <!--<div class="one-third counter column">
-      <strong class="count"><span class="area">&mdash;</span> km<sup>2</sup></strong>
-      Martian surface explored
-    </div>-->
 
     <div class="one-half counter column">
       <strong class="classifications count">&mdash;</strong>
-      MRO images classified
+      <%- translate 'home.imagesClassified' %>
     </div>
   </div>
 
   <hr />
 
-  <p>
-    With the help of Stargazing Live, <strong class="participants">&mdash;</strong> citizen scientists<br />
-    are exploring the surface of Mars like never before.
-  </p>
+  <%- translate 'p', 'home.tagline' %>
 
   <hr />
 
@@ -39,12 +31,8 @@
       <a href="#/about/stargazing-live"><img src="images/about/stargazing-live-logo.png" /></a>
     </div>
 
-    <!--<div class="one-third column">
-      &nbsp;
-    </div>-->
-
     <div class="one-half column">
-      <a href="#/classify" class="explore">Start Exploring</a>
+      <a href="#/classify" class="explore"><%- translate 'home.explore' %></a>
     </div>
   </div>
 </div>

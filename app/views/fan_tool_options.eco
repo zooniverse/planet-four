@@ -1,6 +1,8 @@
+<% translate = require 't7e' %>
+
 <div class="fan-tool-options">
   <form>
-    <label><input type="radio" name="color" value="0" />Darker</label>
-    <label><input type="radio" name="color" value="1" />Lighter</label>
+    <label><input type="radio" name="color" value="0" /><%- translate 'classify.tools.fan.darker' %></label>
+    <label><input type="radio" name="color" value="1" /><%- translate 'classify.tools.fan.lighter' %></label>
   </form>
 </div>

@@ -4,7 +4,7 @@
   <input type="radio" name="tool" value="fan">
   <span class="label">
     <img src="images/classify/fan.png" /><br />
-    <%- translate 'classify.fanTool' %>
+    <%- translate 'classify.tools.fan.name' %>
   </span>
 </label>
 
@@ -12,7 +12,7 @@
   <input type="radio" name="tool" value="blotch">
   <span class="label">
     <img src="images/classify/ellipse.png" /><br />
-    <%- translate 'classify.blotchTool' %>
+    <%- translate 'classify.tools.blotch.name' %>
   </span>
 </label>
 

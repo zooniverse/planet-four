@@ -16,11 +16,11 @@
   <a href="#/about"><%- translate 'navigation.about.root' %></a>
 
   <div class="sub-nav expando">
-    <a href="#/about/examples">Classification Examples</a>
-    <a href="#/about/faq">FAQs</a>
-    <a href="#/about/education">Education</a>
-    <a href="#/about/scientists">The Scientists</a>
-    <a href="#/about/developers">The Developers</a>
+    <a href="#/about/examples"><%- translate 'navigation.about.examples' %></a>
+    <a href="#/about/faq"><%- translate 'navigation.about.faq' %></a>
+    <a href="#/about/education"><%- translate 'navigation.about.education' %></a>
+    <a href="#/about/scientists"><%- translate 'navigation.about.scientists' %></a>
+    <a href="#/about/developers"><%- translate 'navigation.about.developers' %></a>
     <a href="#/about/stargazing-live">Stargazing Live</a>
   </div>
 </div>

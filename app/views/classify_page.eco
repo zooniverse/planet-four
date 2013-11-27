@@ -1,15 +1,17 @@
+<% translate = require 't7e' %>
+
 <div class="subject-container">
   <img class="subject" />
 </div>
 
 <footer>
   <div class="help">
-    <button name="start-tutorial">Tutorial</button>
+    <button name="start-tutorial"><%- translate 'classify.tutorial' %></button>
     &bull;
-    <a href="#/about/examples">Examples</a>
+    <a href="#/about/examples"><%- translate 'classify.examples' %></a>
   </div>
 
   <div class="sign-in-prompt">
-    <button name="sign-in">Sign in</button> now so we can credit you for your work!
+    <%- translate 'classify.signInPrompt' %>
   </div>
 </footer>

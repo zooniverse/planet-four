@@ -1,8 +1,22 @@
 module.exports =
+  home:
+    participants: 'participants worldwide'
+    imagesClassified: 'MRO images classified'
+    tagline: """
+    With the help of Stargazing Live, <strong class="participants">&mdash;</strong> citizen scientists<br />
+    are exploring the surface of Mars like never before.
+    """
+    explore: 'Start Exploring'
+
   navigation:
     classify: 'Classify'
     about:
       root: 'About'
+      examples: 'Classification Examples'
+      faq: 'FAQs'
+      education: 'Education'
+      scientists: 'The Scientists'
+      develoeprs: 'The Developers'
     profile:
       root: 'Profile'
       recents: 'Recents'
@@ -11,15 +25,23 @@ module.exports =
     blog: 'Blog'
 
   classify:
-    fanTool: 'Fan'
-    blotchTool: 'Blotch'
+    tools:
+      fan:
+        name: 'Fan'
+        darker: 'Darker'
+        lighter: 'Lighter'
+      blotch:
+        name: 'Blotch'
     interestTool: 'Interesting feature'
     favorite: 'Mark as favorite'
     notSignedIn: 'Sign in'
     finished: 'Finished'
     next: 'Next'
     discuss: 'Discuss'
+    tutorial: 'Tutorial'
+    examples: 'Examples'
     outOfSubjects: "'Error fetching subjects. Maybe we\'re out!'"
+    signInPrompt: '<button name="sign-in">Sign in</button> now so we can credit you for your work!'
 
   about:
     index: '''
@@ -337,3 +359,4 @@ module.exports =
   profile:
     noRecents: 'Nothing has been marked as a favorite!'
     noFavorites: 'You have no recent classifications!'
+    loadMore: 'Load more'

@@ -1,5 +1,6 @@
+<% translate = require 't7e' %>
 <div class="items"></div>
 
 <div class="action">
-  <button name="load-more">Load more</button>
+  <button name="load-more"><%- translate 'profile.loadMore' %></button>
 </div>
