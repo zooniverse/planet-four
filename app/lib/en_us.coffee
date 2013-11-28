@@ -3,7 +3,7 @@ module.exports =
     participants: 'participants worldwide'
     imagesClassified: 'MRO images classified'
     tagline: """
-    With the help of Stargazing Live, <strong class="participants">&mdash;</strong> citizen scientists<br />
+    With the help of Stargazing Live, citizen scientists<br />
     are exploring the surface of Mars like never before.
     """
     explore: 'Start Exploring'
