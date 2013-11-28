@@ -51,7 +51,6 @@ languageManager = new LanguageManager
     en: label: 'English', strings: enUs
 
 languageManager.on 'change-language', (e, code, strings) ->
-  console.log strings
   translate.load strings
   translate.refresh()
 

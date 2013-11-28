@@ -45,9 +45,10 @@ class ClassifyPage extends Controller
 
     @tutorial = new Tutorial
       steps: tutorialSteps
+      firstStep: 'welcome'
       
-    # @tutorial.el.on 'start-tutorial enter-tutorial-step', =>
-    #   translate.refresh @tutorial.el.get 0
+    @tutorial.el.on 'start-tutorial enter-tutorial-step', =>
+      translate.refresh @tutorial.el.get 0
 
     User.on 'change', @onUserSignIn
     Subject.on 'select', @onSubjectSelect
@@ -59,17 +60,15 @@ class ClassifyPage extends Controller
 
     if tutorialDone
       @tutorial?.end()
-      @tutorial?.dialog.close()
       @selectNextSubject() if doingTutorial or not Subject.current?
     else
       if @tutorial?
         @startTutorial()
-        unless @el.hasClass 'active'
-          @tutorial.dialog.el.hide()
+        @tutorial.close() unless @el.hasClass 'active'
       else
         @selectNextSubject()
 
-  startTutorial: ->
+  startTutorial: =>
     tutorialSubject = new Subject
       id: '50eb8c5c3ae74028ea000001'
       zooniverse_id: 'APF0000x3t'
@@ -80,7 +79,7 @@ class ClassifyPage extends Controller
         tutorial: true
     tutorialSubject.select()
 
-    @tutorial?.start()
+    @tutorial.start()
 
   selectNextSubject: ->
     @el.addClass 'loading'
@@ -115,13 +114,11 @@ class ClassifyPage extends Controller
   activate: ->
     super
     html.addClass 'on-classify'
-    if Subject.current?.metadata.tutorial
-      @tutorial.dialog.el.show()
-      @tutorial.dialog.attach()
+    @tutorial.open() if Subject.current?.metadata.tutorial
 
   deactivate: ->
     super
     html.removeClass 'on-classify'
-    @tutorial.dialog.el.hide() if Subject.current?.metadata.tutorial
+    @tutorial.close() if Subject.current?.metadata.tutorial
 
 module.exports = ClassifyPage

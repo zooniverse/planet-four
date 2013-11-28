@@ -1,57 +1,60 @@
-{Tutorial} = require 'zootorial'
-{Step} = Tutorial
+{Tutorial, Step} = require 'zootorial'
 
-module.exports = [
-  new Step
+module.exports =
+  welcome: new Step
     header: 'Welcome to Planet Four!'
-    content: 'This short tutorial will show you how to help explore the surface of Mars: an alien world.'
-    attachment: to: '.subject-container'
+    details: 'This short tutorial will show you how to help explore the surface of Mars: an alien world.'
+    attachment: 'center center .subject-container center center'
+    next: 'overview'
 
-  new Step
-    content: 'This photo was taken by a satellite orbiting Mars. We\'re going to mark deposits of dust on the Martian surface. Some will be in neat fans, other will be in blotches. See the About page for more information on how these patterns form.'
-    attachment: y: 'top', to: '.subject-container', at: y: 'top'
+  overview: new Step
+    details: 'This photo was taken by a satellite orbiting Mars. We\'re going to mark deposits of dust on the Martian surface. Some will be in neat fans, other will be in blotches. See the About page for more information on how these patterns form.'
+    attachment: 'center top .subject-container center top'
     focus: '.subject-container'
+    next: 'firstDeposit'
 
-  new Step
-    content: 'The first deposit we see here is a fan, so make sure the Fan tool is selected.'
-    attachment: x: 'left', to: '.for-fan', at: x: 'right'
+  firstDeposit: new Step
+    details: 'The first deposit we see here is a fan, so make sure the Fan tool is selected.'
+    attachment: 'left top .classification-tools right top'
     focus: '.classification-tools'
+    next: 'fanTool'
 
-  new Step
-    content: 'We\'ll start with the fan toward the top right. Hold down your mouse at the source where the fan originates, then drag right to the area where the streak begins to fade away and release your mouse.'
-    attachment: x: 'right', to: '.subject-container', at: x: 'right'
-    nextOn: 'first-drag': '.subject-container'
+  fanTool: new Step
+    details: 'We\'ll start with the fan toward the top right. Hold down your mouse at the source where the fan originates, then drag right to the area where the streak begins to fade away and release your mouse.'
+    attachment: 'right center .subject-container right center'
+    next: 'first-drag .subject-container': 'fanUse'
 
-  new Step
-    content: 'Now drag one of the diamond-shaped handles to adjust the spread of the fan until it matches the image.'
-    attachment: x: 'right', to: '.subject-container', at: x: 'right'
-    nextOn: 'drag-spread': '.subject-container'
+  fanUse: new Step
+    details: 'Now drag one of the diamond-shaped handles to adjust the spread of the fan until it matches the image.'
+    attachment: 'right middle .subject-container right center'
+    next: 'drag-spread .subject-container': 'blotchTool'
 
-  new Step
-    content: 'The deposit below has no identifiable source, so let\'s mark it using the "blotch" tool.'
-    attachment: x: 'left', to: '.for-blotch', at: x: 'right'
-    nextOn: 'change': '.for-blotch input'
+  blotchTool: new Step
+    details: 'The deposit below has no identifiable source, so let\'s mark it using the "blotch" tool.'
+    attachment: 'left center .for-blotch right center'
+    focus: '.classification-tools'
+    next: 'change .for-blotch input': 'blotchUse'
 
-  new Step
-    content: 'Hold your mouse down near the center of the deposit and drag out to the widest point before releasing.'
-    attachment: x: 'left', to: '.subject-container', at: x: 'left'
-    nextOn: 'first-drag': '.subject-container'
+  blotchUse: new Step
+    details: 'Hold your mouse down near the center of the deposit and drag out to the widest point before releasing.'
+    attachment: 'left top .subject-container left center'
+    next: 'first-drag .subject-container': 'adjustRadius'
 
-  new Step
-    content: 'Now adjust the size of the other radius to match the deposit. Some blotches won\'t be quite circular. Just surround them as best you can.'
-    attachment: x: 'left', to: '.subject-container', at: x: 'left'
-    nextOn: 'drag-radius2': '.subject-container'
+  adjustRadius: new Step
+    details: 'Now adjust the size of the other radius to match the deposit. Some blotches won\'t be quite circular. Just surround them as best you can.'
+    attachment: 'left center .subject-container left center'
+    next: 'drag-radius2 .subject-container': 'finish'
 
-  new Step
-    content: 'Great. Now you\'re ready to make some classifications of your own. Click "Finished" to move on to a new subject.'
-    attachment: x: 'left', to: 'button[name="finish"]', at: x: 'right'
-    nextOn: 'click': 'button[name="finish"]'
+  finish: new Step
+    details: 'Great. Now you\'re ready to make some classifications of your own. Click "Finished" to move on to a new subject.'
+    attachment: 'left center button[name="finish"] right center'
+    next: 'click button[name="finish"]': 'manyFans'
 
-  new Step
-    content: 'Some images will have many deposits, some will have none. Some fans will share a source -- please mark them all!'
-    attachment: x: 'left', to: '.followup .talk', at: x: 'right'
+  manyFans: new Step
+    details: 'Some images will have many deposits, some will have none. Some fans will share a source -- please mark them all!'
+    attachment: 'center middle .subject-container center middle'
+    next: 'talk'
 
-  new Step
-    content: 'You can ask questions and discuss your findings with the Planet Four science team and other citizen scientists after you\'ve finished classifying each subject. You can also bring an image to the attention of the science team using the "interesting feature" tool. Have fun exploring!'
-    attachment: x: 'left', to: '.followup .talk', at: x: 'right'
-]
+  talk: new Step
+    details: 'You can ask questions and discuss your findings with the Planet Four science team and other citizen scientists after you\'ve finished classifying each subject. You can also bring an image to the attention of the science team using the "interesting feature" tool. Have fun exploring!'
+    attachment: 'center middle .subject-container center middle'
