@@ -19,6 +19,7 @@
   },
   "scripts": {
     "start": "hem server",
+    "deploy-to-staging": "ruby build.rb && publisssh build planetfour.org/beta && trash ./build",
     "deploy-to-production": "ruby build.rb && publisssh build planetfour.org && trash ./build"
   }
 }
