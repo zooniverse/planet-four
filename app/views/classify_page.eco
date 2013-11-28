@@ -6,12 +6,10 @@
 
 <footer>
   <div class="help">
-    <button name="start-tutorial"><%- translate 'classify.tutorial' %></button>
+    <button name="start-tutorial"><%- translate 'span', 'classify.tutorial' %></button>
     &bull;
-    <a href="#/about/examples"><%- translate 'classify.examples' %></a>
+    <a href="#/about/examples"><%- translate 'span', 'classify.examples' %></a>
   </div>
 
-  <div class="sign-in-prompt">
-    <%- translate 'classify.signInPrompt' %>
-  </div>
+  <%- translate 'div.sign-in-prompt', 'classify.signInPrompt' %>
 </footer>

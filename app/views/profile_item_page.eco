@@ -2,5 +2,5 @@
 <div class="items"></div>
 
 <div class="action">
-  <button name="load-more"><%- translate 'profile.loadMore' %></button>
+  <button name="load-more"><%- translate 'span', 'profile.loadMore' %></button>
 </div>

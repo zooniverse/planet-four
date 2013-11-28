@@ -2,7 +2,7 @@
 
 <div class="fan-tool-options">
   <form>
-    <label><input type="radio" name="color" value="0" /><%- translate 'classify.tools.fan.darker' %></label>
-    <label><input type="radio" name="color" value="1" /><%- translate 'classify.tools.fan.lighter' %></label>
+    <label><input type="radio" name="color" value="0" /><%- translate 'span', 'classify.tools.fan.darker' %></label>
+    <label><input type="radio" name="color" value="1" /><%- translate 'span', 'classify.tools.fan.lighter' %></label>
   </form>
 </div>

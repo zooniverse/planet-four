@@ -16,7 +16,7 @@ module.exports =
       faq: 'FAQs'
       education: 'Education'
       scientists: 'The Scientists'
-      develoeprs: 'The Developers'
+      developers: 'The Developers'
     profile:
       root: 'Profile'
       recents: 'Recents'

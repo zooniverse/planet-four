@@ -8,6 +8,7 @@
     "spine/lib/route",
     "zooniverse/lib/api",
     "zooniverse/lib/google-analytics",
+    "zooniverse/lib/language-manager",
     "zooniverse/models/user",
     "zooniverse/models/subject",
     "zooniverse/models/classification",
@@ -17,8 +18,7 @@
     "zooniverse/controllers/login-dialog",
     "underscore/underscore",
     "t7e",
-    "zootorial",
-    "zootorial/google-analytics"
+    "zootorial"
   ],
 
   "libs": [

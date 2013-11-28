@@ -1,20 +1,22 @@
 {Controller} = require 'spine'
 translate = require 't7e'
-template = require 'views/classify_page'
-ClassificationTools = require 'controllers/classification_tools'
-MarkingSurface = require 'controllers/marking_surface'
-FanTool = require 'controllers/fan_tool'
+{Tutorial} = require 'zootorial'
 $ = require 'jqueryify'
+
 User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'
 Classification = require 'zooniverse/models/classification'
-{Tutorial} = require 'zootorial'
+
+ClassificationTools = require 'controllers/classification_tools'
+MarkingSurface = require 'controllers/marking_surface'
+FanTool = require 'controllers/fan_tool'
 tutorialSteps = require 'lib/tutorial_steps'
 
 html = $(document.body.parentNode)
 
 class ClassifyPage extends Controller
   className: 'classify-page'
+  template: require 'views/classify_page'
 
   classificationTools: null
   markingSurface: null
@@ -30,7 +32,7 @@ class ClassifyPage extends Controller
   constructor: ->
     super
 
-    @html template @
+    @html @template @
 
     @classificationTools = new ClassificationTools
       classifier: @
@@ -43,6 +45,9 @@ class ClassifyPage extends Controller
 
     @tutorial = new Tutorial
       steps: tutorialSteps
+      
+    # @tutorial.el.on 'start-tutorial enter-tutorial-step', =>
+    #   translate.refresh @tutorial.el.get 0
 
     User.on 'change', @onUserSignIn
     Subject.on 'select', @onSubjectSelect

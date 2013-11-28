@@ -8,13 +8,13 @@ class AboutPage extends Stack
   className: "#{Stack::className} about-page"
 
   controllers:
-    index: class extends SubPage then content: translate 'about.index'
-    examples: class extends SubPage then content: translate 'about.examples'
-    faq: class extends SubPage then content: translate 'about.faq'
-    education: class extends SubPage then content: translate 'about.education'
+    index: class extends SubPage then content: translate 'span', 'about.index'
+    examples: class extends SubPage then content: translate 'span', 'about.examples'
+    faq: class extends SubPage then content: translate 'span', 'about.faq'
+    education: class extends SubPage then content: translate 'span', 'about.education'
     scientists: class extends SubPage then content: scientistsView @
     developers: class extends SubPage then content: developersView @
-    stargazingLive: class extends SubPage then content: translate 'about.stargazingLive'
+    stargazingLive: class extends SubPage then content: translate 'span', 'about.stargazingLive'
 
   routes:
     '/about': 'index'

@@ -7,8 +7,8 @@
 <% for dev in devs: %>
   <div class="team-member">
     <% imgSrc = try translate "about.developers.#{dev}.image" %>
-
-    <% if imgSrc: %><img src="<%= imgSrc %>" class="photo" /><% end %>
+    <% if imgSrc: %><%- translate 'img.photo', '', src: imgSrc %><% end %>
+    
     <div class="description">
       <%- translate 'h2', "about.developers.#{dev}.name" %>
       <%- translate 'p', "about.developers.#{dev}.description" %>
