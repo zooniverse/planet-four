@@ -243,21 +243,16 @@ module.exports =
         name: 'Dr. Anya Portyankina'
         image: 'images/sci-team/anya.jpg'
         description: '''
-          <p>Dr. Portyankina completed her doctorate work on the evolution of polar areas of Mars using data from the Mars Orbiting Camera (MOC), analyzing hundreds of MOC images searching for clues of seasonal changes and also worked with High Resolution Stereo Camera  (HRSC) on board the European Mars Express and Venus Monitoring Camera (VMC) from Venus Express.  In 2005 she defended her PhD in Göttingen University on the topic “Atmosphere-surface vapor exchange and ices in the Martian polar regions.”  After the thesis defense she carried on with planning scientific operations for VMC, analysis of data from HRSC and started participating in the work of High Resolution Imaging Science Experiment (HiRISE) on board the Mars Reconnaissance Orbiter.</p>
+          <p>Dr. Portyankina is a researcher at the Laboratory for Atmospheric and Space Physics (LASP) at the University of Colorado in Boulder. In 2005 she defended her PhD in Göttingen University on the topic “Atmosphere-surface vapor exchange and ices in the Martian polar regions.” After the thesis defense she carried on with planning scientific operations for Venus Monitoring Camera (VMC) from Venus Express, analysis of data from High Resolution Stereo Camera (HRSC) on board the European Mars Express and started participating in the work of High Resolution Imaging Science Experiment (HiRISE) on board the Mars Reconnaissance Orbiter.</p>
+
           <p>She uses a combination of computer modeling, data analysis and laboratory experiments to advance her primary scientific interests: studying behavior of ices on planetary bodies, their interactions with atmospheres and how ices are able to shape planetary surfaces into terrains we currently observe.</p>
         '''
-
+        
       schwamb:
         name: 'Dr. Meg Schwamb'
         image: 'images/sci-team/meg.jpg'
         description: '''
-          <p>
-            Meg Schwamb is a National Science Foundation Astronomy & Astrophysics Postdoctoral Fellow in the Yale Center for Astronomy & Astrophysics (YCAA) and the Physics Department.
-            Meg studies the small bodies of the outer solar system and what they can tell us about how the solar system formed.
-            She is currently hunting for dwarf planets residing in the southern skies.
-            While not observing, Meg can be found hanging out with her black cat Stella.
-            Meg is supported by the NSF Astronomy and Astrophysics Postdoctoral Fellowship under award AST-1003258.
-          </p>
+          <p>Meg Schwamb is an Academia Sinica Postdoctoral Fellow in the Institute of Astronomy & Astrophysics at Academia Sinica in Taipei, Taiwan. She is a planetary scientist and astronomer interested in planet formation and the evolution of planetary systems including our own Solar System. In addition to Planet Four, she is searching for exoplanets with the Planet Hunters citizen science project, using the results from Planet Hunters classifications to explore the frequencies of planetary systems. Meg also studies the small body populations of the outer Solar System. In her spare time, she can usually be found baking and hanging out with her black cat Stella. Meg was previously supported by the NSF Astronomy and Astrophysics Postdoctoral Fellowship at Yale University under award AST-1003258.</p>
         '''
 
     developers:
@@ -341,10 +336,10 @@ module.exports =
           John G Keegan (Kitharode) is a retired musician, astronomer and environmental scientist, living in the hills around Todmorden, West Yorkshire. He loves Beethoven, Bluegrass music, Rugby Union, and his dog (Brandy). He is currently making a study of ancient Greek musical notation. John is very keen on promoting Citizen Science (especially the Planet Four project) and he is developing a number of presentations to take into schools."
       martin:
         name: "Andy Martin (wassock)"
-        description: "Andy Martin (wassock) co-owns and runs a campsite near Bude having given up the life corporate for the sea, surf and starry skies of Cornwall.  As a chemist Andy spent many years involved in the assessment of laboratory quality systems and the development of standards. These days he finds he has many more jobs to do and much less free time than when he was a wage slave, but can at least hear the sea through the window whilst viewing Mars on his screen."
+        description: "Andy Martin (wassock) co-owns and runs a campsite near Bude having given up the life corporate for the sea, surf and starry skies of Cornwall. As a chemist Andy spent many years involved in the assessment of laboratory quality systems and the development of standards. These days he finds he has many more jobs to do and much less free time than when he was a wage slave, but can at least hear the sea through the window whilst viewing Mars on his screen."
       smith:
         name: "Dave Smith (JellyMonster)"
-        description: "Dave Smith (JellyMonster) served over twenty years in the printing industry (pre-press).  This probably explains why he has a fascination with images.  He currently lives in Norfolk in the UK.  His interests include one-dimensional binary Cellular Automata (purely for the patterns), chess and logic games.  Also a keen pétanque player.  Found out about the Planet Four site after watching 'Stargazing Live'."
+        description: "Dave Smith (JellyMonster) served over twenty years in the printing industry (pre-press). This probably explains why he has a fascination with images. He currently lives in Norfolk in the UK.  His interests include one-dimensional binary Cellular Automata (purely for the patterns), chess and logic games. Also a keen pétanque player.  Found out about the Planet Four site after watching 'Stargazing Live'."
 
     stargazingLive: '''
       <h1 style="text-align: center;">
