@@ -21,6 +21,7 @@
     <a href="#/about/education"><%- translate 'span', 'navigation.about.education' %></a>
     <a href="#/about/scientists"><%- translate 'span', 'navigation.about.scientists' %></a>
     <a href="#/about/developers"><%- translate 'span', 'navigation.about.developers' %></a>
+    <a href="#/about/moderators"><%- translate 'span', 'navigation.about.moderators' %></a>
     <a href="#/about/stargazing-live">Stargazing Live</a>
   </div>
 </div>

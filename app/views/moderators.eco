@@ -1,0 +1,14 @@
+<% translate = require 't7e' %>
+
+<% mods = 'keegan martin smith'.split ' ' %>
+
+<%- translate 'h1', 'about.moderators.heading' %>
+
+<% for mod in mods: %>
+  <div class="team-member">
+    <div class="description">
+      <%- translate 'h2', "about.moderators.#{mod}.name" %>
+      <%- translate 'p', "about.moderators.#{mod}.description" %>
+    </div>
+  </div>
+<% end %>

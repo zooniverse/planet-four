@@ -3,6 +3,7 @@ SubPage = require './sub_page'
 translate = require 't7e'
 developersView = require 'views/developers'
 scientistsView = require 'views/scientists'
+moderatorsView = require 'views/moderators'
 
 class AboutPage extends Stack
   className: "#{Stack::className} about-page"
@@ -14,7 +15,9 @@ class AboutPage extends Stack
     education: class extends SubPage then content: translate 'span', 'about.education'
     scientists: class extends SubPage then content: scientistsView @
     developers: class extends SubPage then content: developersView @
+    moderators: class extends SubPage then content: moderatorsView @
     stargazingLive: class extends SubPage then content: translate 'span', 'about.stargazingLive'
+
 
   routes:
     '/about': 'index'
@@ -23,6 +26,7 @@ class AboutPage extends Stack
     '/about/education': 'education'
     '/about/scientists': 'scientists'
     '/about/developers': 'developers'
+    '/about/moderators': 'moderators'
     '/about/stargazing-live': 'stargazingLive'
 
   default: 'index'
