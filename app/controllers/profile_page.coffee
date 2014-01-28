@@ -41,7 +41,6 @@ class ProfileItemPage extends SubPage
         item.trigger 'create' for item in items
 
   onItemCreate: (e, item) =>
-    console.log 'Created', @itemClass, item
     return if item.subjects.length is 0
     itemElement = $(itemTemplate item)
     itemElement.attr 'data-item': item.id
