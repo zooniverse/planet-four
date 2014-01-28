@@ -46,7 +46,7 @@ class ClassifyPage extends Controller
     @tutorial = new Tutorial
       steps: tutorialSteps
       firstStep: 'welcome'
-      
+
     @tutorial.el.on 'start-tutorial enter-tutorial-step', =>
       translate.refresh @tutorial.el.get 0
 

@@ -3,8 +3,8 @@
 <% Favorite = require 'zooniverse/models/favorite' %>
 
 <div class="item">
-  <a href="<%= Subject::talkHref.call @subjects %>">
-    <img src="<%= @subjects.location.standard %>" />
+  <a href="<%= Subject::talkHref.call @subjects[0] %>">
+    <img src="<%= @subjects[0].location.standard %>" />
   </a>
 
   <div class="controls">

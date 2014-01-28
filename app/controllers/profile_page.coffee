@@ -26,32 +26,35 @@ class ProfileItemPage extends SubPage
 
     @html pageTemplate @
 
-    User.bind 'sign-in', @onUserSignIn
+    User.on 'change', @onUserSignIn
 
-    @itemClass.bind 'create', @onItemCreate
-    @itemClass.bind 'mark-new', @onItemMarkNew
-    @itemClass.bind 'destroy', @onItemDestroy
+    @itemClass.on 'create', @onItemCreate
+    @itemClass.on 'from-classification', @onItemMarkNew
+    @itemClass.on 'destroy', @onItemDestroy
 
   onUserSignIn: =>
     @page = 1
     @itemsList.empty()
 
     if User.current?
-      @itemClass.fetch()
+      @itemClass.fetch (items) ->
+        item.trigger 'create' for item in items
 
-  onItemCreate: (item) =>
+  onItemCreate: (e, item) =>
+    console.log 'Created', @itemClass, item
     return if item.subjects.length is 0
     itemElement = $(itemTemplate item)
     itemElement.attr 'data-item': item.id
     itemElement.appendTo @itemsList
-    item.bind 'change', => itemElement.attr 'data-item': item.id
+    item.on 'change', => itemElement.attr 'data-item': item.id
 
-  onItemMarkNew: (item) =>
+  onItemMarkNew: (e, item) =>
+    item.trigger 'create'
     element = @itemsList.find "[data-item='#{item.id}']"
     element.prependTo @itemsList
     element.addClass 'new'
 
-  onItemDestroy: (item) =>
+  onItemDestroy: (e, item) =>
     @itemsList.find("[data-item='#{item.id}']").remove()
 
   onClickAddFavorite: ({target}) ->
