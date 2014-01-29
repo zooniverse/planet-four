@@ -44,6 +44,31 @@ module.exports =
     outOfSubjects: "'Error fetching subjects. Maybe we\'re out!'"
     signInPrompt: '<button name="sign-in">Sign in</button> now so we can credit you for your work!'
 
+  tutorial:
+    welcome:
+      header: 'Welcome to Planet Four!'
+      details: 'This short tutorial will show you how to help explore the surface of Mars: an alien world.'
+    overview:
+      details: 'This photo was taken by a satellite orbiting Mars. We\'re going to mark deposits of dust on the Martian surface. Some will be in neat fans, other will be in blotches. See the About page for more information on how these patterns form.'
+    firstDeposit:
+      details: 'The first deposit we see here is a fan, so make sure the Fan tool is selected.'
+    fanTool:
+      details: 'We\'ll start with the fan toward the top right. Hold down your mouse at the source where the fan originates, then drag right to the area where the streak begins to fade away and release your mouse.'
+    fanUse:
+      details: 'Now drag one of the diamond-shaped handles to adjust the spread of the fan until it matches the image.'
+    blotchTool:
+      details: 'The deposit below has no identifiable source, so let\'s mark it using the "blotch" tool.'
+    blotchUse:
+      details: 'Hold your mouse down near the center of the deposit and drag out to the widest point before releasing.'
+    adjustRadius:
+      details: 'Now adjust the size of the other radius to match the deposit. Some blotches won\'t be quite circular. Just surround them as best you can.'
+    finish:
+      details: 'Great. Now you\'re ready to make some classifications of your own. Click "Finished" to move on to a new subject.'
+    manyFans:
+      details: 'Some images will have many deposits, some will have none. Some fans will share a source -- please mark them all!'
+    talk:
+      details: 'You can ask questions and discuss your findings with the Planet Four science team and other citizen scientists after you\'ve finished classifying each subject. You can also bring an image to the attention of the science team using the "interesting feature" tool. Have fun exploring!'
+
   about:
     index: '''
       <h1>About</h1>
