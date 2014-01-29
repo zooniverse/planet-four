@@ -15,11 +15,13 @@
     "zooniverse": "~0.3.14",
     "t7e": "~0.2.3",
     "publisssh": "~0.2.1",
-    "zootorial": "~0.3.6"
+    "zootorial": "~0.3.6",
+    "translator-seed": "0.1.0"
   },
   "scripts": {
     "start": "hem server",
     "deploy-to-staging": "ruby build.rb && publisssh build planetfour.org/beta && trash ./build",
-    "deploy-to-production": "ruby build.rb && publisssh build planetfour.org && trash ./build"
+    "deploy-to-production": "ruby build.rb && publisssh build planetfour.org && trash ./build",
+    "deploy-locale": "seed-translation --project planet_four --env production"
   }
 }
