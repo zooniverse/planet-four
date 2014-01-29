@@ -12,7 +12,7 @@
     "cheerio": "*",
     "request": "*",
     "underscore": "~1.4.3",
-    "zooniverse": "~0.3.1",
+    "zooniverse": "~0.3.14",
     "t7e": "~0.2.3",
     "publisssh": "~0.2.1",
     "zootorial": "~0.3.6"
