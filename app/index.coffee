@@ -49,7 +49,7 @@ enUs = require 'lib/en_us'
 languageManager = new LanguageManager
   translations:
     en: label: 'English', strings: enUs
-    zh: label: "繁體中文 Chinese (Traditional)", strings: './translations/zh.json'
+    "zh-hant": label: "繁體中文 Chinese (Traditional)", strings: './translations/zh-hant.json'
 
 languageManager.on 'change-language', (e, code, strings) ->
   translate.load strings
