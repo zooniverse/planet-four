@@ -17,6 +17,9 @@ ClassifyPage = require 'controllers/classify_page'
 AboutPage = require 'controllers/about_page'
 ProfilePage = require 'controllers/profile_page'
 
+enUs = require 'lib/en_us'
+translate.load enUs
+
 new Api project: 'planet_four'
 
 app = {}
@@ -45,7 +48,6 @@ app.stack = new Stack
 app.stack.classify.classificationTools.el.appendTo app.navigation.classificationToolsContainer
 app.stack.el.appendTo app.container
 
-enUs = require 'lib/en_us'
 languageManager = new LanguageManager
   translations:
     en: label: 'English', strings: enUs
