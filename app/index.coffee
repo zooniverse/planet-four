@@ -51,7 +51,7 @@ app.stack.el.appendTo app.container
 languageManager = new LanguageManager
   translations:
     en: label: 'English', strings: enUs
-    "zh-hant": label: "繁體中文 Chinese (Traditional)", strings: './translations/zh-hant.json'
+    "zh-tw": label: "繁體中文 Chinese (Traditional)", strings: './translations/zh-tw.json'
 
 languageManager.on 'change-language', (e, code, strings) ->
   translate.load strings
