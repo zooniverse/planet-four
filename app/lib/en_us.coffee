@@ -45,6 +45,7 @@ module.exports =
     signInPrompt: '<button name="sign-in">Sign in</button> now so we can credit you for your work!'
 
   tutorial:
+    nextButton: 'Continue'
     welcome:
       header: 'Welcome to Planet Four!'
       details: 'This short tutorial will show you how to help explore the surface of Mars: an alien world.'
