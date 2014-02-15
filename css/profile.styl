@@ -1,0 +1,72 @@
+.zooniverse-profile
+  nav
+    border-radius: 1em
+    box-shadow: 0 1px 0 rgba(#fff, 0.1)
+    display: none
+    font-size: 12px
+    font-weight: bold
+    letter-spacing: 1px
+    text-transform: uppercase
+    text-shadow: 0 1px 1px #000
+    outline: none
+    overflow: hidden
+
+    button
+      color: $black
+      float: left
+      padding: 0 10px
+
+      &:first-child
+        padding-left: 20px
+
+      &:last-child
+        padding-right: 20px
+
+      &.active
+        background: $red
+        color: $white
+
+  .recents,
+  .favorites
+    display: none
+
+    .items
+      overflow: hidden
+
+      .item
+        float: left
+        width: 20%
+
+        a
+          border: 2px solid transparent
+          display: block
+
+          &:hover
+            border-color: lime
+
+          img
+            display: block
+            max-width: 100%
+
+    .controls
+      font-size: 12px
+      font-weight: bold
+      text-align: center
+
+      button
+        padding: 0 3px
+
+        &.active
+          color: $black
+
+  &.signed-in
+    .sign-in-form
+      display: none
+
+    nav
+      display: inline-block
+
+    .recents,
+    .favorites
+      &.active
+        display: block

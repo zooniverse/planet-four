@@ -16,6 +16,7 @@
     "zooniverse/models/favorite",
     "zooniverse/controllers/top-bar",
     "zooniverse/controllers/login-dialog",
+    "zooniverse/controllers/profile",
     "underscore/underscore",
     "t7e",
     "zootorial"
