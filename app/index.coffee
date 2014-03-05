@@ -52,6 +52,7 @@ languageManager = new LanguageManager
   translations:
     en: label: 'English', strings: enUs
     zh_tw: label: "繁體中文 Chinese (Traditional)", strings: './translations/zh-tw.json'
+    de: label: "Deutsch", strings: "./translations/de.json"
 
 languageManager.on 'change-language', (e, code, strings) ->
   translate.load strings
