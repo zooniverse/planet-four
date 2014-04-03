@@ -8,7 +8,7 @@ class SubjectSelector
     @onHashChange()
 
   onHashChange: ->
-    cleanHash = location.hash.match(/([\w]+[\w\/]+)/)
+    cleanHash = location.hash.match(/([\w]+[\w\/]+)/gi)
     pieces = cleanHash?.pop().split('/')
     return unless pieces?[0] is 'subjects'
 
