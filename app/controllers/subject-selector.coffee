@@ -1,5 +1,6 @@
 Subject = require 'zooniverse/models/subject'
 Api = require 'zooniverse/lib/api'
+{ Route } = require 'spine'
 
 # Something like this should probably be in zoolib
 class SubjectSelector
@@ -16,5 +17,7 @@ class SubjectSelector
       return unless rawSubject
       subject = new Subject rawSubject
       subject.select()
+
+      Route.navigate '#/classify'
 
 module.exports = SubjectSelector
