@@ -239,7 +239,7 @@ module.exports =
 
       <p><a href="http://mars.jpl.nasa.gov/mro/participate/">NASA Jet Propulsion Laboratory</a> has a great collection of education resources relating the the Mars Reconnaissance Orbiter. It's also worth checking out <a href="http://nasawavelength.org/resource-search?qq=mars" title="NASA's wavelength">NASA's wavelength</a>, this site allows you to search for resources that relate to Mars across a ranges of Martian missions.</p>
 
-      <p>The Zooniverse has also recently launched <a href="http://www.zooteach.org">ZooTeach</a> where educators can share resources relating to Planet Four and the other citizen science projects. Planet Four is a recent addition, so if you have any idea's for how to use the project in the classroom, it would be great if you could share your lesson idea's or resources!</p>
+      <p>The Zooniverse has also recently launched <a href="http://www.zooteach.org">ZooTeach</a> where educators can share resources relating to Planet Four and the other citizen science projects. Planet Four is a recent addition, so if you have any ideas for how to use the project in the classroom, it would be great if you could share your lesson ideas or resources!</p>
 
       <h2>How can I keep up to date with education and Planet Four?</h2>
 
