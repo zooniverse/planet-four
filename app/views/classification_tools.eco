@@ -27,8 +27,8 @@
 <label class="for-favorite">
   <input type="checkbox" name="favorite" />
   <span class="label">
-    <i class="icon-heart-empty unchecked-icon"></i>
-    <i class="icon-heart checked-icon"></i>
+    <i class="fa fa-heart-o unchecked-icon"></i>
+    <i class="fa fa-heart checked-icon"></i>
     <%- translate 'span', 'classify.favorite' %>
   </span>
 </label>
@@ -53,12 +53,12 @@
   <%- translate 'button', 'classify.next', name: 'next' %>
 
   <a href="#" class="talk">
-    <i class="icon-comments"></i>
+    <i class="fa fa-comments"></i>
     <%- translate 'span', 'classify.discuss' %>
   </a>
 
   <div class="share">
-    <a href="#/TODO/facebook" class="facebook"><i class="icon-facebook-sign"></i></a>
-    <a href="#/TODO/twitter" class="twitter"><i class="icon-twitter"></i></a>
+    <a href="#/TODO/facebook" class="facebook"><i class="fa fa-facebook-square"></i></a>
+    <a href="#/TODO/twitter" class="twitter"><i class="fa fa-twitter"></i></a>
   </div>
 </div>
