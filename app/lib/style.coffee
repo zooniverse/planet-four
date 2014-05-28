@@ -21,17 +21,14 @@ module.exports =
     stroke: 'white'
     strokeWidth: 1
     opacity: 0.33
-    # dashArray: [5, 5]
 
   line:
     fill: 'rgba(127, 127, 127, 0.01)'
     stroke: 'white'
     strokeWidth: 1
-    # shadow:
-    #   color: 'black'
-    #   blur: 1
-    #   offset: [1, 2]
-    #   opacity: 1
+
+  hiddenLine:
+    opacity: 0
 
   cursors:
     distance: 'crosshair'
@@ -39,4 +36,5 @@ module.exports =
     radius1: 'crosshair'
     radius2: 'crosshair'
     bounding: 'move'
+    hiddenBound: 'move'
     point: 'move'

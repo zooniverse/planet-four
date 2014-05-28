@@ -31,6 +31,7 @@ class FanTool extends MarkingTool
       distance: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.dash
       spread: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.dash
       bounding: new Kinetic.Path $.extend {name: 'bounding'}, style.line
+      hiddenBound: new Kinetic.Path $.extend {name: 'hiddenBound'}, style.hiddenLine
 
     @group = new Kinetic.Group
 
@@ -39,11 +40,6 @@ class FanTool extends MarkingTool
     @dots.distance.moveToTop()
     @lines.bounding.moveToBottom()
     @layer.add @group
-
-    # @el = $(optionsTemplate @)
-    # @el.css position: 'absolute'
-    # @el.appendTo @stage.getContainer()
-    # @el.on 'mousedown', @['on mousedown']
 
   onFirstClick: (e) ->
     @mark.set
@@ -97,6 +93,9 @@ class FanTool extends MarkingTool
   'on drag bounding': (e) =>
     @handleDrag e, 'source'
 
+  'on drag hiddenBound': (e) =>
+    @handleDrag e, 'source'
+
   render: ->
     # The triangle made from distance and spread angle:
     adjacent = @mark.distance
@@ -129,6 +128,14 @@ class FanTool extends MarkingTool
       Z
     """
 
+    @lines.hiddenBound.setData """
+      M 0 -5
+      L #{spreadHandleX + 5} #{-toSpreadHandle - 5}
+      A 1 1 0 1 1 #{spreadHandleX - 5} #{+toSpreadHandle + 5}
+      L 0 5
+      Z
+    """
+
     @group.setPosition @mark.source
     @group.setRotationDeg @mark.angle
 
@@ -137,46 +144,18 @@ class FanTool extends MarkingTool
       left: "#{(@mark.source.x + distancePosition.x) / 2}px"
       top: "#{(@mark.source.y + distancePosition.y) / 2}px"
 
-    # spreadAPos = @dots.spreadA.getAbsolutePosition()
-    # spreadBPos = @dots.spreadB.getAbsolutePosition()
-    # elWidth = @el.width()
-    # elHeight = @el.height()
-
-    # @el.css switch
-    #   when -90 < @mark.angle <= 0 # Quadrant I
-    #     left: ((@mark.source[0] + spreadAPos.x) / 2) - elWidth
-    #     top: (@mark.source[1] + spreadAPos.y) / 2 - elHeight
-
-    #   when -180 < @mark.angle <= -90 # Quadrant II
-    #     left: (@mark.source[0] + spreadBPos.x) / 2
-    #     top: (@mark.source[1] + spreadBPos.y) / 2 - elHeight
-
-    #   when 90 < @mark.angle <= 180 # Quadrant III
-    #     left: (@mark.source[0] + spreadAPos.x) / 2
-    #     top: (@mark.source[1] + spreadAPos.y) / 2
-
-    #   when 0 < @mark.angle <= 90 # Quadrant IV
-    #     left: ((@mark.source[0] + spreadBPos.x) / 2) - elWidth
-    #     top: (@mark.source[1] + spreadBPos.y) / 2
-
-    #   else
-    #     left: 0
-    #     top: 0
-
     super
 
   select: ->
     dot.show() for _, dot of @dots
     @lines.distance.show()
     @lines.spread.show()
-    # @el.show().css display: ''
     super
 
   deselect: ->
     dot.hide() for _, dot of @dots
     @lines.distance.hide()
     @lines.spread.hide()
-    # @el.hide()
     super
 
 module.exports = FanTool
