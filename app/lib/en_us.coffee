@@ -39,8 +39,8 @@ module.exports =
     finished: 'Finished'
     next: 'Next'
     discuss: 'Discuss'
-    tutorial: 'Tutorial'
-    examples: 'Examples'
+    tutorial: 'Show Tutorial'
+    fieldGuide: 'See Examples'
     outOfSubjects: "'Error fetching subjects. Maybe we\'re out!'"
     signInPrompt: '<button name="sign-in">Sign in</button> now so we can credit you for your work!'
 

@@ -22,6 +22,8 @@ class ClassificationTools extends Controller
     'change input[name="tool"]': 'onChangeTool'
     'click button[name="sign-in"]': 'onClickSignIn'
     'change input[name="favorite"]': 'onChangeFavorite'
+    'click button[name="start-tutorial"]': 'onClickTutorial'
+    'click button[name="field-guide"]': 'onClickFieldGuide'
     'click button[name="finish"]': 'onClickFinish'
     'click button[name="next"]': 'onClickNext'
 
@@ -69,6 +71,12 @@ class ClassificationTools extends Controller
 
   onChangeFavorite: ->
     @classifier.classification.favorite = @favoriteCheckbox.is ':checked'
+
+  onClickTutorial: ->
+    app.stack.classify.startTutorial()
+
+  onClickFieldGuide: ->
+    Spine.Route.navigate '/about/examples'
 
   onClickFinish: ->
     @classifier.finishClassification()

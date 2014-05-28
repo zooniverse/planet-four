@@ -33,6 +33,14 @@
   </span>
 </label>
 
+<label class="show-tutorial">
+  <%- translate 'button.secondary', 'classify.tutorial', name: 'start-tutorial' %>
+</label>
+
+<label class="show-field-guide">
+  <%- translate 'button.secondary', 'classify.fieldGuide', name: 'field-guide' %>
+</label>
+
 <label class="for-sign-in">
   <%- translate 'button', 'classify.notSignedIn', name: 'sign-in' %>
 </label>

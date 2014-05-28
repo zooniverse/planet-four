@@ -54,6 +54,16 @@
     pointer-events: none;
   }
 
+  button[name="start-tutorial"],
+  button[name="field-guide"] {
+    @extends #push-button;
+    background: $blue;
+    color: #eee;
+    font-size: 12px;
+    margin: 2px 0;
+    width: 100%
+  }
+
   button[name="finish"],
   button[name="next"],
   .followup a {
