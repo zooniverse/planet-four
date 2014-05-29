@@ -22,7 +22,7 @@
 
   <hr />
 
-  <%- translate 'h2.tagline', 'home.tagline' %>
+  <%- translate 'h2', 'home.tagline' %>
 
   <hr />
 
