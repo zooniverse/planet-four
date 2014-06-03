@@ -8,6 +8,8 @@
 <div class="satellite"></div>
 
 <div class="content">
+  <%- translate 'h2', 'home.tagline' %>
+
   <div class="columns">
     <div class="one-half counter column">
       <strong class="participants count">&mdash;</strong>
@@ -22,17 +24,15 @@
 
   <hr />
 
-  <%- translate 'p', 'home.tagline' %>
+  <%- translate 'h3.connectWithUs', 'home.connectWithUs' %>
+  <%- translate 'p', 'home.whyConnect' %>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/PlanetFourZooniverse" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/Planet_Four" target="_blank"><i class="fa fa-twitter"></i></a>
+    <a href="https://plus.google.com/u/0/103421303146392842115/posts"><i class="fa fa-google-plus"></i></a>
+  </div>
 
   <hr />
 
-  <div class="columns">
-    <div class="one-half column">
-      <a href="#/about/stargazing-live"><img src="images/about/stargazing-live-logo.png" /></a>
-    </div>
-
-    <div class="one-half column">
-      <a href="#/classify" class="explore"><%- translate 'span', 'home.explore' %></a>
-    </div>
-  </div>
+  <a href="#/classify" class="explore"><%- translate 'span', 'home.explore' %></a>
 </div>

@@ -46,27 +46,7 @@
     top: 0;
     width: 800px;
     z-index: 2;
-
-    // .surface {
-    //   background: url("images/home/mars-map.jpg") 125% 0;
-    //   height: 100%;
-    //   width: 200%;
-    // }
-
-    // .dimension {
-    //   border-radius: 50%;
-    //   box-shadow: 0px 0 75px $black inset, -100px -25px 150px $black inset;
-    //   height: 100%;
-    //   left: 0;
-    //   position: absolute;
-    //   top: 0;
-    //   width: 100%;
-    // }
   }
-
-  // &.active .planet .surface {
-  //   animation: rotate 120s linear infinite;
-  // }
 
   .satellite {
     background: url("images/home/mro.png") 0 0;
@@ -94,14 +74,35 @@
     margin: 0 0 20px;
   }
 
+  h2 {
+    font-size: 24px;
+    font-weight: normal;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin: 5px 0 0;
+  }
+
   p {
-    margin: 10px 0;
+    font-size: 15px;
+    line-height: 1.5em;
+    margin: 10px auto;
+    max-width: 80%;
   }
 
   .column {
-    height: 72px;
-    margin-top: 20px;
-    padding: 0 10px;
+    height: 80px;
+    position: relative;
+  }
+
+  .column:first-child:before {
+    border-right: 1px dashed rgba(black, 0.3);
+    content: "";
+    height: 70%;
+    position: absolute;
+    right: 0;
+    top: 13px;
   }
 
   .counter {
@@ -120,5 +121,22 @@
     line-height: 40px;
     padding: 0;
     width: 60%;
+
+    &:hover {
+      background-color: lighten($red, 10%);
+    }
+  }
+
+  .social-icons {
+    
+    i {
+      color: black;
+      font-size: 24px;
+      margin: 0 5px;
+
+      &:hover {
+        color: $red;
+      }
+    }
   }
 }

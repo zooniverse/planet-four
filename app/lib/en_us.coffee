@@ -3,8 +3,11 @@ module.exports =
     participants: 'participants worldwide'
     imagesClassified: 'MRO images classified'
     tagline: """
-    With the help of Stargazing Live, citizen scientists<br />
-    are exploring the surface of Mars like never before.
+    Come help explore the surface of Mars
+    """
+    connectWithUs: 'Connect with Us'
+    whyConnect: """
+    Follow the project on social media to stay updated on our status and how we are using your efforts to produce science.
     """
     explore: 'Start Exploring'
 

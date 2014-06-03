@@ -29,6 +29,7 @@ class ClassificationTools extends Controller
 
   elements:
     'input[name="tool"]': 'toolInputs'
+    'button.secondary': 'secondaryActions'
     '.for-favorite': 'forFavorite'
     'input[name="favorite"]': 'favoriteCheckbox'
     '.for-sign-in': 'forSignIn'
@@ -80,14 +81,20 @@ class ClassificationTools extends Controller
 
   onClickFinish: ->
     @classifier.finishClassification()
+
     @toolInputs.add(@favoriteCheckbox).attr disabled: true
+    @secondaryActions.attr disabled: true
+
     @finishControls.hide()
     @followupControls.show()
 
   onClickNext: ->
     @finishControls.show()
     @reset()
+
     @toolInputs.add(@favoriteCheckbox).attr disabled: false
+    @secondaryActions.attr disabled: false
+
     @followupControls.hide()
     @classifier.selectNextSubject()
 
