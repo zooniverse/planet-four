@@ -8,6 +8,8 @@
 <div class="satellite"></div>
 
 <div class="content">
+  <%- translate 'h2', 'home.tagline' %>
+
   <div class="columns">
     <div class="one-half counter column">
       <strong class="participants count">&mdash;</strong>
@@ -19,10 +21,6 @@
       <%- translate 'span', 'home.imagesClassified' %>
     </div>
   </div>
-
-  <hr />
-
-  <%- translate 'h2', 'home.tagline' %>
 
   <hr />
 

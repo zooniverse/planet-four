@@ -92,9 +92,17 @@
   }
 
   .column {
-    height: 72px;
-    margin-top: 20px;
-    padding: 0 10px;
+    height: 80px;
+    position: relative;
+  }
+
+  .column:first-child:before {
+    border-right: 1px dashed rgba(black, 0.3);
+    content: "";
+    height: 70%;
+    position: absolute;
+    right: 0;
+    top: 13px;
   }
 
   .counter {
