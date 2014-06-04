@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "planet-four",
   "version": "0.0.1",
   "dependencies": {
     "serveup": "~0.0.5",
@@ -20,8 +20,8 @@
   },
   "scripts": {
     "start": "hem server",
-    "deploy-to-staging": "ruby build.rb && publisssh build zooniverse-static/planetfour.org/beta && trash ./build",
-    "deploy-to-production": "ruby build.rb && publisssh build zooniverse-static/planetfour.org && trash ./build",
+    "deploy-to-staging": "ruby build.rb && publisssh build planetfour.org/beta && trash ./build",
+    "deploy": "ruby build.rb && publisssh build planetfour.org && trash ./build && npm run deploy-locale",
     "deploy-locale": "seed-translation --project planet_four --env production"
   }
 }
