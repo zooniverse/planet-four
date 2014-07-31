@@ -6,7 +6,7 @@ style = require 'lib/style'
 optionsTemplate = require 'views/fan_tool_options'
 
 # Destructure math for convenience.
-{acos, asin, atan2, cos, max, PI, pow, sin, sqrt, tan} = Math
+{abs, atan2, cos, PI, pow, sin, sqrt, tan} = Math
 sq = (n) -> pow n, 2
 
 class FanTool extends MarkingTool
@@ -67,25 +67,13 @@ class FanTool extends MarkingTool
 
   'on drag spread': (e) =>
     {x, y} = @mouseOffset e
+    x -= @mark.source.x
+    y -= @mark.source.y
 
-    source = @mark.source
-    distance = @dots.distance.getAbsolutePosition()
+    mouseAngle = atan2(y, x) * (180 / PI)
+    totalAngle = abs (mouseAngle - @mark.angle) * 2
 
-    aSquaredSD = sq source.x - distance.x
-    bSquaredSD = sq source.y - distance.y
-    sd = @mark.distance
-
-    aSquaredS = sq x - source.x
-    bSquaredS = sq y - source.y
-    sc = sqrt aSquaredS + bSquaredS
-
-    aSquaredD = sq x - distance.x
-    bSquaredD = sq y - distance.y
-    cd = sqrt aSquaredD + bSquaredD
-
-    angleDistanceLengthToMouse = (acos((sq(sd) + sq(sc) - sq(cd)) / (2 * sd * sc)) * (180 / PI))
-
-    @mark.set {spread: angleDistanceLengthToMouse}
+    @mark.set spread: totalAngle
 
     $(document).one 'mouseup touchend', =>
       @trigger 'drag-spread'
