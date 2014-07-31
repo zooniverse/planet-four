@@ -6,7 +6,7 @@ style = require 'lib/style'
 optionsTemplate = require 'views/fan_tool_options'
 
 # Destructure math for convenience.
-{acos, atan2, cos, max, PI, pow, sin, sqrt} = Math
+{acos, asin, atan2, cos, max, PI, pow, sin, sqrt, tan} = Math
 sq = (n) -> pow n, 2
 
 class FanTool extends MarkingTool
@@ -97,42 +97,40 @@ class FanTool extends MarkingTool
     @handleDrag e, 'source'
 
   render: ->
-    # The triangle made from distance and spread angle:
+    halfSpread = (@mark.spread / 2) / (180 / PI)
+
+    # The right triangle made from distance and half the spread angle:
     adjacent = @mark.distance
-    hypotenuse = adjacent / cos @mark.spread / (180 / PI)
-    opposite = hypotenuse * sin @mark.spread / (180 / PI)
+    hypotenuse = adjacent / cos(halfSpread)
+    opposite = adjacent * tan(halfSpread)
 
-    inradius = (adjacent * opposite) / (adjacent + opposite + hypotenuse)
-    toSpreadHandle = sqrt(sq inradius) + inradius
-    spreadHandleX = @mark.distance - toSpreadHandle
-
-    # Don't overlap with the distance handle or the other spread handle.
-    spreadHandlePosition = max @targetMin * 2, toSpreadHandle
+    spreadRadius = (hypotenuse * sin halfSpread) / (1 + tan halfSpread) # THANKS BROOKE AND GREG!
+    spreadX = @mark.distance - spreadRadius
 
     @dots.distance.setPosition @mark.distance, 0
-    @dots.spreadA.setPosition spreadHandleX, -spreadHandlePosition
-    @dots.spreadB.setPosition spreadHandleX, +spreadHandlePosition
+    @dots.spreadA.setPosition spreadX, -spreadRadius
+    @dots.spreadB.setPosition spreadX, +spreadRadius
 
-    @lines.distance.setPoints [{x: 5, y: 0}, {x: @mark.distance, y: 0}]
+    @lines.distance.setPoints [{x: 0, y: 0}, {x: @mark.distance, y: 0}]
 
     @lines.spread.setPoints [
-      {x: spreadHandleX, y: -toSpreadHandle}
-      {x: spreadHandleX, y: +toSpreadHandle}
+      {x: spreadX, y: -spreadRadius}
+      {x: spreadX, y: +spreadRadius}
     ]
 
     @lines.bounding.setData """
-      M 5 -2
-      L #{spreadHandleX} #{-toSpreadHandle}
-      A 1 1 0 1 1 #{spreadHandleX} #{+toSpreadHandle}
-      L 5 2
+      M 0 0
+      L #{spreadX} #{-spreadRadius}
+      A 1 1 0 1 1 #{spreadX} #{spreadRadius}
+      L #{spreadX} #{+spreadRadius}
       Z
     """
 
     @lines.hiddenBound.setData """
-      M 0 -5
-      L #{spreadHandleX + 5} #{-toSpreadHandle - 5}
-      A 1 1 0 1 1 #{spreadHandleX - 5} #{+toSpreadHandle + 5}
-      L 0 5
+      M -5 0
+      L #{spreadX} #{-spreadRadius - 5}
+      A 1 1 0 1 1 #{spreadX} #{spreadRadius + 5}
+      L #{spreadX} #{+spreadRadius + 5}
       Z
     """
 
