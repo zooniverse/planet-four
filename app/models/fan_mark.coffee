@@ -6,6 +6,7 @@ class FanMark extends Mark
   distance: 0
   angle: 0
   spread: 0
+  version: 2
 
   constructor: ->
     super
@@ -21,6 +22,6 @@ class FanMark extends Mark
   'set spread': (value) -> Math.min 179.99, Math.max 1, value
 
   toJSON: ->
-    {@type, @source, @distance, @angle, @spread}
+    {@type, @source, @distance, @angle, @spread, @version}
 
 module.exports = FanMark

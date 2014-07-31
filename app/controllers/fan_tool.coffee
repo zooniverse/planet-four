@@ -43,7 +43,6 @@ class FanTool extends MarkingTool
 
   onFirstClick: (e) ->
     @mark.set
-      version: 2
       source: @mouseOffset e
       angle: 90
     super
