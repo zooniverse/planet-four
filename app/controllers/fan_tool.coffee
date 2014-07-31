@@ -6,7 +6,7 @@ style = require 'lib/style'
 optionsTemplate = require 'views/fan_tool_options'
 
 # Destructure math for convenience.
-{acos, atan2, cos, max, PI, pow, sin, sqrt} = Math
+{abs, atan2, cos, PI, pow, sin, sqrt, tan} = Math
 sq = (n) -> pow n, 2
 
 class FanTool extends MarkingTool
@@ -67,25 +67,13 @@ class FanTool extends MarkingTool
 
   'on drag spread': (e) =>
     {x, y} = @mouseOffset e
+    x -= @mark.source.x
+    y -= @mark.source.y
 
-    source = @mark.source
-    distance = @dots.distance.getAbsolutePosition()
+    mouseAngle = atan2(y, x) * (180 / PI)
+    totalAngle = abs (mouseAngle - @mark.angle) * 2
 
-    aSquaredSD = sq source.x - distance.x
-    bSquaredSD = sq source.y - distance.y
-    sd = @mark.distance
-
-    aSquaredS = sq x - source.x
-    bSquaredS = sq y - source.y
-    sc = sqrt aSquaredS + bSquaredS
-
-    aSquaredD = sq x - distance.x
-    bSquaredD = sq y - distance.y
-    cd = sqrt aSquaredD + bSquaredD
-
-    angleDistanceLengthToMouse = (acos((sq(sd) + sq(sc) - sq(cd)) / (2 * sd * sc)) * (180 / PI))
-
-    @mark.set {spread: angleDistanceLengthToMouse}
+    @mark.set spread: totalAngle
 
     $(document).one 'mouseup touchend', =>
       @trigger 'drag-spread'
@@ -97,42 +85,40 @@ class FanTool extends MarkingTool
     @handleDrag e, 'source'
 
   render: ->
-    # The triangle made from distance and spread angle:
+    halfSpread = (@mark.spread / 2) / (180 / PI)
+
+    # The right triangle made from distance and half the spread angle:
     adjacent = @mark.distance
-    hypotenuse = adjacent / cos @mark.spread / (180 / PI)
-    opposite = hypotenuse * sin @mark.spread / (180 / PI)
+    hypotenuse = adjacent / cos(halfSpread)
+    opposite = adjacent * tan(halfSpread)
 
-    inradius = (adjacent * opposite) / (adjacent + opposite + hypotenuse)
-    toSpreadHandle = sqrt(sq inradius) + inradius
-    spreadHandleX = @mark.distance - toSpreadHandle
-
-    # Don't overlap with the distance handle or the other spread handle.
-    spreadHandlePosition = max @targetMin * 2, toSpreadHandle
+    spreadRadius = (hypotenuse * sin halfSpread) / (1 + tan halfSpread) # THANKS BROOKE AND GREG!
+    spreadX = @mark.distance - spreadRadius
 
     @dots.distance.setPosition @mark.distance, 0
-    @dots.spreadA.setPosition spreadHandleX, -spreadHandlePosition
-    @dots.spreadB.setPosition spreadHandleX, +spreadHandlePosition
+    @dots.spreadA.setPosition spreadX, -spreadRadius
+    @dots.spreadB.setPosition spreadX, +spreadRadius
 
-    @lines.distance.setPoints [{x: 5, y: 0}, {x: @mark.distance, y: 0}]
+    @lines.distance.setPoints [{x: 0, y: 0}, {x: @mark.distance, y: 0}]
 
     @lines.spread.setPoints [
-      {x: spreadHandleX, y: -toSpreadHandle}
-      {x: spreadHandleX, y: +toSpreadHandle}
+      {x: spreadX, y: -spreadRadius}
+      {x: spreadX, y: +spreadRadius}
     ]
 
     @lines.bounding.setData """
-      M 5 -2
-      L #{spreadHandleX} #{-toSpreadHandle}
-      A 1 1 0 1 1 #{spreadHandleX} #{+toSpreadHandle}
-      L 5 2
+      M 0 0
+      L #{spreadX} #{-spreadRadius}
+      A 1 1 0 1 1 #{spreadX} #{spreadRadius}
+      L #{spreadX} #{+spreadRadius}
       Z
     """
 
     @lines.hiddenBound.setData """
-      M 0 -5
-      L #{spreadHandleX + 5} #{-toSpreadHandle - 5}
-      A 1 1 0 1 1 #{spreadHandleX - 5} #{+toSpreadHandle + 5}
-      L 0 5
+      M -5 0
+      L #{spreadX} #{-spreadRadius - 5}
+      A 1 1 0 1 1 #{spreadX} #{spreadRadius + 5}
+      L #{spreadX} #{+spreadRadius + 5}
       Z
     """
 
