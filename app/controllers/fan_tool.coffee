@@ -32,6 +32,7 @@ class FanTool extends MarkingTool
       spread: new Kinetic.Line $.extend {points: [{x: 0, y: 0}]}, style.dash
       bounding: new Kinetic.Path $.extend {name: 'bounding'}, style.line
       hiddenBound: new Kinetic.Path $.extend {name: 'hiddenBound'}, style.hiddenLine
+      wrongAngle: new Kinetic.Path $.extend({name: 'bounding'}, style.line, {stroke: 'red'})
 
     @group = new Kinetic.Group
 
@@ -130,7 +131,32 @@ class FanTool extends MarkingTool
       left: "#{(@mark.source.x + distancePosition.x) / 2}px"
       top: "#{(@mark.source.y + distancePosition.y) / 2}px"
 
+    if location.search.indexOf('render-wrong-spread=1') isnt -1
+      rightSpread = Math.atan(spreadRadius / spreadX) * 2 * (180 / PI)
+      wrongSpread = @renderWrongSpread()
+
+      console?.log "#{rightSpread.toFixed 4} means #{wrongSpread.toFixed 4} #{(wrongSpread / rightSpread).toFixed 4}"
+
     super
+
+  renderWrongSpread: ->
+    adjacent = @mark.distance
+    hypotenuse = adjacent / cos @mark.spread / (180 / PI)
+    opposite = hypotenuse * sin @mark.spread / (180 / PI)
+
+    inradius = (adjacent * opposite) / (adjacent + opposite + hypotenuse)
+    toSpreadHandle = inradius * 2
+    spreadHandleX = @mark.distance - toSpreadHandle
+
+    @lines.wrongAngle.setData """
+      M 0 0
+      L #{spreadHandleX} #{-toSpreadHandle}
+      A 1 1 0 1 1 #{spreadHandleX} #{+toSpreadHandle}
+      L 0 0
+      Z
+    """
+
+    Math.atan(toSpreadHandle / spreadHandleX) * 2 * (180 / PI)
 
   select: ->
     dot.show() for _, dot of @dots
