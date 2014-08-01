@@ -171,3 +171,19 @@ class FanTool extends MarkingTool
     super
 
 module.exports = FanTool
+
+# This converts spreads made by the old fan tool into the value the user meant.
+window.correctSpread = do ->
+  {PI, cos, atan} = Math
+  toRad = (deg) -> deg / (180 / PI)
+  toDeg = (rad) -> rad * (180 / PI)
+  (spread) ->
+    adjacent = 100 # Doesn't actually matter
+    hypotenuse = adjacent / cos(toRad(spread))
+    opposite = hypotenuse * sin(toRad(spread))
+    inradius = (adjacent * opposite) / (adjacent + opposite + hypotenuse)
+    renderedOpposite = inradius * 2
+    renderedAdjacent = adjacent - renderedOpposite
+    renderedAngle = atan(renderedOpposite / renderedAdjacent)
+    renderedSpread = renderedAngle * 2
+    return toDeg(renderedSpread)
