@@ -6,7 +6,7 @@ style = require 'lib/style'
 optionsTemplate = require 'views/fan_tool_options'
 
 # Destructure math for convenience.
-{abs, atan2, cos, PI, pow, sin, sqrt, tan} = Math
+{abs, atan2, cos, max, PI, pow, sin, sqrt, tan} = Math
 sq = (n) -> pow n, 2
 
 class FanTool extends MarkingTool
@@ -96,8 +96,8 @@ class FanTool extends MarkingTool
     spreadX = @mark.distance - spreadRadius
 
     @dots.distance.setPosition @mark.distance, 0
-    @dots.spreadA.setPosition spreadX, -spreadRadius
-    @dots.spreadB.setPosition spreadX, +spreadRadius
+    @dots.spreadA.setPosition spreadX, -max style.circle.radius * 2.5, spreadRadius
+    @dots.spreadB.setPosition spreadX, +max style.circle.radius * 2.5, spreadRadius
 
     @lines.distance.setPoints [{x: 0, y: 0}, {x: @mark.distance, y: 0}]
 
