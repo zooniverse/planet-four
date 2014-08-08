@@ -46,6 +46,7 @@ languageManager = new LanguageManager
     en: label: 'English', strings: enUs
     zh_cn: label: '简体中文 Chinese (Simplified)', strings: './translations/zh-cn.json'
     zh_tw: label: '繁體中文 Chinese (Traditional)', strings: './translations/zh-tw.json'
+    ru: label: "русский", strings: "./translations/ru.json"
     de: label: 'Deutsch', strings: './translations/de.json'
     fr: label: 'Français', strings: './translations/fr.json'
     pl: label: 'Polski', strings: './translations/pl.json'
