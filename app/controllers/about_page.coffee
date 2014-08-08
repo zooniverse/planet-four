@@ -9,7 +9,7 @@ class AboutPage extends Stack
   className: "#{Stack::className} about-page"
 
   controllers:
-    index: class extends SubPage then content: translate 'span', 'about.index'
+    index: require './about'
     examples: class extends SubPage then content: translate 'span', 'about.examples'
     faq: class extends SubPage then content: translate 'span', 'about.faq'
     education: class extends SubPage then content: translate 'span', 'about.education'
