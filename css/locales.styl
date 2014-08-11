@@ -2,3 +2,12 @@ html[lang^="zh"]
   
   .home-page p
     font-size: 14px
+
+// Add more locales if desired
+for locale in en pl ru
+  .hide-unless-{ locale }
+    display: none
+
+  html[lang={ locale }]
+    .hide-unless-{ locale }
+      display: block

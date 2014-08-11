@@ -22,6 +22,12 @@
     </div>
   </div>
 
+  <div class="hide-unless-en">
+    <hr />
+    <h3><a href="/vote">Region Vote!</a></h3>
+    <p>Vote for what HiRISE region you'd like a sneak peak from Planet Four. </p>
+  </div>
+
   <hr />
 
   <%- translate 'h3.connectWithUs', 'home.connectWithUs' %>
