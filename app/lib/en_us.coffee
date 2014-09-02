@@ -366,9 +366,6 @@ module.exports =
       martin:
         name: "Andy Martin (wassock)"
         description: "Andy Martin (wassock) co-owns and runs a campsite near Bude having given up the life corporate for the sea, surf and starry skies of Cornwall. As a chemist Andy spent many years involved in the assessment of laboratory quality systems and the development of standards. These days he finds he has many more jobs to do and much less free time than when he was a wage slave, but can at least hear the sea through the window whilst viewing Mars on his screen."
-      smith:
-        name: "Dave Smith (JellyMonster)"
-        description: "Dave Smith (JellyMonster) served over twenty years in the printing industry (pre-press). This probably explains why he has a fascination with images. He currently lives in Norfolk in the UK.  His interests include one-dimensional binary Cellular Automata (purely for the patterns), chess and logic games. Also a keen pétanque player.  Found out about the Planet Four site after watching 'Stargazing Live'."
 
     stargazingLive: '''
       <h1 style="text-align: center;">
