@@ -20,8 +20,8 @@
   },
   "scripts": {
     "start": "hem server",
-    "deploy-to-staging": "ruby build.rb && publisssh build zooniverse-static/www.planetfour.org/beta && trash ./build",
-    "deploy": "ruby build.rb && publisssh build zooniverse-static/www.planetfour.org && trash ./build && npm run deploy-locale",
+    "deploy-to-staging": "ruby build.rb && publisssh build zooniverse-static/www.planetfour.org/beta && rm -rf ./build",
+    "deploy": "npm run deploy-locale && ruby build.rb && publisssh build zooniverse-static/www.planetfour.org && rm -rf ./build",
     "deploy-locale": "seed-translation --project planet_four --env production"
   }
 }
