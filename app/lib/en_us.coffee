@@ -25,7 +25,7 @@ module.exports =
       root: 'Profile'
       recents: 'Recents'
       favorites: 'Favorites'
-    discuss: 'Discuss'
+    discuss: 'Talk'
     blog: 'Blog'
 
   classify:
