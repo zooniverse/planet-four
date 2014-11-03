@@ -6,7 +6,7 @@ style = require 'lib/style'
 optionsTemplate = require 'views/fan_tool_options'
 
 # Destructure math for convenience.
-{abs, atan2, cos, max, PI, pow, sin, sqrt, tan} = Math
+{abs, atan2, cos, min, max, PI, pow, sin, sqrt, tan} = Math
 sq = (n) -> pow n, 2
 
 class FanTool extends MarkingTool
@@ -72,9 +72,11 @@ class FanTool extends MarkingTool
     y -= @mark.source.y
 
     mouseAngle = atan2(y, x) * (180 / PI)
-    totalAngle = abs (mouseAngle - @mark.angle) * 2
 
-    @mark.set spread: totalAngle
+    totalAngle = max(mouseAngle, @mark.angle) - min(mouseAngle, @mark.angle)
+    totalAngle = 360 - totalAngle if totalAngle > 180
+
+    @mark.set spread: totalAngle * 2
 
     $(document).one 'mouseup touchend', =>
       @trigger 'drag-spread'
