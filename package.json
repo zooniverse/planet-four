@@ -15,7 +15,7 @@
     "t7e": "~0.2.3",
     "translator-seed": "0.1.0",
     "underscore": "~1.4.3",
-    "zooniverse": "~0.6.11",
+    "zooniverse": "^0.7.1",
     "zootorial": "~0.3.6"
   },
   "scripts": {
