@@ -1,6 +1,6 @@
 <% translate = require 't7e' %>
 
-<% mods = 'keegan martin smith'.split ' ' %>
+<% mods = 'keegan martin'.split ' ' %>
 
 <%- translate 'h1', 'about.moderators.heading' %>
 
