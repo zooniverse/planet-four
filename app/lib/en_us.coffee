@@ -300,7 +300,7 @@ module.exports =
         name: 'Brian Carstensen'
         image: 'images/dev-team/brian.jpg'
         description: '''
-          Brian is a web developer working on the Zooniverse family of projects at the Adler Planearium.
+          Brian is a web developer working on the Zooniverse family of projects at the Adler Planetarium.
           Brian has a degree in graphic design from Columbia College in Chicago, and worked in that field for a number of years before finding a niche in web development.
         '''
 
@@ -308,7 +308,7 @@ module.exports =
         name: 'Chris Lintott'
         image: 'images/dev-team/chris.jpg'
         description: '''
-          Chris Lintott leads the Zooniverse team, and is his copious spare time is a researcher at the University of Oxford specialising in galaxy formation and evolution.
+          Chris Lintott leads the Zooniverse team, and in his copious spare time is a researcher at the University of Oxford specialising in galaxy formation and evolution.
           A keen popularizer of science, he is best known as co-presenter of the BBC's long running Sky at Night program. He's currently drinking a lot of sherry.
         '''
 
