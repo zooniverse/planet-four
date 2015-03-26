@@ -38,7 +38,5 @@
 
   <hr />
 
-  <% whichInterface = Math.ceil(Math.random() * 3) %>
-
-  <p class="hide-unless-en">Want to help out with some experimental Zooniverse interface design?<br>Check out <a href="http://craters.planetfour.org?e=<%- whichInterface %>" target="_blank">Planet Four: Craters!</a></p>
+  <p class="hide-unless-en">Want to help out with some experimental Zooniverse interface design?<br>Check out <a href="http://craters.planetfour.org" target="_blank">Planet Four: Craters!</a></p>
 </div>
