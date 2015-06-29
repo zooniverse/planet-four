@@ -24,7 +24,14 @@
 
   <hr />
 
-  <%- translate 'h3.connectWithUs', 'home.connectWithUs' %>
+  <div class="hide-unless-en">
+    <p>
+      Help map the exotic terrains of Mars' south pole with our new project<br>
+      <b><a href="http://www.zooniverse.org/#/projects/mschwamb/planet-four-terrains">Planet Four: Terrains</a></b>
+    </p>
+  </div>
+
+  <!-- <%- translate 'h3.connectWithUs', 'home.connectWithUs' %> -->
   <%- translate 'p', 'home.whyConnect' %>
   <div class="social-icons">
     <a href="https://www.facebook.com/PlanetFourZooniverse" target="_blank"><i class="fa fa-facebook"></i></a>
