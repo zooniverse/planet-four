@@ -2,3 +2,4 @@ node_modules
 data
 .DS_Store
 public/translations
+/npm-debug.log

@@ -8,10 +8,13 @@ translate = require 't7e'
 enUs = require 'lib/en_us'
 translate.load enUs
 
-Api = require 'zooniverse/lib/api'
 User = require 'zooniverse/models/user'
 
-new Api project: 'planet_four'
+Api = require 'zooniverse/lib/api'
+api = if window.location.hostname is 'www.planetfour.org'
+  new Api project: 'planet_four', host: 'http://www.planetfour.org', path: '/_ouroboros_api/proxy'
+else
+  new Api project: 'planet_four'
 
 app = {}
 app.container = $('#app')
