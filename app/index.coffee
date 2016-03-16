@@ -12,7 +12,7 @@ User = require 'zooniverse/models/user'
 
 Api = require 'zooniverse/lib/api'
 api = if window.location.hostname is 'www.planetfour.org'
-  new Api project: 'planet_four', host: 'http://www.planetfour.org', path: '/_ouroboros_api/proxy'
+  new Api project: 'planet_four', host: 'https://www.planetfour.org', path: '/_ouroboros_api/proxy'
 else
   new Api project: 'planet_four'
 
