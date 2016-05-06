@@ -7,7 +7,6 @@
     "spine/lib/manager",
     "spine/lib/route",
     "zooniverse/lib/api",
-    "zooniverse/lib/google-analytics",
     "zooniverse/lib/language-manager",
     "zooniverse/models/user",
     "zooniverse/models/subject",

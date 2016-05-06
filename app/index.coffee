@@ -71,7 +71,4 @@ User.fetch()
 SubjectSelector = require 'controllers/subject-selector'
 subjectSelector = new SubjectSelector
 
-googleAnalytics = require 'zooniverse/lib/google-analytics'
-new googleAnalytics account: 'UA-1224199-41'
-
 module.exports = app
