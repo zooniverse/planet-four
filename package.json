@@ -12,7 +12,7 @@
     "request": "*",
     "serveup": "~0.0.5",
     "spine": "~1.0.7",
-    "t7e": "~0.2.3",
+    "t7e": "~0.4.0",
     "translator-seed": "0.1.0",
     "underscore": "~1.4.3",
     "zooniverse": "^0.7.4",

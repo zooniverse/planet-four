@@ -25,6 +25,7 @@
   "libs": [
     "node_modules/zooniverse/vendor/base64.js",
     "public/js/canvas_hack.js",
-    "public/js/vendor/kinetic.js"
+    "public/js/vendor/kinetic.js",
+    "node_modules/t7e/node_modules/dompurify/dist/purify.min.js"
   ]
 }
