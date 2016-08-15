@@ -12,11 +12,11 @@ def filename_from_uri(uri)
   File.basename(URI(uri).path)
 end
 
-sources_path = '/media/zooraid/project-data/planet-four/sources'
-cutouts_path = '/media/zooraid/project-data/planet-four/cutouts'
+sources_path = '/data/sources'
+cutouts_path = '/data/cutouts'
 
 create_unless_exists(sources_path)
-cutouts = JSON.parse(File.read('./sources.json'))
+cutouts = JSON.parse(File.read('/data/sources.json'))
 
 subjects = []
 
@@ -55,7 +55,7 @@ cutouts.each_with_index do |cutout_hash, index|
       id: id,
       coords: [lat, lng],
       location: {
-        standard: "http://www.planetfour.org/subjects/standard/#{ id }.jpg"
+        standard: "https://www.planetfour.org/subjects/standard/#{ id }.jpg"
       },
       metadata: {
         acquisition_date: acquisition_date,
@@ -78,4 +78,4 @@ cutouts.each_with_index do |cutout_hash, index|
   end
 end
 
-File.open("manifest.json", "w"){ |f| f.puts(JSON.dump(subjects)) }
+File.open("/data/manifest.json", "w"){ |f| f.puts(JSON.dump(subjects)) }

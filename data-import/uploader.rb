@@ -1,11 +1,10 @@
 require 'celluloid'
 require 'aws-sdk'
 AWS.eager_autoload!
-AWS.config access_key_id: 'AWS_ACCESS_KEY_ID', secret_access_key: 'AWS_SECRET_ACCESS_KEY'
 
 class Uploader
   include Celluloid
-  
+
   def process(path, remote_path)
     s3 = ::AWS::S3.new
     bucket = s3.buckets['zooniverse-static']
@@ -13,7 +12,7 @@ class Uploader
     upload path, obj
     raise 'File failed to upload' unless obj.exists?
   end
-  
+
   def upload(path, obj)
     file = File.open path, 'rb'
     obj.write(content_length: file.size, acl: :public_read) do |buffer, bytes|
@@ -34,7 +33,7 @@ end
 
 pool = Uploader.pool size: 50
 
-to_upload = Dir['/media/zooraid/project-data/planet-four/cutouts/**/*'].collect do |file|
+to_upload = Dir['/data/cutouts/**/*'].collect do |file|
 
   {
     path: file,

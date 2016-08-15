@@ -1,4 +1,4 @@
-json = JSON.parse(File.read('/Users/bumishness/Documents/Zooniverse/project-data/planet-four/manifest.json')); nil
+json = JSON.parse(File.read('/data/manifest.json')); nil
 
 project = PlanetFourSubject.project
 workflow = project.workflows.first

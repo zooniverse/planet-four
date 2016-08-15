@@ -13,12 +13,12 @@ def filename_from_uri(uri)
   File.basename(URI(uri).path)
 end
 
-raw_sources_path = '/media/zooraid/project-data/planet-four/raw_sources'
-sources_path = '/media/zooraid/project-data/planet-four/sources'
+raw_sources_path = '/data/raw_sources'
+sources_path = '/data/sources'
 
 create_unless_exists(raw_sources_path)
 create_unless_exists(sources_path)
-data = CSV.parse(IO.read("files.csv")).drop(1)
+data = CSV.parse(IO.read("/data/files.csv")).drop(1)
 
 cutouts = []
 
@@ -70,4 +70,4 @@ data.each do |datum|
   cutouts << cutout
 end
 
-File.open("sources.json", "w"){ |f| f.puts(JSON.dump(cutouts)) }
+File.open("/data/sources.json", "w"){ |f| f.puts(JSON.dump(cutouts)) }
