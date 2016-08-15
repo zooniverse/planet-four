@@ -43,7 +43,7 @@ data.each do |datum|
   north_azimuth = geo_con.css('table tr:nth-child(8) td:nth-child(2)').inner_html.to_f
   south_azimuth = geo_con.css('table tr:nth-child(8) td:nth-child(4)').inner_html.to_f
 
-  download_link = html.css('.page-details-container td:nth-child(2) a[href]').select { |link| link['href'].match(/RGB\.NOMAP/) }.first['href']
+  download_link = html.css('.image-details-container td:nth-child(2) a[href]').select { |link| link['href'].match(/RGB\.NOMAP/) }.first['href']
 
   filename = filename_from_uri(download_link)
 
