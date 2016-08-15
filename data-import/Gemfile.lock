@@ -7,6 +7,7 @@ GEM
       jmespath (~> 1.0)
     aws-sdk-resources (2.5.3)
       aws-sdk-core (= 2.5.3)
+    bson (4.1.1)
     celluloid (0.17.3)
       celluloid-essentials
       celluloid-extras
@@ -39,5 +40,6 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk
+  bson
   celluloid
   nokogiri
