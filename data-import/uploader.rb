@@ -1,4 +1,4 @@
-require 'celluloid'
+require 'celluloid/current'
 require 'aws-sdk'
 AWS.eager_autoload!
 
