@@ -24,7 +24,7 @@ cutouts = []
 CSV.foreach("/data/metadata.csv", headers: true) do |datum|
   cutout = {}
 
-  html = Nokogiri::HTML(open("http://hirise.lpl.arizona.edu/#{ datum['OBSERVATION_ID'] }"))
+  html = Nokogiri::HTML(open("https://hirise.lpl.arizona.edu/#{ datum['OBSERVATION_ID'] }"))
   download_link = html.css('.image-details-container td:nth-child(2) a[href]').select { |link| link['href'].match(/RGB\.NOMAP\.JP2/) }.first['href']
   filename = filename_from_uri(download_link)
 
