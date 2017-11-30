@@ -28,7 +28,7 @@ CSV.foreach("/data/metadata.csv", headers: true) do |datum|
   download_link = html.css('.image-details-container td:nth-child(2) a[href]').select { |link| link['href'].match(/RGB\.NOMAP\.JP2/) }.first['href']
   filename = filename_from_uri(download_link)
 
-  `curl -o #{ raw_sources_path }/#{ filename } #{ download_link }`
+  `curl -L -o #{ raw_sources_path }/#{ filename } #{ download_link }`
   `j2k_to_image -i #{ raw_sources_path }/#{ filename } -o #{ sources_path }/#{ datum['OBSERVATION_ID'] }.bmp`
 
   cutout = {
