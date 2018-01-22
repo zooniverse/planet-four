@@ -2,7 +2,6 @@
   "dependencies": [
     "es5-shimify",
     "json2ify",
-    "jqueryify",
     "spine",
     "spine/lib/manager",
     "spine/lib/route",

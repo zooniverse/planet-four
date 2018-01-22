@@ -1,7 +1,7 @@
 Mark = require 'models/mark'
 {Module, Events} = require 'spine'
 Kinetic = window.Kinetic
-$ = require 'jqueryify'
+$ = window.jQuery
 style = require 'lib/style'
 
 doc = $(document)

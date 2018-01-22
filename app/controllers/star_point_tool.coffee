@@ -1,7 +1,7 @@
 MarkingTool = require 'controllers/marking_tool'
 PointMark = require 'models/point_mark'
 Kinetic = window.Kinetic
-$ = require 'jqueryify'
+$ = window.jQuery
 style = require 'lib/style'
 
 class PointTool extends MarkingTool

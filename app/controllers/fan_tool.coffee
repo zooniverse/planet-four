@@ -1,7 +1,7 @@
 MarkingTool = require 'controllers/marking_tool'
 FanMark = require 'models/fan_mark'
 Kinetic = window.Kinetic
-$ = require 'jqueryify'
+$ = window.jQuery
 style = require 'lib/style'
 optionsTemplate = require 'views/fan_tool_options'
 

@@ -19,7 +19,6 @@
     "cheerio": "*",
     "es5-shimify": "~0.0.1",
     "hem": "git://github.com/chrissnyder/hem#1232e6d0dc",
-    "jqueryify": "~0.0.1",
     "json2ify": "~0.0.1",
     "nib": "~0.9.0",
     "publisssh": "~0.2.1",
