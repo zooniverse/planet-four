@@ -1,7 +1,7 @@
 MarkingTool = require 'controllers/marking_tool'
 EllipseMark = require 'models/ellipse_mark'
 Kinetic = window.Kinetic
-$ = require 'jqueryify'
+$ = window.jQuery
 style = require 'lib/style'
 
 class EillipseTool extends MarkingTool

@@ -1,7 +1,7 @@
 {Controller} = require 'spine'
 translate = require 't7e'
 {Tutorial} = require 'zootorial'
-$ = require 'jqueryify'
+$ = window.jQuery
 
 User = require 'zooniverse/models/user'
 Subject = require 'zooniverse/models/subject'

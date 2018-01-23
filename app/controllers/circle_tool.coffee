@@ -1,7 +1,7 @@
 MarkingTool = require 'controllers/marking_tool'
 CircleMark = require 'models/circle_mark'
 Kinetic = window.Kinetic
-$ = require 'jqueryify'
+$ = window.jQuery
 style = require 'lib/style'
 
 class CircleTool extends MarkingTool

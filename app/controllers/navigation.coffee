@@ -1,4 +1,4 @@
-$ = require 'jqueryify'
+$ = window.jQuery
 {Controller} = require 'spine'
 template = require 'views/navigation'
 

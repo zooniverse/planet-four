@@ -1,6 +1,6 @@
 {Controller, Events} = require 'spine'
 Kinetic = window.Kinetic
-$ = require 'jqueryify'
+$ = window.jQuery
 
 doc = $(document)
 
