@@ -398,7 +398,7 @@ module.exports =
     loadMore: 'Load more'
 
   authors: '''
-    <h1>About</h1>
+    <h1>Authors</h1>
 
     <p>The science of Planet Four is made possible by the work of our
     volunteers; those who gave us permission to publish their names are
