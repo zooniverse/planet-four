@@ -401,8 +401,9 @@ module.exports =
     <h1>Authors</h1>
 
     <p>The science of Planet Four is made possible by the work of our
-    volunteers; those who gave us permission to publish their names are
-    included below:</p>
+    volunteers. These are all the Planet Four volunteers who contributed to the
+    project's <a href="https://arxiv.org/abs/1803.10341">first paper</a> and
+    gave us permission to publish their names:</p>
 
     <p>A Dunnachie, A. Cramer, A. Sky Heller, A.Alber, A.Caffrey, A.Gilstrap,
     A.K., A.Messenger, A.N, A._Zubik, A0074098, A0087779, A0097993A, A0102796,
