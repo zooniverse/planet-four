@@ -31,12 +31,14 @@ app.stack = new Stack
     classify: require 'controllers/classify_page'
     about: require 'controllers/about_page'
     profile: require 'controllers/profile_page'
+    authors: require 'controllers/authors_page'
 
   routes:
     '/home': 'home'
     '/classify': 'classify'
     '/about': 'about'
     '/profile': 'profile'
+    '/authors': 'authors'
 
   default: 'home'
 

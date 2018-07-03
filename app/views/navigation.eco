@@ -42,3 +42,7 @@
 <div class="blog section">
   <a href="http://blog.planetfour.org/"><%- translate 'span', 'navigation.blog' %></a>
 </div>
+
+<div class="authors section">
+  <a href="#/authors"><%- translate 'span', 'navigation.authors' %></a>
+</div>
