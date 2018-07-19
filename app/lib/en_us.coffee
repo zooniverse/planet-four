@@ -28,6 +28,7 @@ module.exports =
     discuss: 'Talk'
     blog: 'Blog'
     authors: 'Authors'
+    results: 'Results'
 
   classify:
     tools:
@@ -396,6 +397,19 @@ module.exports =
     noRecents: 'Nothing has been marked as a favorite!'
     noFavorites: 'You have no recent classifications!'
     loadMore: 'Load more'
+
+  results: '''
+    <h1>Results</h1>
+
+    <ol>
+        <li><strong><a href="https://data.zooniverse.org/planet_four/P4_catalog_v1.0_cut_0.5_fan.csv.zip">Fan catalog</a></strong>: The resulting fan object catalog for MRO HiRISE seasons 2 and 3 (MY29 and 30), with an applied probability cut of 0.5, i.e. when half or more volunteers have marked an object as fan, it enters this catalog.</li>
+        <li><strong><a href="https://data.zooniverse.org/planet_four/P4_catalog_v1.0_cut_0.5_blotch.csv.zip">Blotch catalog</a></strong>: The resulting blotch object catalog for MRO HiRISE seasons 2 and 3 (MY29 and 30), with an applied probability cut of 0.5, i.e. when less than half of volunteers have marked an object as fan, it enters this catalog (starting with a catalog that only has fans and blotches).</li>
+        <li><strong><a href="https://data.zooniverse.org/planet_four/P4_catalog_v1.0_metadata.csv.zip">HiRISE observation catalog</a></strong>: This file contains metadata for all HiRISE observations that were used for this catalog.</li>
+        <li><strong><a href="https://data.zooniverse.org/planet_four/P4_catalog_v1.0_tile_coords.csv.zip">Planet Four tile catalog</a></strong>: This file contains data to locate all Planet Four tiles on a Mars map, using either Mars-centered fixed frame coordinates, or latitude and longitude.</li>
+    </ol>
+
+    <p>More details about the structure of these files can be found in <a href="https://data.zooniverse.org/planet_four/p4_paper1_appendixE.pdf">Appendix E of our paper</a>.</p>
+  '''
 
   authors: '''
     <h1>Authors</h1>

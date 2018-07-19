@@ -32,6 +32,7 @@ app.stack = new Stack
     about: require 'controllers/about_page'
     profile: require 'controllers/profile_page'
     authors: require 'controllers/authors_page'
+    results: require 'controllers/results_page'
 
   routes:
     '/home': 'home'
@@ -39,6 +40,7 @@ app.stack = new Stack
     '/about': 'about'
     '/profile': 'profile'
     '/authors': 'authors'
+    '/results': 'results'
 
   default: 'home'
 
