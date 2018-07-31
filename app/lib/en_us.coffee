@@ -401,6 +401,19 @@ module.exports =
   results: '''
     <h1>Results</h1>
 
+    <p>This page allows anyone to download the data files associated with Planet Four papers. Planet Four is described in <a href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1803.10341">Aye et al. (in press)</a>. Anyone making use of Planet Four data should cite this paper in any resulting publications as well as the appropriate data release paper.</p>
+
+    <hr>
+
+    <h2>Data Release 1</h2>
+
+    <h3>Planet Four: Probing Springtime Winds on Mars by Mapping the Southern Polar CO2 Jet Deposits</h3>
+
+    <p>K.-Michael Aye, Megan E. Schwamb, Ganna Portyankina, Candice J. Hansen, Adam McMaster, Grant R.M. Miller, Brian Carstensen, Christopher Snyder, Michael Parrish, Stuart Lynn, Chuhong Mai, David Miller, Robert J. Simpson, & Arfon M. Smith, Planet Four: Probing Springtime Winds on Mars by Mapping the Southern Polar CO2 Jet Deposits, Icarus,in press (<a href="https://arxiv.org/abs/1803.10341">pre-print version</a>)</p>
+
+    <p>Abstract:<br>
+The springtime sublimation process of Mars’ southern seasonal polar CO2 ice cap features dark fan-shaped deposits appearing on the top of the thawing ice sheet. The fan material likely originates from the surface below the ice sheet, brought up via CO2 jets breaking through the seasonal ice cap. Once the dust and dirt is released into the atmosphere, the material may be blown by the surface winds into the dark streaks visible from orbit. The location, size and direction of these fans record a number of parameters important to quantifying seasonal winds and sublimation activity, the most important agent of geological change extant on Mars. We present results of a systematic mapping of these south polar seasonal fans with the Planet Four online citizen science project. Planet Four enlists the general public to map the shapes, directions, and sizes of the seasonal fans visible in orbital images. Over 80,000 volunteers have contributed to the Planet Four project, reviewing 221 images, from Mars Reconnaissance Orbiter’s HiRISE (High Resolution Imaging Science Experiment) camera, taken in southern spring during Mars Years 29 and 30. We provide an overview of Planet Four and detail the processes of combining multiple volunteer assessments together to generate a high fidelity catalog of ∼400,000 south polar seasonal fans. We present the results from analyzing the wind directions at several locations monitored by HiRISE over two Mars years, providing new insights into polar surface winds.</p>
+
     <ol>
         <li><strong><a href="https://data.zooniverse.org/planet_four/P4_catalog_v1.0_cut_0.5_fan.csv.zip">Fan catalog</a></strong>: The resulting fan object catalog for MRO HiRISE seasons 2 and 3 (MY29 and 30), with an applied probability cut of 0.5, i.e. when half or more volunteers have marked an object as fan, it enters this catalog.</li>
         <li><strong><a href="https://data.zooniverse.org/planet_four/P4_catalog_v1.0_cut_0.5_blotch.csv.zip">Blotch catalog</a></strong>: The resulting blotch object catalog for MRO HiRISE seasons 2 and 3 (MY29 and 30), with an applied probability cut of 0.5, i.e. when less than half of volunteers have marked an object as fan, it enters this catalog (starting with a catalog that only has fans and blotches).</li>
@@ -409,6 +422,8 @@ module.exports =
     </ol>
 
     <p>More details about the structure of these files can be found in <a href="https://data.zooniverse.org/planet_four/p4_paper1_appendixE.pdf">Appendix E of our paper</a>.</p>
+
+    <p>We acknowledge the contributions of the Planet Four volunteer community to this work <a href="/#/authors">here</a>.</p>
   '''
 
   authors: '''
