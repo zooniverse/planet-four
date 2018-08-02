@@ -46,3 +46,7 @@
 <div class="authors section">
   <a href="#/authors"><%- translate 'span', 'navigation.authors' %></a>
 </div>
+
+<div class="data section">
+  <a href="#/results"><%- translate 'span', 'navigation.results' %></a>
+</div>
