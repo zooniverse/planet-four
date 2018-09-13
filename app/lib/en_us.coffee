@@ -419,9 +419,11 @@ The springtime sublimation process of Mars’ southern seasonal polar CO2 ice ca
         <li><strong><a href="https://data.zooniverse.org/planet_four/P4_catalog_v1.0_cut_0.5_blotch.csv.zip">Blotch catalog</a></strong>: The resulting blotch object catalog for MRO HiRISE seasons 2 and 3 (MY29 and 30), with an applied probability cut of 0.5, i.e. when less than half of volunteers have marked an object as fan, it enters this catalog (starting with a catalog that only has fans and blotches).</li>
         <li><strong><a href="https://data.zooniverse.org/planet_four/P4_catalog_v1.0_metadata.csv.zip">HiRISE observation catalog</a></strong>: This file contains metadata for all HiRISE observations that were used for this catalog.</li>
         <li><strong><a href="https://data.zooniverse.org/planet_four/P4_catalog_v1.0_tile_coords.csv.zip">Planet Four tile catalog</a></strong>: This file contains data to locate all Planet Four tiles on a Mars map, using either Mars-centered fixed frame coordinates, or latitude and longitude.</li>
+        <li><strong><a href="https://data.planetfour.org/original/P4_catalog_v1.0_raw_classifications.hdf.zip">Raw data</a></strong>: Planet Four raw classification data that was used in our reduction pipeline to create the fan and blotch catalog that is linked on this page (described in Appendix C of the paper, linked below). User names have been anonymized for data privacy.</li>
+        <li><strong><a href="https://data.planetfour.org/original/P4_catalog_v1.0_pipeline_products.zip">Intermediate data products</a></strong>: These are the products as described in Appendix D of the paper, linked below. A researcher can apply a different cut on the probability of fan vs blotch identification using these products, reproducing a new fan catalog.</li>
     </ol>
 
-    <p>More details about the structure of these files can be found in <a href="https://data.zooniverse.org/planet_four/p4_paper1_appendixE.pdf">Appendix E of our paper</a>.</p>
+    <p>More details about the structure of these files can be found in <a href="https://data.planetfour.org/original/P4_data_files_appendix.pdf">Appendices C to E</a>.</p>
 
     <p>We acknowledge the contributions of the Planet Four volunteer community to this work <a href="/#/authors">here</a>.</p>
   '''
