@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ruby:2.3-jessie
 
 RUN apt-get update && \
     apt-get install -y \
@@ -6,7 +6,6 @@ RUN apt-get update && \
         python-pip \
         python-dev \
         python-gdal \
-        ruby \
     && \
     rm -rf /var/lib/apt/lists/*
 
@@ -15,3 +14,4 @@ COPY . /usr/src/
 WORKDIR /usr/src/
 
 RUN pip install -r python_requirements.txt
+RUN bundle install
