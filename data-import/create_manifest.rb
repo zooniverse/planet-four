@@ -37,7 +37,7 @@ cutouts.each_with_index do |cutout_hash, index|
 
   create_unless_exists("#{ cutouts_path }/#{ name }")
 
-  `/usr/src/app/overlapcrop -s #{ chunk_size[:width] }x#{ chunk_size[:height] } -o #{ overlap_size[:width] }x#{overlap_size[:height] } #{ sources_path }/#{ name }.bmp #{ cutouts_path }/#{ name }/#{ name }.jpg`
+  `/usr/src/overlapcrop -s #{ chunk_size[:width] }x#{ chunk_size[:height] } -o #{ overlap_size[:width] }x#{overlap_size[:height] } #{ sources_path }/#{ name }.bmp #{ cutouts_path }/#{ name }/#{ name }.jpg`
 
   lat = cutout_hash['latitude']
   lng = cutout_hash['longitude']
